@@ -73,13 +73,11 @@ npm run build      # 本番ビルド（dist/）
 
 ## デプロイ（Cloudflare Pages）
 
-GitHubリポジトリをCloudflare Pagesに接続し、次の設定にします。
+公開URL：**https://it-ipa-3dgame.pages.dev/**
 
-| 項目 | 値 |
-|---|---|
-| Framework preset | None（または Vite） |
-| Build command | `npm run build` |
-| Build output directory | `dist` |
-| Node.js | `.node-version`（22）で指定済み |
+男盛と同じく、wranglerで直接アップロードする方式です（Git連携ではないので、pushだけでは公開されません）。
 
-`main` へのpushで自動デプロイされます。PWAの更新判定に使うファイルは `public/_headers` でエッジキャッシュしないようにしています（男盛と同じ方針）。
+- `公開する.bat` をダブルクリック、または `npm run deploy`
+- 初回だけCloudflareへのログインが必要（`npx wrangler login`）
+
+PWAの更新判定に使うファイルは `public/_headers` でエッジキャッシュしないようにしています。

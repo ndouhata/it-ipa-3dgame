@@ -8,7 +8,8 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "gen:sample": "node tools/gen-sample-glb.mjs"
+    "gen:sample": "node tools/gen-sample-glb.mjs",
+    "deploy": "npm run build && npx --yes wrangler@4 pages deploy dist --project-name it-ipa-3dgame --branch main --commit-dirty=true"
   },
   "dependencies": {
     "@babylonjs/core": "^9.30.0",
