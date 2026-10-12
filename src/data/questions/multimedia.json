@@ -1,0 +1,114 @@
+{
+ "questions": [
+  {
+   "id": "mm-01",
+   "knowledgeIds": [
+    "multimedia"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "画像の圧縮形式のうち、非可逆圧縮で写真などの自然画像に適しているものはどれか。",
+   "choices": [
+    "JPEG",
+    "PNG",
+    "GIF",
+    "BMP"
+   ],
+   "answer": 0,
+   "explanation": "JPEGは非可逆圧縮で写真向き。PNGは可逆圧縮。"
+  },
+  {
+   "id": "mm-02",
+   "knowledgeIds": [
+    "multimedia"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "動画や音声の圧縮符号化方式の規格はどれか。",
+   "choices": [
+    "MPEG",
+    "JPEG",
+    "PNG",
+    "CSV"
+   ],
+   "answer": 0,
+   "explanation": "MPEGは動画・音声の圧縮方式の規格。"
+  },
+  {
+   "id": "mm-03",
+   "knowledgeIds": [
+    "multimedia"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "横1,920画素、縦1,080画素で、1画素を24ビットで表す画像1枚のデータ量は約何Mバイトか（圧縮しない場合）。",
+   "choices": [
+    "約6.2",
+    "約2.1",
+    "約49.8",
+    "約0.8"
+   ],
+   "answer": 0,
+   "explanation": "1,920×1,080×3バイト＝約622万バイト＝約6.2Mバイト。"
+  },
+  {
+   "id": "mm-04",
+   "knowledgeIds": [
+    "multimedia"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "音声をサンプリング周波数8kHz、量子化ビット数8ビットでデジタル化したときのデータ量は、1秒当たり何kビットか。",
+   "choices": [
+    "64",
+    "8",
+    "16",
+    "128"
+   ],
+   "answer": 0,
+   "explanation": "8,000回×8ビット＝64,000ビット＝64kビット。"
+  },
+  {
+   "id": "mm-05",
+   "knowledgeIds": [
+    "multimedia"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "現実の風景にコンピュータで作った情報を重ね合わせて表示する技術はどれか。",
+   "choices": [
+    "AR（拡張現実）",
+    "VR（仮想現実）",
+    "CAD",
+    "モーションキャプチャ"
+   ],
+   "answer": 0,
+   "explanation": "現実に情報を重ねるのがAR。仮想空間に入り込むのがVR。"
+  }
+ ]
+}

@@ -1,49 +1,538 @@
 {
   "materials": [
-    { "id": "lb-crystal", "name": "分散結晶", "rarity": "common", "icon": "💠", "description": "受けた力を均等に分け合う性質をもつ結晶。交易路の魔物の体内で育つ。", "knowledgeIds": ["load-balancing"], "sourceHint": "交易路の防衛（全般）" },
-    { "id": "road-iron", "name": "街道の鉄片", "rarity": "common", "icon": "🔩", "description": "壊れた馬車や魔物の甲殻から取れる、丈夫な鉄片。", "knowledgeIds": [], "sourceHint": "交易路の防衛（ビートル・オーガ）" },
-    { "id": "tuning-core", "name": "調律核", "rarity": "rare", "icon": "🔶", "description": "流れ込む力を、受け皿ごとの強さに合わせて配り直す希少な核。", "knowledgeIds": ["load-balancing"], "sourceHint": "一極集中のオーガ（レア）" }
+    {
+      "id": "lb-crystal",
+      "name": "分散結晶",
+      "rarity": "common",
+      "icon": "💠",
+      "description": "受けた力を均等に分け合う性質をもつ結晶。",
+      "sourceHint": "交易路・古代書庫・天空の塔"
+    },
+    {
+      "id": "road-iron",
+      "name": "街道の鉄片",
+      "rarity": "common",
+      "icon": "🔩",
+      "description": "壊れた馬車や魔物の甲殻から取れる丈夫な鉄片。",
+      "sourceHint": "交易路・古代書庫・天空の塔"
+    },
+    {
+      "id": "tuning-core",
+      "name": "調律核",
+      "rarity": "rare",
+      "icon": "🔶",
+      "description": "流れ込む力を受け皿ごとに配り直す希少な核。",
+      "sourceHint": "交易路・古代書庫・天空の塔のボス（レア）"
+    },
+    {
+      "id": "memory-crystal",
+      "name": "記憶結晶",
+      "rarity": "common",
+      "icon": "🔷",
+      "description": "読んだ内容を一時的に覚えておく小さな結晶。",
+      "sourceHint": "風の港町・城壁・職人街"
+    },
+    {
+      "id": "index-shard",
+      "name": "索引片",
+      "rarity": "common",
+      "icon": "📑",
+      "description": "目的のページへ一瞬で導く、古い索引の欠片。",
+      "sourceHint": "風の港町・城壁・職人街"
+    },
+    {
+      "id": "atomic-core",
+      "name": "不可分の核",
+      "rarity": "rare",
+      "icon": "⚛️",
+      "description": "すべて揃うか、まったく存在しないかのどちらかだという不思議な核。",
+      "sourceHint": "風の港町・城壁・職人街のボス（レア）"
+    },
+    {
+      "id": "cipher-stone",
+      "name": "暗号石",
+      "rarity": "common",
+      "icon": "🔐",
+      "description": "鍵を持つ者にしか模様が読めない石。",
+      "sourceHint": "王城・商都"
+    },
+    {
+      "id": "wall-shard",
+      "name": "防壁片",
+      "rarity": "common",
+      "icon": "🧱",
+      "description": "不審なものだけを弾き返す城壁の欠片。",
+      "sourceHint": "王城・商都"
+    },
+    {
+      "id": "restore-orb",
+      "name": "復元の宝珠",
+      "rarity": "rare",
+      "icon": "🔮",
+      "description": "壊れたものをある時点の姿へ戻すと伝わる宝珠。",
+      "sourceHint": "王城・商都のボス（レア）"
+    }
   ],
   "equipment": [
     {
-      "id": "lb-sword", "name": "分散の剣", "slot": "weapon", "icon": "🗡️",
-      "description": "分散結晶を鍛えこんだ剣。衝撃が刃全体に分散するため、折れにくく鋭い。",
-      "baseStats": { "atk": 10 }, "perEnhance": { "atk": 4 }, "maxEnhance": 3,
-      "recipe": [{ "itemId": "lb-crystal", "count": 5 }, { "itemId": "road-iron", "count": 4 }],
+      "id": "lb-sword",
+      "name": "分散の剣",
+      "slot": "weapon",
+      "icon": "🗡️",
+      "description": "分散結晶を鍛えこんだ剣。",
+      "baseStats": {
+        "atk": 8
+      },
+      "perEnhance": {
+        "atk": 3
+      },
+      "maxEnhance": 3,
+      "recipe": [
+        {
+          "itemId": "lb-crystal",
+          "count": 4
+        },
+        {
+          "itemId": "road-iron",
+          "count": 3
+        }
+      ],
       "enhanceCost": [
-        [{ "itemId": "lb-crystal", "count": 3 }, { "itemId": "road-iron", "count": 3 }],
-        [{ "itemId": "lb-crystal", "count": 4 }, { "itemId": "road-iron", "count": 4 }],
-        [{ "itemId": "lb-crystal", "count": 5 }, { "itemId": "tuning-core", "count": 1 }]
+        [
+          {
+            "itemId": "lb-crystal",
+            "count": 3
+          },
+          {
+            "itemId": "road-iron",
+            "count": 3
+          }
+        ],
+        [
+          {
+            "itemId": "lb-crystal",
+            "count": 4
+          },
+          {
+            "itemId": "road-iron",
+            "count": 4
+          }
+        ],
+        [
+          {
+            "itemId": "lb-crystal",
+            "count": 5
+          },
+          {
+            "itemId": "tuning-core",
+            "count": 1
+          }
+        ]
       ]
     },
     {
-      "id": "relay-charm", "name": "分配の護符", "slot": "accessory", "icon": "🧿",
-      "description": "戦闘中に『分散ノード』を1基呼び出す護符。ノードは分散陣で衝撃の一部を受け持つ。",
-      "baseStats": { "def": 2 }, "perEnhance": { "def": 1 }, "maxEnhance": 2,
-      "grants": { "distributionNodes": 1, "nodeHp": 140, "nodeDef": 4 },
-      "recipe": [{ "itemId": "lb-crystal", "count": 6 }, { "itemId": "road-iron", "count": 3 }],
+      "id": "redundant-mail",
+      "name": "冗長の鎧",
+      "slot": "armor",
+      "icon": "🛡️",
+      "description": "二重に編み込んだ鎖帷子。片方が裂けても、もう片方が守る。",
+      "baseStats": {
+        "def": 5,
+        "hp": 20
+      },
+      "perEnhance": {
+        "def": 2,
+        "hp": 10
+      },
+      "maxEnhance": 3,
+      "recipe": [
+        {
+          "itemId": "road-iron",
+          "count": 5
+        },
+        {
+          "itemId": "lb-crystal",
+          "count": 2
+        }
+      ],
       "enhanceCost": [
-        [{ "itemId": "lb-crystal", "count": 4 }, { "itemId": "road-iron", "count": 3 }],
-        [{ "itemId": "lb-crystal", "count": 6 }, { "itemId": "tuning-core", "count": 1 }]
+        [
+          {
+            "itemId": "road-iron",
+            "count": 4
+          },
+          {
+            "itemId": "lb-crystal",
+            "count": 2
+          }
+        ],
+        [
+          {
+            "itemId": "road-iron",
+            "count": 5
+          },
+          {
+            "itemId": "lb-crystal",
+            "count": 3
+          }
+        ],
+        [
+          {
+            "itemId": "road-iron",
+            "count": 6
+          },
+          {
+            "itemId": "tuning-core",
+            "count": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "focus-charm",
+      "name": "集中の護符",
+      "slot": "accessory",
+      "icon": "🧿",
+      "description": "身につけると時間がゆっくり流れるように感じる護符。「速攻」と判定される時間が延びる。",
+      "baseStats": {},
+      "perEnhance": {},
+      "maxEnhance": 2,
+      "grants": {
+        "fastBonusSec": 2
+      },
+      "grantsPerEnhance": {
+        "fastBonusSec": 1
+      },
+      "recipe": [
+        {
+          "itemId": "memory-crystal",
+          "count": 4
+        },
+        {
+          "itemId": "index-shard",
+          "count": 3
+        }
+      ],
+      "enhanceCost": [
+        [
+          {
+            "itemId": "memory-crystal",
+            "count": 4
+          },
+          {
+            "itemId": "index-shard",
+            "count": 4
+          }
+        ],
+        [
+          {
+            "itemId": "memory-crystal",
+            "count": 6
+          },
+          {
+            "itemId": "atomic-core",
+            "count": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "archive-blade",
+      "name": "索引の刃",
+      "slot": "weapon",
+      "icon": "⚔️",
+      "description": "弱点の位置を一瞬で引き当てる刃。",
+      "baseStats": {
+        "atk": 20
+      },
+      "perEnhance": {
+        "atk": 5
+      },
+      "maxEnhance": 3,
+      "recipe": [
+        {
+          "itemId": "index-shard",
+          "count": 5
+        },
+        {
+          "itemId": "memory-crystal",
+          "count": 4
+        }
+      ],
+      "enhanceCost": [
+        [
+          {
+            "itemId": "index-shard",
+            "count": 4
+          },
+          {
+            "itemId": "memory-crystal",
+            "count": 3
+          }
+        ],
+        [
+          {
+            "itemId": "index-shard",
+            "count": 5
+          },
+          {
+            "itemId": "memory-crystal",
+            "count": 4
+          }
+        ],
+        [
+          {
+            "itemId": "index-shard",
+            "count": 6
+          },
+          {
+            "itemId": "atomic-core",
+            "count": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "cipher-shield",
+      "name": "暗号の大盾",
+      "slot": "armor",
+      "icon": "🛡️",
+      "description": "鍵を持たぬ攻撃を受け流す大盾。",
+      "baseStats": {
+        "def": 14,
+        "hp": 60
+      },
+      "perEnhance": {
+        "def": 4,
+        "hp": 20
+      },
+      "maxEnhance": 3,
+      "recipe": [
+        {
+          "itemId": "cipher-stone",
+          "count": 5
+        },
+        {
+          "itemId": "wall-shard",
+          "count": 4
+        }
+      ],
+      "enhanceCost": [
+        [
+          {
+            "itemId": "cipher-stone",
+            "count": 4
+          },
+          {
+            "itemId": "wall-shard",
+            "count": 4
+          }
+        ],
+        [
+          {
+            "itemId": "cipher-stone",
+            "count": 5
+          },
+          {
+            "itemId": "wall-shard",
+            "count": 5
+          }
+        ],
+        [
+          {
+            "itemId": "cipher-stone",
+            "count": 6
+          },
+          {
+            "itemId": "restore-orb",
+            "count": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "royal-sword",
+      "name": "王者の剣",
+      "slot": "weapon",
+      "icon": "🗡️",
+      "description": "王城に伝わる剣。持ち主の迷いを断ち切る。",
+      "baseStats": {
+        "atk": 34
+      },
+      "perEnhance": {
+        "atk": 6
+      },
+      "maxEnhance": 3,
+      "recipe": [
+        {
+          "itemId": "cipher-stone",
+          "count": 6
+        },
+        {
+          "itemId": "wall-shard",
+          "count": 4
+        }
+      ],
+      "enhanceCost": [
+        [
+          {
+            "itemId": "cipher-stone",
+            "count": 5
+          },
+          {
+            "itemId": "wall-shard",
+            "count": 4
+          }
+        ],
+        [
+          {
+            "itemId": "cipher-stone",
+            "count": 6
+          },
+          {
+            "itemId": "wall-shard",
+            "count": 5
+          }
+        ],
+        [
+          {
+            "itemId": "cipher-stone",
+            "count": 7
+          },
+          {
+            "itemId": "restore-orb",
+            "count": 1
+          }
+        ]
       ]
     }
   ],
   "dropTables": {
-    "slime": { "entries": [
-      { "itemId": "lb-crystal", "chance": 0.5, "min": 1, "max": 1 },
-      { "itemId": "road-iron", "chance": 0.25, "min": 1, "max": 1 }
-    ] },
-    "beetle": { "entries": [
-      { "itemId": "road-iron", "chance": 0.75, "min": 1, "max": 2 },
-      { "itemId": "lb-crystal", "chance": 0.4, "min": 1, "max": 1 }
-    ] },
-    "ogre": {
+    "road-small": {
       "entries": [
-        { "itemId": "lb-crystal", "chance": 1, "min": 2, "max": 3 },
-        { "itemId": "road-iron", "chance": 1, "min": 1, "max": 2 },
-        { "itemId": "tuning-core", "chance": 0.15, "min": 1, "max": 1 }
+        {
+          "itemId": "lb-crystal",
+          "chance": 0.55,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "itemId": "road-iron",
+          "chance": 0.45,
+          "min": 1,
+          "max": 1
+        }
+      ]
+    },
+    "road-boss": {
+      "entries": [
+        {
+          "itemId": "lb-crystal",
+          "chance": 1,
+          "min": 2,
+          "max": 3
+        },
+        {
+          "itemId": "road-iron",
+          "chance": 1,
+          "min": 1,
+          "max": 2
+        },
+        {
+          "itemId": "tuning-core",
+          "chance": 0.15,
+          "min": 1,
+          "max": 1
+        }
       ],
-      "pity": { "itemId": "tuning-core", "guaranteeAfter": 8 }
+      "pity": {
+        "itemId": "tuning-core",
+        "guaranteeAfter": 8
+      }
+    },
+    "archive-small": {
+      "entries": [
+        {
+          "itemId": "memory-crystal",
+          "chance": 0.55,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "itemId": "index-shard",
+          "chance": 0.45,
+          "min": 1,
+          "max": 1
+        }
+      ]
+    },
+    "archive-boss": {
+      "entries": [
+        {
+          "itemId": "memory-crystal",
+          "chance": 1,
+          "min": 2,
+          "max": 3
+        },
+        {
+          "itemId": "index-shard",
+          "chance": 1,
+          "min": 1,
+          "max": 2
+        },
+        {
+          "itemId": "atomic-core",
+          "chance": 0.15,
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "pity": {
+        "itemId": "atomic-core",
+        "guaranteeAfter": 8
+      }
+    },
+    "rampart-small": {
+      "entries": [
+        {
+          "itemId": "cipher-stone",
+          "chance": 0.55,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "itemId": "wall-shard",
+          "chance": 0.45,
+          "min": 1,
+          "max": 1
+        }
+      ]
+    },
+    "rampart-boss": {
+      "entries": [
+        {
+          "itemId": "cipher-stone",
+          "chance": 1,
+          "min": 2,
+          "max": 3
+        },
+        {
+          "itemId": "wall-shard",
+          "chance": 1,
+          "min": 1,
+          "max": 2
+        },
+        {
+          "itemId": "restore-orb",
+          "chance": 0.15,
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "pity": {
+        "itemId": "restore-orb",
+        "guaranteeAfter": 8
+      }
     }
   }
 }

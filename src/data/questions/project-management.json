@@ -1,0 +1,224 @@
+{
+ "questions": [
+  {
+   "id": "pm-01",
+   "knowledgeIds": [
+    "project-management"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "WBSの説明として、適切なものはどれか。",
+   "choices": [
+    "プロジェクトの成果物や作業を階層的に細かく分解したもの",
+    "作業の開始日と終了日を横棒で表した図",
+    "作業の順序と所要日数を矢線で表した図",
+    "プロジェクトの費用の実績を記録した表"
+   ],
+   "answer": 0,
+   "explanation": "WBS（Work Breakdown Structure）は作業を管理できる単位まで分解したもの。"
+  },
+  {
+   "id": "pm-02",
+   "knowledgeIds": [
+    "project-management"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "プロジェクトの作業の順序関係を表した図で、全体の所要日数を決める、余裕のない作業の経路を何というか。",
+   "choices": [
+    "クリティカルパス",
+    "マイルストーン",
+    "ベースライン",
+    "フリーフロート"
+   ],
+   "answer": 0,
+   "explanation": "クリティカルパス上の作業が遅れると、プロジェクト全体が遅れる。"
+  },
+  {
+   "id": "pm-03",
+   "knowledgeIds": [
+    "project-management"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "作業A（3日）の完了後に、作業B（4日）と作業C（2日）を並行して行い、BとCの両方が完了してから作業D（1日）を行う。全体の最短所要日数は何日か。",
+   "choices": [
+    "8",
+    "10",
+    "6",
+    "7"
+   ],
+   "answer": 0,
+   "explanation": "A→B→Dの経路が最も長く、3＋4＋1＝8日。"
+  },
+  {
+   "id": "pm-04",
+   "knowledgeIds": [
+    "project-management"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "EVMで、コスト効率指数CPI（＝EV÷AC）が1より小さいときの状況はどれか。",
+   "choices": [
+    "計画よりコストが超過している",
+    "計画よりコストが少なく済んでいる",
+    "計画より作業が進んでいる",
+    "計画より作業が遅れている"
+   ],
+   "answer": 0,
+   "explanation": "出来高（EV）に対して実コスト（AC）が多いとCPI＜1でコスト超過。進捗はSPI（＝EV÷PV）で見る。"
+  },
+  {
+   "id": "pm-05",
+   "knowledgeIds": [
+    "project-management"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "ソフトウェアの規模を、外部入力・外部出力・内部論理ファイルなどの機能の数と複雑さから見積もる手法はどれか。",
+   "choices": [
+    "ファンクションポイント法",
+    "類推見積法",
+    "三点見積法",
+    "COCOMO"
+   ],
+   "answer": 0,
+   "explanation": "利用者から見た機能を数えて規模を見積もるのがファンクションポイント法。"
+  },
+  {
+   "id": "pm-06",
+   "knowledgeIds": [
+    "project-management"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "クリティカルパス上の作業に要員などの資源を追加して、所要期間を短縮する手法はどれか。",
+   "choices": [
+    "クラッシング",
+    "ファストトラッキング",
+    "リソース平準化",
+    "ローリングウェーブ計画法"
+   ],
+   "answer": 0,
+   "explanation": "資源を追加して短縮するのがクラッシング。本来は順に行う作業を並行して行うのがファストトラッキング。"
+  },
+  {
+   "id": "pm-07",
+   "knowledgeIds": [
+    "project-management"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "プロジェクトのリスク対応で、リスクの原因となる作業そのものを取りやめることはどれか。",
+   "choices": [
+    "回避",
+    "転嫁",
+    "軽減",
+    "受容"
+   ],
+   "answer": 0,
+   "explanation": "原因を取り除いてリスクをなくすのが回避。"
+  },
+  {
+   "id": "pm-08",
+   "knowledgeIds": [
+    "project-management"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "プロジェクトを正式に認可し、プロジェクトマネージャに資源を使用する権限を与える文書はどれか。",
+   "choices": [
+    "プロジェクト憲章",
+    "WBS辞書",
+    "リスク登録簿",
+    "課題管理表"
+   ],
+   "answer": 0,
+   "explanation": "プロジェクトの目的や権限を示し、正式に立ち上げる文書。"
+  },
+  {
+   "id": "pm-09",
+   "knowledgeIds": [
+    "project-management"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "プロジェクトに影響を与えたり、影響を受けたりする個人や組織を何というか。",
+   "choices": [
+    "ステークホルダ",
+    "スポンサー",
+    "ベンダ",
+    "メンバ"
+   ],
+   "answer": 0,
+   "explanation": "利害関係者のこと。顧客・利用者・経営者などを含む。"
+  },
+  {
+   "id": "pm-10",
+   "knowledgeIds": [
+    "project-management"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "作業の予定と実績を横棒で表し、進捗状況を把握しやすくした図はどれか。",
+   "choices": [
+    "ガントチャート",
+    "アローダイアグラム",
+    "パレート図",
+    "特性要因図"
+   ],
+   "answer": 0,
+   "explanation": "期間を横棒で表すのがガントチャート。作業の順序関係を表すのはアローダイアグラム。"
+  }
+ ]
+}

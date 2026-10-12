@@ -1,0 +1,246 @@
+{
+ "questions": [
+  {
+   "id": "cc-01",
+   "knowledgeIds": [
+    "computer-components"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "CPUと主記憶の間にキャッシュメモリを設ける主な目的はどれか。",
+   "choices": [
+    "CPUと主記憶の速度差を埋め、実効アクセス時間を短くする",
+    "主記憶の容量を増やす",
+    "停電時にデータを保持する",
+    "記憶装置の故障を防ぐ"
+   ],
+   "answer": 0,
+   "explanation": "キャッシュは高速な記憶装置によく使うデータを置き、アクセスを速くする。"
+  },
+  {
+   "id": "cc-02",
+   "knowledgeIds": [
+    "computer-components"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "キャッシュメモリのアクセス時間が10ナノ秒、主記憶のアクセス時間が60ナノ秒、ヒット率が0.9のとき、実効アクセス時間は何ナノ秒か。",
+   "choices": [
+    "15",
+    "14",
+    "35",
+    "55"
+   ],
+   "answer": 0,
+   "explanation": "0.9×10＋（1−0.9）×60＝9＋6＝15ナノ秒。"
+  },
+  {
+   "id": "cc-03",
+   "knowledgeIds": [
+    "computer-components"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "キャッシュメモリの書込み方式のうち、ライトスルー方式の説明として適切なものはどれか。",
+   "choices": [
+    "書込み時に、キャッシュと主記憶の両方へ同時に書き込む",
+    "書込み時はキャッシュだけに書き込み、追い出すときに主記憶へ書き戻す",
+    "読込みのときだけキャッシュを使い、書込みには使わない",
+    "書込みが終わるまでキャッシュへのアクセスを禁止する"
+   ],
+   "answer": 0,
+   "explanation": "両方に同時に書くのがライトスルー。キャッシュだけに書いて後で書き戻すのがライトバック。"
+  },
+  {
+   "id": "cc-04",
+   "knowledgeIds": [
+    "computer-components"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "キャッシュが満杯のとき、最も長い間参照されていないブロックを追い出す置換方式はどれか。",
+   "choices": [
+    "LRU",
+    "FIFO",
+    "LFU",
+    "ラウンドロビン"
+   ],
+   "answer": 0,
+   "explanation": "LRU（Least Recently Used）は最後に使われてから最も時間がたったものを追い出す。"
+  },
+  {
+   "id": "cc-05",
+   "knowledgeIds": [
+    "computer-components"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "クロック周波数1GHzのCPUで、1命令の実行に平均4クロック必要なとき、このCPUの性能は何MIPSか。",
+   "choices": [
+    "250",
+    "4",
+    "400",
+    "4,000"
+   ],
+   "answer": 0,
+   "explanation": "1秒間に10億クロック÷4クロック＝2.5億命令＝250MIPS。"
+  },
+  {
+   "id": "cc-06",
+   "knowledgeIds": [
+    "computer-components"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "命令の実行を複数の段階に分け、各段階を少しずつずらして並行に処理することで処理速度を高める方式はどれか。",
+   "choices": [
+    "パイプライン",
+    "スプーリング",
+    "仮想記憶",
+    "DMA"
+   ],
+   "answer": 0,
+   "explanation": "取出し・解読・実行などの段階を重ねて処理するのがパイプライン。"
+  },
+  {
+   "id": "cc-07",
+   "knowledgeIds": [
+    "computer-components"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "記憶内容を保持するために、定期的なリフレッシュ動作が必要な半導体メモリはどれか。",
+   "choices": [
+    "DRAM",
+    "SRAM",
+    "フラッシュメモリ",
+    "マスクROM"
+   ],
+   "answer": 0,
+   "explanation": "DRAMはコンデンサの電荷で記憶するため、放電しないよう定期的にリフレッシュが必要。主記憶に使われる。"
+  },
+  {
+   "id": "cc-08",
+   "knowledgeIds": [
+    "computer-components"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "電気的に書換えができ、電源を切っても内容が消えない半導体メモリはどれか。",
+   "choices": [
+    "フラッシュメモリ",
+    "DRAM",
+    "SRAM",
+    "レジスタ"
+   ],
+   "answer": 0,
+   "explanation": "フラッシュメモリは不揮発性で書換え可能。SSDやUSBメモリに使われる。"
+  },
+  {
+   "id": "cc-09",
+   "knowledgeIds": [
+    "computer-components"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "高速だが高価で、キャッシュメモリに用いられることが多い半導体メモリはどれか。",
+   "choices": [
+    "SRAM",
+    "DRAM",
+    "フラッシュメモリ",
+    "EEPROM"
+   ],
+   "answer": 0,
+   "explanation": "SRAMはフリップフロップで記憶し、リフレッシュ不要で高速。キャッシュに使われる。"
+  },
+  {
+   "id": "cc-10",
+   "knowledgeIds": [
+    "computer-components"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "割込みのうち、実行中のプログラム自身が原因で発生する内部割込みに該当するものはどれか。",
+   "choices": [
+    "ゼロによる除算の発生",
+    "入出力動作の完了",
+    "タイマによる一定時間の経過",
+    "電源電圧の異常"
+   ],
+   "answer": 0,
+   "explanation": "プログラムの実行が原因の割込みが内部割込み。入出力完了やタイマは外部割込み。"
+  },
+  {
+   "id": "cc-11",
+   "knowledgeIds": [
+    "computer-components"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "CPUを介さずに、入出力装置と主記憶の間で直接データを転送する方式はどれか。",
+   "choices": [
+    "DMA",
+    "ポーリング",
+    "パイプライン",
+    "スーパースカラ"
+   ],
+   "answer": 0,
+   "explanation": "DMA（Direct Memory Access）はCPUの負担を減らして高速に転送できる。"
+  }
+ ]
+}

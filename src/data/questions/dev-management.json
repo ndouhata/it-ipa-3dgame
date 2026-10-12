@@ -1,0 +1,136 @@
+{
+ "questions": [
+  {
+   "id": "dm-01",
+   "knowledgeIds": [
+    "dev-management"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "共通フレームの説明として、適切なものはどれか。",
+   "choices": [
+    "ソフトウェアの企画から廃棄までの作業内容や用語を標準化した枠組み",
+    "プログラム言語の文法を定めた規格",
+    "プロジェクトの費用を見積もる計算式",
+    "情報セキュリティの管理基準"
+   ],
+   "answer": 0,
+   "explanation": "発注者と受注者が共通の言葉で話せるよう、作業項目を定義したもの。"
+  },
+  {
+   "id": "dm-02",
+   "knowledgeIds": [
+    "dev-management"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "組織のソフトウェア開発プロセスの成熟度を段階的に評価するモデルはどれか。",
+   "choices": [
+    "CMMI",
+    "ITIL",
+    "PMBOK",
+    "COBIT"
+   ],
+   "answer": 0,
+   "explanation": "CMMIはプロセス能力の成熟度モデル。"
+  },
+  {
+   "id": "dm-03",
+   "knowledgeIds": [
+    "dev-management"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "開発者と運用者が連携・協力し、ソフトウェアのリリースを迅速かつ継続的に行う取組みはどれか。",
+   "choices": [
+    "DevOps",
+    "BPR",
+    "ERP",
+    "SLA"
+   ],
+   "answer": 0,
+   "explanation": "開発（Development）と運用（Operations）を組み合わせた言葉。"
+  },
+  {
+   "id": "dm-04",
+   "knowledgeIds": [
+    "dev-management"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "既存のソフトウェアを解析して、その仕様や設計を明らかにすることを何というか。",
+   "choices": [
+    "リバースエンジニアリング",
+    "リエンジニアリング",
+    "フォワードエンジニアリング",
+    "リファクタリング"
+   ],
+   "answer": 0,
+   "explanation": "完成品から仕様をさかのぼって調べるのがリバースエンジニアリング。"
+  },
+  {
+   "id": "dm-05",
+   "knowledgeIds": [
+    "dev-management"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "外部から見た動作を変えずに、プログラムの内部構造を改善して保守しやすくすることを何というか。",
+   "choices": [
+    "リファクタリング",
+    "リバースエンジニアリング",
+    "デバッグ",
+    "ポーティング"
+   ],
+   "answer": 0,
+   "explanation": "動作は変えずにコードを整理するのがリファクタリング。"
+  },
+  {
+   "id": "dm-06",
+   "knowledgeIds": [
+    "dev-management"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "ソフトウェアの変更履歴を管理し、いつ・誰が・どこを変更したかを追跡したり、過去の版に戻したりできるようにする活動はどれか。",
+   "choices": [
+    "構成管理（バージョン管理）",
+    "要件定義",
+    "負荷テスト",
+    "見積り"
+   ],
+   "answer": 0,
+   "explanation": "成果物の版を管理するのが構成管理。Gitなどのツールを使う。"
+  }
+ ]
+}

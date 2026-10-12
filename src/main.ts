@@ -15,7 +15,7 @@ function showFatal(e: unknown) {
 
 async function main() {
   const data = loadGameData();
-  const saves = new SaveManager(data.map.spawn);
+  const saves = new SaveManager();
   const save = await saves.load();
   const canvas = document.getElementById('game') as HTMLCanvasElement;
   const ui = document.getElementById('ui')!;

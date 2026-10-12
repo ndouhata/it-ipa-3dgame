@@ -1,9 +1,23 @@
 {
-  "maxLevel": 20,
-  "expCurve": { "base": 30, "exponent": 1.7 },
+  "maxLevel": 30,
+  "expCurve": { "base": 30, "exponent": 1.6 },
   "baseStats": { "hp": 120, "atk": 14, "def": 6 },
-  "growthPerLevel": { "hp": 14, "atk": 2.2, "def": 1.3 },
-  "partnerRatio": { "hp": 0.9, "atk": 0.7, "def": 0.9 },
+  "growthPerLevel": { "hp": 14, "atk": 2.4, "def": 1.4 },
+  "partnerRatio": { "hp": 0.9, "atk": 0.55, "def": 0.9 },
   "statLabels": { "hp": "HP", "atk": "攻撃", "def": "防御" },
-  "damage": { "defFactor": 0.5, "variance": 0.1, "min": 1 }
+  "damage": { "defFactor": 0.5, "variance": 0.08, "min": 1 },
+  "betweenWavesHeal": 0.3,
+  "quiz": {
+    "fastSec": { "base": 5, "perStemChar": 0.06, "perChoiceChar": 0.03, "min": 6, "max": 16 },
+    "timeLimitFactor": 3,
+    "repeatAfterWrong": 3,
+    "repeatGap": 2,
+    "activeSetSize": 5,
+    "masteredStreak": 2,
+    "outcomes": {
+      "attack": { "fastCorrect": 1.8, "slowCorrect": 1.3, "slowWrong": 0.6, "fastWrong": 0.3 },
+      "defense": { "fastCorrect": 0.15, "slowCorrect": 0.5, "slowWrong": 1.2, "fastWrong": 1.5 },
+      "exp": { "fastCorrect": 1.6, "slowCorrect": 1.25, "fastWrong": 0.6, "slowWrong": 0.4 }
+    }
+  }
 }

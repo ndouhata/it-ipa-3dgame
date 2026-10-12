@@ -1,0 +1,92 @@
+{
+ "questions": [
+  {
+   "id": "sp-01",
+   "knowledgeIds": [
+    "system-planning"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "システムの調達で、発注者がベンダに提案書の提出を依頼するために、システムの要件などをまとめた文書はどれか。",
+   "choices": [
+    "RFP（提案依頼書）",
+    "RFI（情報提供依頼書）",
+    "SLA",
+    "NDA"
+   ],
+   "answer": 0,
+   "explanation": "提案を依頼するのがRFP。その前にベンダの情報や技術動向を集めるのがRFI。"
+  },
+  {
+   "id": "sp-02",
+   "knowledgeIds": [
+    "system-planning"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "システムの要件のうち、非機能要件に該当するものはどれか。",
+   "choices": [
+    "応答時間を3秒以内にする",
+    "受注データを登録できる",
+    "請求書を印刷できる",
+    "売上を集計できる"
+   ],
+   "answer": 0,
+   "explanation": "性能・信頼性・セキュリティなど「どれだけよく動くか」が非機能要件。"
+  },
+  {
+   "id": "sp-03",
+   "knowledgeIds": [
+    "system-planning"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "投資した金額に対してどれだけの利益が得られたかを表す指標はどれか。",
+   "choices": [
+    "ROI",
+    "ROE",
+    "KPI",
+    "NPV"
+   ],
+   "answer": 0,
+   "explanation": "ROI（投資利益率）＝利益÷投資額。"
+  },
+  {
+   "id": "sp-04",
+   "knowledgeIds": [
+    "system-planning"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "要件定義で、業務の利用者や関係者から要求を聞き取り、合意を得る作業を行うのは主にどの工程か。",
+   "choices": [
+    "要件定義プロセス",
+    "結合テスト",
+    "運用・保守",
+    "プログラミング"
+   ],
+   "answer": 0,
+   "explanation": "誰が何をしたいのかを明らかにし、合意するのが要件定義。"
+  }
+ ]
+}

@@ -1,0 +1,202 @@
+{
+ "questions": [
+  {
+   "id": "ca-01",
+   "knowledgeIds": [
+    "corporate-activity"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "固定費が300万円、変動費率が0.4のとき、損益分岐点売上高はいくらか。",
+   "choices": [
+    "500万円",
+    "750万円",
+    "420万円",
+    "120万円"
+   ],
+   "answer": 0,
+   "explanation": "損益分岐点売上高＝固定費÷（1−変動費率）＝300÷0.6＝500万円。"
+  },
+  {
+   "id": "ca-02",
+   "knowledgeIds": [
+    "corporate-activity"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "貸借対照表の構成として、適切なものはどれか。",
+   "choices": [
+    "資産＝負債＋純資産",
+    "資産＝収益−費用",
+    "負債＝資産＋純資産",
+    "純資産＝負債＋資産"
+   ],
+   "answer": 0,
+   "explanation": "左側に資産、右側に負債と純資産を記載し、左右が一致する。"
+  },
+  {
+   "id": "ca-03",
+   "knowledgeIds": [
+    "corporate-activity"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "問題の原因と結果の関係を、魚の骨のような形に整理した図はどれか。",
+   "choices": [
+    "特性要因図",
+    "パレート図",
+    "散布図",
+    "管理図"
+   ],
+   "answer": 0,
+   "explanation": "結果（特性）に影響する要因を洗い出すのが特性要因図（フィッシュボーン図）。"
+  },
+  {
+   "id": "ca-04",
+   "knowledgeIds": [
+    "corporate-activity"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "項目を値の大きい順に並べた棒グラフと、その累積比率の折れ線グラフを組み合わせた図はどれか。",
+   "choices": [
+    "パレート図",
+    "ヒストグラム",
+    "レーダチャート",
+    "管理図"
+   ],
+   "answer": 0,
+   "explanation": "重要な項目を見つけるのに使う。ABC分析にも使われる。"
+  },
+  {
+   "id": "ca-05",
+   "knowledgeIds": [
+    "corporate-activity"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "2つの項目の関係を、点の分布で表した図はどれか。",
+   "choices": [
+    "散布図",
+    "パレート図",
+    "特性要因図",
+    "ヒストグラム"
+   ],
+   "answer": 0,
+   "explanation": "2つの量の相関を見るのが散布図。"
+  },
+  {
+   "id": "ca-06",
+   "knowledgeIds": [
+    "corporate-activity"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "工程のデータを時系列に記入し、上方・下方管理限界線で異常を判断する図はどれか。",
+   "choices": [
+    "管理図",
+    "散布図",
+    "パレート図",
+    "連関図"
+   ],
+   "answer": 0,
+   "explanation": "工程が安定しているかを監視するのが管理図。"
+  },
+  {
+   "id": "ca-07",
+   "knowledgeIds": [
+    "corporate-activity"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "災害などで業務が中断した場合に、重要な業務を継続または早期に復旧させるための計画はどれか。",
+   "choices": [
+    "BCP（事業継続計画）",
+    "CSR",
+    "SLA",
+    "ISMS"
+   ],
+   "answer": 0,
+   "explanation": "BCPは緊急時の事業継続の計画。"
+  },
+  {
+   "id": "ca-08",
+   "knowledgeIds": [
+    "corporate-activity"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "ROE（自己資本利益率）の計算式はどれか。",
+   "choices": [
+    "当期純利益÷自己資本",
+    "当期純利益÷総資産",
+    "営業利益÷売上高",
+    "流動資産÷流動負債"
+   ],
+   "answer": 0,
+   "explanation": "株主が出した資本でどれだけ利益を上げたかを表す。"
+  },
+  {
+   "id": "ca-09",
+   "knowledgeIds": [
+    "corporate-activity"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "企業が利益の追求だけでなく、社会や環境に対する責任を果たすべきだという考え方はどれか。",
+   "choices": [
+    "CSR",
+    "BCP",
+    "M&A",
+    "IR"
+   ],
+   "answer": 0,
+   "explanation": "CSR（企業の社会的責任）。"
+  }
+ ]
+}

@@ -1,34 +1,297 @@
 {
   "quests": [
     {
-      "id": "inn-trouble",
-      "title": "人気宿の困りごと",
-      "type": "story",
-      "summary": "ルクスの町では「宿が足りない」と苦情が出ている。本当に宿が足りないのだろうか？",
-      "knowledgeIds": ["load-balancing"],
-      "steps": [
-        { "id": "talk-a", "description": "行列ができている宿屋Aの主人に話を聞く", "completeOn": { "event": "talk", "id": "innkeeper-a" }, "marker": [-7.5, 14] },
-        { "id": "check-bc", "description": "宿屋Bと宿屋Cの様子を見に行く", "completeWhen": [{ "flag": "checked-b" }, { "flag": "checked-c" }] },
-        { "id": "realize", "description": "{partner}と状況を整理する", "completeWhen": [{ "flag": "realized" }], "onEnter": [{ "startDialogue": "partner-realize" }] },
-        { "id": "device", "description": "町の入口の案内装置を操作する", "completeOn": { "event": "gimmickSolved", "id": "inn-routing" }, "marker": [-3, 25] },
-        { "id": "report", "description": "技師ミーナに話しかける", "completeWhen": [{ "flag": "lb-named" }], "marker": [-6, 23] }
-      ],
-      "onComplete": [{ "setFlag": "run-unlocked" }, { "startQuest": "trade-road" }]
-    },
-    {
       "id": "trade-road",
       "title": "交易路の防衛",
-      "type": "repeatable",
-      "summary": "交易路に出る魔物を倒し、峠の広場に居座る『一極集中のオーガ』を討伐する。何度でも挑戦できる。",
-      "knowledgeIds": ["load-balancing"],
-      "steps": [],
-      "run": {
-        "rewardExp": 20,
-        "segments": [
-          { "type": "battle", "pos": [0, 50], "label": "街道の魔物", "groupId": "wave-1" },
-          { "type": "event", "pos": [0, 66], "label": "困っている隊商", "eventPool": ["caravan-cargo", "mana-tower"] },
-          { "type": "battle", "pos": [0, 82], "label": "峠道の魔物", "groupId": "wave-2" },
-          { "type": "boss", "pos": [0, 112], "label": "一極集中のオーガ", "groupId": "boss" }
+      "recommendedLevel": 1,
+      "summary": "交易路に魔物があふれている。押し寄せる群れを退け、峠に居座るオーガを討て。",
+      "knowledgeIds": [
+        "basic-theory",
+        "algorithm"
+      ],
+      "waves": [
+        [
+          "trade-road-slime",
+          "trade-road-slime"
+        ],
+        [
+          "trade-road-slime",
+          "trade-road-beetle"
+        ],
+        [
+          "trade-road-boss"
+        ]
+      ],
+      "rewardExp": 9,
+      "stage": {
+        "ground": [
+          0.5,
+          0.48,
+          0.3
+        ],
+        "sky": [
+          0.62,
+          0.78,
+          0.95
+        ]
+      }
+    },
+    {
+      "id": "archive",
+      "title": "古代書庫の迷宮",
+      "recommendedLevel": 3,
+      "summary": "忘れられた書庫に、記憶を喰らう魔物が棲みついた。最奥の番人を倒せ。",
+      "knowledgeIds": [
+        "computer-components",
+        "hardware",
+        "software"
+      ],
+      "waves": [
+        [
+          "archive-slime",
+          "archive-slime"
+        ],
+        [
+          "archive-slime",
+          "archive-beetle"
+        ],
+        [
+          "archive-boss"
+        ]
+      ],
+      "rewardExp": 52,
+      "stage": {
+        "ground": [
+          0.32,
+          0.3,
+          0.36
+        ],
+        "sky": [
+          0.22,
+          0.2,
+          0.3
+        ]
+      }
+    },
+    {
+      "id": "sky-tower",
+      "title": "天空の塔",
+      "recommendedLevel": 5,
+      "summary": "雲を貫く塔に、記録を荒らす魔物が巣くう。頂上の守護者を打ち倒せ。",
+      "knowledgeIds": [
+        "system-components",
+        "database"
+      ],
+      "waves": [
+        [
+          "sky-tower-slime",
+          "sky-tower-slime"
+        ],
+        [
+          "sky-tower-slime",
+          "sky-tower-beetle"
+        ],
+        [
+          "sky-tower-boss"
+        ]
+      ],
+      "rewardExp": 118,
+      "stage": {
+        "ground": [
+          0.75,
+          0.78,
+          0.85
+        ],
+        "sky": [
+          0.55,
+          0.7,
+          0.95
+        ]
+      }
+    },
+    {
+      "id": "harbor",
+      "title": "風の港町",
+      "recommendedLevel": 7,
+      "summary": "港を行き交う船荷と通信が魔物に乱されている。海の番人を鎮めよ。",
+      "knowledgeIds": [
+        "network",
+        "hci",
+        "multimedia"
+      ],
+      "waves": [
+        [
+          "harbor-slime",
+          "harbor-slime"
+        ],
+        [
+          "harbor-slime",
+          "harbor-beetle"
+        ],
+        [
+          "harbor-boss"
+        ]
+      ],
+      "rewardExp": 202,
+      "stage": {
+        "ground": [
+          0.78,
+          0.72,
+          0.55
+        ],
+        "sky": [
+          0.5,
+          0.75,
+          0.95
+        ]
+      }
+    },
+    {
+      "id": "rampart",
+      "title": "城壁の攻防",
+      "recommendedLevel": 9,
+      "summary": "城壁を破ろうとする魔物の軍勢。守りを固め、攻城の大将を打ち倒せ。",
+      "knowledgeIds": [
+        "security"
+      ],
+      "waves": [
+        [
+          "rampart-slime",
+          "rampart-slime"
+        ],
+        [
+          "rampart-slime",
+          "rampart-beetle"
+        ],
+        [
+          "rampart-boss"
+        ]
+      ],
+      "rewardExp": 303,
+      "stage": {
+        "ground": [
+          0.45,
+          0.42,
+          0.4
+        ],
+        "sky": [
+          0.85,
+          0.6,
+          0.45
+        ]
+      }
+    },
+    {
+      "id": "workshop",
+      "title": "職人街の工房",
+      "recommendedLevel": 11,
+      "summary": "工房の機械が暴走を始めた。設計図を取り戻し、暴走ゴーレムを止めよ。",
+      "knowledgeIds": [
+        "dev-tech",
+        "dev-management"
+      ],
+      "waves": [
+        [
+          "workshop-slime",
+          "workshop-slime"
+        ],
+        [
+          "workshop-slime",
+          "workshop-beetle"
+        ],
+        [
+          "workshop-boss"
+        ]
+      ],
+      "rewardExp": 417,
+      "stage": {
+        "ground": [
+          0.42,
+          0.36,
+          0.32
+        ],
+        "sky": [
+          0.75,
+          0.62,
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "castle",
+      "title": "王城の評議",
+      "recommendedLevel": 13,
+      "summary": "王城の計画は遅れ、記録は乱れている。陰で糸を引く影の宰相を討て。",
+      "knowledgeIds": [
+        "project-management",
+        "service-management",
+        "system-audit"
+      ],
+      "waves": [
+        [
+          "castle-slime",
+          "castle-slime"
+        ],
+        [
+          "castle-slime",
+          "castle-beetle"
+        ],
+        [
+          "castle-boss"
+        ]
+      ],
+      "rewardExp": 545,
+      "stage": {
+        "ground": [
+          0.55,
+          0.5,
+          0.6
+        ],
+        "sky": [
+          0.4,
+          0.35,
+          0.55
+        ]
+      }
+    },
+    {
+      "id": "market",
+      "title": "商都の決算",
+      "recommendedLevel": 15,
+      "summary": "富と契約が渦巻く商都。市場を牛耳る強欲の大富豪に挑め。",
+      "knowledgeIds": [
+        "system-strategy",
+        "system-planning",
+        "business-strategy",
+        "tech-strategy",
+        "business-industry",
+        "corporate-activity",
+        "legal"
+      ],
+      "waves": [
+        [
+          "market-slime",
+          "market-slime"
+        ],
+        [
+          "market-slime",
+          "market-beetle"
+        ],
+        [
+          "market-boss"
+        ]
+      ],
+      "rewardExp": 685,
+      "stage": {
+        "ground": [
+          0.7,
+          0.6,
+          0.45
+        ],
+        "sky": [
+          0.95,
+          0.75,
+          0.5
         ]
       }
     }

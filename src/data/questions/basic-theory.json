@@ -1,0 +1,290 @@
+{
+ "questions": [
+  {
+   "id": "bt-01",
+   "knowledgeIds": [
+    "basic-theory"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "2進数 1011.1 を10進数で表したものはどれか。",
+   "choices": [
+    "11.5",
+    "11.1",
+    "13.5",
+    "23.1"
+   ],
+   "answer": 0,
+   "explanation": "1011は8+2+1=11、小数第1位の1は0.5。合計11.5。"
+  },
+  {
+   "id": "bt-02",
+   "knowledgeIds": [
+    "basic-theory"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "16進数 A5 を2進数で表したものはどれか。",
+   "choices": [
+    "10100101",
+    "10100110",
+    "11000101",
+    "01011010"
+   ],
+   "answer": 0,
+   "explanation": "16進の1桁は2進の4桁に対応。A=1010、5=0101。"
+  },
+  {
+   "id": "bt-03",
+   "knowledgeIds": [
+    "basic-theory"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "8ビットの2の補数表現で −1 を表したものはどれか。",
+   "choices": [
+    "11111111",
+    "10000001",
+    "10000000",
+    "01111111"
+   ],
+   "answer": 0,
+   "explanation": "1（00000001）の各ビットを反転して1を加えると11111111。"
+  },
+  {
+   "id": "bt-04",
+   "knowledgeIds": [
+    "basic-theory"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "論理式 NOT（A AND B）と等しいものはどれか。",
+   "choices": [
+    "（NOT A）OR（NOT B）",
+    "（NOT A）AND（NOT B）",
+    "A OR B",
+    "（NOT A）AND B"
+   ],
+   "answer": 0,
+   "explanation": "ド・モルガンの法則：ANDの否定は、それぞれの否定のOR。"
+  },
+  {
+   "id": "bt-05",
+   "knowledgeIds": [
+    "basic-theory"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "2つの入力が異なるときだけ出力が1になる論理演算はどれか。",
+   "choices": [
+    "排他的論理和（XOR）",
+    "論理和（OR）",
+    "論理積（AND）",
+    "否定論理積（NAND）"
+   ],
+   "answer": 0,
+   "explanation": "XORは入力が異なるとき1、同じとき0。"
+  },
+  {
+   "id": "bt-06",
+   "knowledgeIds": [
+    "basic-theory"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "符号なし2進数を左へ1ビット論理シフトすると、値は元の何倍になるか（あふれは考えない）。",
+   "choices": [
+    "2倍",
+    "1/2倍",
+    "4倍",
+    "変わらない"
+   ],
+   "answer": 0,
+   "explanation": "左へ1ビットシフトで2倍、右へ1ビットシフトで1/2倍。"
+  },
+  {
+   "id": "bt-07",
+   "knowledgeIds": [
+    "basic-theory"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "2個のさいころを同時に投げたとき、出た目の和が7になる確率はどれか。",
+   "choices": [
+    "1/6",
+    "1/12",
+    "1/36",
+    "7/36"
+   ],
+   "answer": 0,
+   "explanation": "和が7になる組は6通り。全36通り中6通りなので1/6。"
+  },
+  {
+   "id": "bt-08",
+   "knowledgeIds": [
+    "basic-theory"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "絶対値が大きく異なる2数の加減算で、小さい方の数値が結果に反映されなくなる誤差はどれか。",
+   "choices": [
+    "情報落ち",
+    "桁落ち",
+    "丸め誤差",
+    "打切り誤差"
+   ],
+   "answer": 0,
+   "explanation": "大きな数に小さな数を足したとき小さい方が消えるのが情報落ち。値の近い数どうしの減算で有効桁が減るのが桁落ち。"
+  },
+  {
+   "id": "bt-09",
+   "knowledgeIds": [
+    "basic-theory"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "8種類の情報を区別して表すために、最低限必要なビット数はどれか。",
+   "choices": [
+    "3",
+    "2",
+    "4",
+    "8"
+   ],
+   "answer": 0,
+   "explanation": "2の3乗＝8なので3ビットで8種類を表せる。"
+  },
+  {
+   "id": "bt-10",
+   "knowledgeIds": [
+    "basic-theory"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "どの入力の組合せでも、論理積（AND）の結果を反転した値を出力する論理演算はどれか。",
+   "choices": [
+    "NAND",
+    "NOR",
+    "XOR",
+    "OR"
+   ],
+   "answer": 0,
+   "explanation": "NANDはNOT AND。入力がともに1のときだけ0になる。"
+  },
+  {
+   "id": "bt-11",
+   "knowledgeIds": [
+    "basic-theory"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "窓口に客が平均4分間隔で到着し、1人の処理に平均3分かかる。この窓口の利用率はいくらか（M/M/1モデル）。",
+   "choices": [
+    "0.75",
+    "1.33",
+    "0.25",
+    "0.57"
+   ],
+   "answer": 0,
+   "explanation": "利用率ρ＝平均サービス時間÷平均到着間隔＝3÷4＝0.75。"
+  },
+  {
+   "id": "bt-12",
+   "knowledgeIds": [
+    "basic-theory"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "利用率0.75、平均サービス時間3分のM/M/1の窓口で、客がサービスを受けるまでの平均待ち時間は何分か。",
+   "choices": [
+    "9",
+    "12",
+    "3",
+    "2.25"
+   ],
+   "answer": 0,
+   "explanation": "平均待ち時間＝ρ÷（1−ρ）×平均サービス時間＝0.75÷0.25×3＝9分。"
+  },
+  {
+   "id": "bt-13",
+   "knowledgeIds": [
+    "basic-theory"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "10進数の 0.1 を2進数で表すとどうなるか。",
+   "choices": [
+    "循環小数となり、有限桁では正確に表せない",
+    "0.1 になる",
+    "0.01 になる",
+    "0.0001 になる"
+   ],
+   "answer": 0,
+   "explanation": "0.1は2進数では0.000110011…と無限に続くため、コンピュータ内部では誤差が生じる。"
+  }
+ ]
+}

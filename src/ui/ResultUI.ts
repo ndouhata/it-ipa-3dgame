@@ -16,6 +16,9 @@ export interface RunResult {
   drops: Drop[];
   bonuses: string[];
   damageTaken: number;
+  answered: number;
+  correct: number;
+  fastCorrect: number;
 }
 
 export class ResultUI {
@@ -28,7 +31,7 @@ export class ResultUI {
     const diff = r.prevMs !== null ? r.timeMs - r.prevMs : null;
     const goals = this.goalLines(gs);
     const again = h('button', { class: 'btn btn-primary', text: 'もう一度挑む', onclick: () => { this.close(); onAgain(); } });
-    const town = h('button', { class: 'btn', text: '町へ戻る', onclick: () => { this.close(); onTown(); } });
+    const town = h('button', { class: 'btn', text: '拠点へ戻る', onclick: () => { this.close(); onTown(); } });
     this.root = panel(r.success ? `${r.questTitle}　クリア！` : `${r.questTitle}　撤退…`, null,
       h('div', { class: 'grid2' },
         h('div', { class: 'card' },
@@ -36,7 +39,8 @@ export class ResultUI {
           h('div', { class: 'result-time', text: fmtTime(r.timeMs) }),
           diff !== null && r.success ? h('div', { class: `result-diff${diff < 0 ? ' faster' : ''}`, text: diff < 0 ? `前回より ${fmtTime(-diff)} 短縮！` : `前回 ${fmtTime(r.prevMs!)}` }) : null,
           r.newBest ? h('div', { class: 'tag rare', text: '自己ベスト更新！' }) : r.bestMs ? h('div', { class: 'small muted', text: `自己ベスト ${fmtTime(r.bestMs)}` }) : null,
-          h('div', { class: 'small', style: { marginTop: '8px' }, text: `受けたダメージ：${r.damageTaken}` }),
+          h('div', { class: 'small', style: { marginTop: '8px' }, text: `正解 ${r.correct}/${r.answered}問（${r.answered ? Math.round((r.correct / r.answered) * 100) : 0}%）　速攻 ${r.fastCorrect}回` }),
+          h('div', { class: 'small', text: `受けたダメージ：${r.damageTaken}` }),
           h('div', { style: { marginTop: '8px' } }, h('b', { text: `EXP +${r.exp}` }),
             r.levelAfter > r.levelBefore ? h('span', { class: 'good', text: `　Lv ${r.levelBefore} → ${r.levelAfter}！` }) : null),
           ...r.bonuses.map((b) => h('div', { class: 'small good', text: `★ ${b}` }))),

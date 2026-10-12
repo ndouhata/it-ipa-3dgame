@@ -6,17 +6,15 @@ const SLOT = 'slot1';
 export class SaveManager {
   lastError: string | null = null;
 
-  constructor(private spawn: [number, number]) {}
-
   async load(): Promise<SaveData> {
     try {
       const db = await getDB();
       const raw = await db.get('saves', SLOT);
-      return raw ? migrateSave(raw, this.spawn) : createNewSave(this.spawn);
+      return raw ? migrateSave(raw) : createNewSave();
     } catch (e) {
       console.error(e);
       this.lastError = describeStorageError(e);
-      return createNewSave(this.spawn);
+      return createNewSave();
     }
   }
 
@@ -24,7 +22,6 @@ export class SaveManager {
     try {
       data.updatedAt = new Date().toISOString();
       const db = await getDB();
-      // structuredClone で Proxy/参照を切り離して保存
       await db.put('saves', structuredClone(data), SLOT);
       this.lastError = null;
       return true;
@@ -35,9 +32,9 @@ export class SaveManager {
     }
   }
 
-  async reset(): Promise<SaveData> {
-    const fresh = createNewSave(this.spawn);
+  async reset(keepParty: SaveData['party']): Promise<void> {
+    const fresh = createNewSave();
+    fresh.party = { ...keepParty };
     await this.save(fresh);
-    return fresh;
   }
 }

@@ -1,143 +1,139 @@
 import { describe, it, expect } from 'vitest';
 import { loadGameData } from '../src/data/registry';
-import { BattleSystem, splitLoad, type Combatant } from '../src/battle/BattleSystem';
+import { QuestionEngine } from '../src/quiz/QuestionEngine';
+import { TurnBattle } from '../src/battle/TurnBattle';
 import { rollDrops } from '../src/inventory/Drops';
-import { DistributionPuzzle } from '../src/gimmick/DistributionPuzzle';
 import { createNewSave } from '../src/save/SaveData';
-import { recordKnowledgeEvent, getProgress, markFormalTerm } from '../src/learning/Learning';
 import { GameState } from '../src/game/GameState';
 import { EventBus } from '../src/core/EventBus';
 
 const data = loadGameData();
-const rules = data.masteryRules;
+const cfg = data.progression.quiz;
+const questions = data.exams.questions;
 
-const ally = (id: string, hp: number, def = 0): Combatant => ({
-  id, side: 'ally', kind: 'hero', name: id, maxHp: hp, hp, atk: 10, def, alive: true, attackInterval: 1, attackTimer: 1,
-});
+/** 決まった乱数列（テストを再現可能にする） */
+function seeded(seed = 1) {
+  let s = seed;
+  return () => ((s = (s * 16807) % 2147483647) / 2147483647);
+}
 
 describe('データ', () => {
-  it('全データが読み込め、参照が解決できる', () => {
-    expect(data.knowledge.get('load-balancing')?.nameEn).toBe('Load Balancing');
-    expect(data.quests.get('trade-road')?.run?.segments.length).toBe(4);
+  it('全データが読み込め、どのクエストにも問題がある', () => {
+    expect(questions.length).toBeGreaterThanOrEqual(200);
+    expect(data.knowledge.size).toBe(23);
+    for (const q of data.questList) {
+      expect(questions.some((x) => x.knowledgeIds.some((k) => q.knowledgeIds.includes(k)))).toBe(true);
+    }
   });
 });
 
-describe('負荷分散の分配', () => {
-  it('ラウンドロビン：均等に分ける（1200 → 400/400/400）', () => {
-    const parts = splitLoad([ally('a', 1000), ally('b', 1000), ally('c', 1000)], 1200, 'roundRobin', 0.5);
-    expect(parts.map((p) => p.raw)).toEqual([400, 400, 400]);
+describe('出題エンジン', () => {
+  it('選択肢の順番は毎回シャッフルされ、正解の位置が変わる', () => {
+    const save = createNewSave();
+    const eng = new QuestionEngine(questions, save, cfg, seeded(7));
+    const positions = new Set<number>();
+    for (let i = 0; i < 20; i++) {
+      const p = eng.next(['system-components']);
+      positions.add(p.order.indexOf(p.question.answer));
+      eng.answer(p, p.order.indexOf(p.question.answer), 1);
+    }
+    expect(positions.size).toBeGreaterThan(1);
   });
-  it('ヘルスチェック：受けたら倒れる者を外す', () => {
-    const parts = splitLoad([ally('a', 1000), ally('b', 100), ally('c', 1000)], 1200, 'healthCheck', 0.5);
-    expect(parts.map((p) => p.c.id)).toEqual(['a', 'c']);
-    expect(parts.map((p) => p.raw)).toEqual([600, 600]);
+
+  it('間違えた問題は、1問あけて3回出し直される（出し直しで間違えると回数が戻る）', () => {
+    const save = createNewSave();
+    const eng = new QuestionEngine(questions, save, cfg, seeded(3));
+    const first = eng.next(['system-components']);
+    const wrong = (first.order.indexOf(first.question.answer) + 1) % first.order.length;
+    eng.answer(first, wrong, 1);
+    const shown: string[] = [];
+    for (let i = 0; i < 12; i++) {
+      const p = eng.next(['system-components']);
+      shown.push(p.question.id);
+      eng.answer(p, p.order.indexOf(p.question.answer), 1); // 以後は正解
+    }
+    expect(shown[0]).not.toBe(first.question.id); // 直後ではない
+    expect(shown.filter((id) => id === first.question.id).length).toBeGreaterThanOrEqual(3);
+    expect(save.quiz.stats[first.question.id].repeatLeft).toBe(0);
   });
-  it('重み付け：耐久力に比例して分ける', () => {
-    const parts = splitLoad([ally('a', 600), ally('b', 300)], 300, 'weighted', 0.5);
-    expect(parts.map((p) => p.raw)).toEqual([200, 100]);
+
+  it('正解が続いた問題は卒業し、新しい問題が出るようになる', () => {
+    const save = createNewSave();
+    const eng = new QuestionEngine(questions, save, cfg, seeded(11));
+    const seen = new Set<string>();
+    for (let i = 0; i < 40; i++) {
+      const p = eng.next(['algorithm']);
+      seen.add(p.question.id);
+      eng.answer(p, p.order.indexOf(p.question.answer), 1);
+    }
+    const pool = questions.filter((q) => q.knowledgeIds.some((k) => ['algorithm'].includes(k)));
+    expect(seen.size).toBe(pool.length);
+  });
+
+  it('速さと正誤で4段階に判定される', () => {
+    const save = createNewSave();
+    const eng = new QuestionEngine(questions, save, cfg, seeded(5));
+    const p = eng.next(['computer-components']);
+    const right = p.order.indexOf(p.question.answer);
+    const wrong = (right + 1) % p.order.length;
+    expect(eng.answer(p, right, 1).outcome).toBe('fastCorrect');
+    expect(eng.answer(p, right, p.fastSec + 1).outcome).toBe('slowCorrect');
+    expect(eng.answer(p, wrong, 1).outcome).toBe('fastWrong');
+    expect(eng.answer(p, wrong, p.fastSec + 1).outcome).toBe('slowWrong');
+    expect(eng.answer(p, null, p.limitSec).outcome).toBe('slowWrong');
   });
 });
 
 describe('戦闘', () => {
-  const ogre = data.enemies.get('boss-ogre')!;
-  const skills = [
-    { def: data.skills.get('distribution-array')!, level: 1 },
-    { def: data.skills.get('guard')!, level: 1 },
-  ];
-  const make = (events: { kind: string; correct: boolean }[]) => new BattleSystem({
-    allies: [
-      { id: 'hero', kind: 'hero', name: 'H', maxHp: 200, hp: 200, atk: 1, def: 0, attackInterval: 99 },
-      { id: 'partner', kind: 'partner', name: 'P', maxHp: 200, hp: 200, atk: 1, def: 0, attackInterval: 99 },
-    ],
-    enemies: [{ id: 'e1', def: ogre }],
-    skills,
-    damage: { defFactor: 0.5, variance: 0, min: 1 },
-    rand: () => 0.99,
-    onKnowledge: (ev) => events.push(ev),
+  const slime = data.enemies.get('trade-road-slime')!;
+  const make = () => new TurnBattle(
+    { name: 'H', maxHp: 120, hp: 120, atk: 14, def: 6 }, { name: 'P', maxHp: 100, hp: 100, atk: 8, def: 5 },
+    [{ id: 'e1', def: slime }], { defFactor: 0.5, variance: 0, min: 1 }, () => 0.5,
+  );
+  it('速く正解すると大ダメージ、速く間違えると小ダメージ', () => {
+    const a = make().heroAttack(cfg.outcomes.attack.fastCorrect).find((e) => e.type === 'damage');
+    const b = make().heroAttack(cfg.outcomes.attack.fastWrong).find((e) => e.type === 'damage');
+    expect(a && a.type === 'damage' && a.amount).toBeGreaterThan(b && b.type === 'damage' ? b.amount * 3 : 999);
   });
-
-  it('一点集中砲の予兆中に分散陣を使うと、ダメージが分割され「正しい適用」が記録される', () => {
-    const ev: { kind: string; correct: boolean }[] = [];
-    const b = make(ev);
-    for (let i = 0; i < 52; i++) b.tick(0.1); // firstAt=5 → 予兆開始
-    expect(b.enemies()[0].charging?.behavior.action).toBe('focusBlast');
-    expect(b.useSkill('distribution-array')).toBe(true);
-    for (let i = 0; i < 40; i++) b.tick(0.1);
-    const all = b.drainEvents();
-    const dist = all.find((e) => e.type === 'distribute');
-    expect(dist && dist.type === 'distribute' && dist.parts.map((p) => p.raw)).toEqual([55, 55]);
-    expect(ev).toContainEqual(expect.objectContaining({ kind: 'application', correct: true }));
-  });
-
-  it('分散陣が使えたのに一点で受けると「見極めの失敗」が記録される', () => {
-    const ev: { kind: string; correct: boolean }[] = [];
-    const b = make(ev);
-    for (let i = 0; i < 90; i++) b.tick(0.1);
-    expect(b.hero().hp).toBeLessThan(200 - 100);
-    expect(ev).toContainEqual(expect.objectContaining({ kind: 'discrimination', correct: false }));
+  it('防御は速く正解すると被ダメージが大きく減る', () => {
+    const sum = (mult: number) => make().enemiesAttack(mult).reduce((n, e) => n + (e.type === 'damage' ? e.amount : 0), 0);
+    expect(sum(cfg.outcomes.defense.fastCorrect)).toBeLessThan(sum(cfg.outcomes.defense.fastWrong) / 4);
   });
 });
 
-describe('習熟度', () => {
-  it('使用回数だけでは上がらず、間違えると下がり、正しく使うと戻る', () => {
-    const save = createNewSave([0, 0]);
-    const rec = (kind: 'experience' | 'application' | 'discrimination', variant: string, correct: boolean) =>
-      recordKnowledgeEvent(save, rules, { knowledgeId: 'load-balancing', kind, variant, correct });
-    rec('experience', 'inn', true);
-    expect(getProgress(save, 'load-balancing').mastery).toBe(1);
-    for (let i = 0; i < 10; i++) rec('experience', 'inn', true);
-    expect(getProgress(save, 'load-balancing').mastery).toBe(1); // 回数だけでは上がらない
-    rec('application', 'inn', true);
-    for (let i = 0; i < 3; i++) rec('discrimination', 'battle-focus', true);
-    expect(getProgress(save, 'load-balancing').mastery).toBe(2);
-    rec('application', 'battle-focus', true);
-    expect(getProgress(save, 'load-balancing').mastery).toBe(3);
-    rec('discrimination', 'battle-focus', false);
-    expect(getProgress(save, 'load-balancing').mastery).toBe(2); // ミスで下がる
-    rec('discrimination', 'battle-focus', true);
-    expect(getProgress(save, 'load-balancing').mastery).toBe(3); // 正しく使うと戻る
-    markFormalTerm(save, rules, 'load-balancing');
-    expect(getProgress(save, 'load-balancing').mastery).toBe(4);
+describe('成長・ドロップ', () => {
+  it('レベルアップでステータスが上がり、装備で速攻時間が延びる', () => {
+    const gs = new GameState(createNewSave(), data, new EventBus());
+    const before = gs.heroStats().atk;
+    gs.addExp(1000);
+    expect(gs.heroStats().atk).toBeGreaterThan(before);
+    gs.save.inventory = { 'memory-crystal': 10, 'index-shard': 10 };
+    expect(gs.craft('focus-charm')).not.toBeNull();
+    expect(gs.fastBonusSec()).toBe(2);
   });
-
-  it('スキルの実効レベルは習熟度で頭打ちになり、下がる', () => {
-    const save = createNewSave([0, 0]);
-    const gs = new GameState(save, data, new EventBus());
-    gs.unlockSkill('distribution-array');
-    save.skills['distribution-array'].level = 3;
-    gs.recordKnowledge({ knowledgeId: 'load-balancing', kind: 'experience', variant: 'inn', correct: true });
-    expect(gs.effectiveSkillLevel('distribution-array')).toBe(1);
-  });
-});
-
-describe('ドロップ', () => {
   it('レアが出ない周回が続くと確定で出る', () => {
     const pity: Record<string, number> = {};
     let got = -1;
     for (let i = 0; i < 8; i++) {
-      const d = rollDrops(data.dropTables, 'ogre', pity, (id) => id === 'tuning-core', () => 0.99);
+      const d = rollDrops(data.dropTables, 'road-boss', pity, (id) => id === 'tuning-core', () => 0.99);
       if (d.some((x) => x.itemId === 'tuning-core')) { got = i; break; }
     }
     expect(got).toBe(7);
   });
+  it('どの分野のクエストにも最初から挑戦できる', () => {
+    const gs = new GameState(createNewSave(), data, new EventBus());
+    for (const q of data.questList) expect(gs.isUnlocked(q.id)).toBe(true);
+  });
 });
 
-describe('分配ギミック', () => {
-  it('何もしないと既定先に集中してあふれる。分散すれば成功する', () => {
-    const def = data.gimmicks.get('inn-routing')!;
-    const idle = new DistributionPuzzle({ ...def, demoSeconds: 0 }, () => 0);
-    for (let i = 0; i < 600 && idle.phase !== 'done'; i++) idle.tick(0.1);
-    expect(idle.success).toBe(false);
-
-    const smart = new DistributionPuzzle({ ...def, demoSeconds: 0 }, () => 0);
-    for (let i = 0; i < 2000 && smart.phase !== 'done'; i++) {
-      if (smart.pending) {
-        // 空き率が最も高い受け皿へ（最小コネクション的な振る舞い）
-        const best = smart.targets.map((t, idx) => ({ idx, free: (t.capacity - t.load) / t.capacity })).sort((a, b) => b.free - a.free)[0];
-        smart.route(best.idx);
-      }
-      smart.tick(0.1);
-    }
-    expect(smart.success).toBe(true);
+describe('敵の強さの換算', () => {
+  it('レベルが低いときは敵が弱くなり、推奨レベル以上なら元の強さ', () => {
+    const gs = new GameState(createNewSave(), data, new EventBus());
+    const boss = data.enemies.get('market-boss')!;
+    expect(gs.enemyLevelFor('market')).toBe(2);
+    const weak = gs.scaledEnemy(boss, 15, 2);
+    expect(weak.stats.hp).toBeLessThan(boss.stats.hp / 2);
+    gs.save.player.level = 20;
+    expect(gs.enemyLevelFor('market')).toBe(15);
   });
 });

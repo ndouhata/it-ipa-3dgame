@@ -1,39 +1,15 @@
-// セーブデータ＋ゲームデータに対する純ロジック（3D非依存）。成長・所持品・装備・スキル・クエスト状態・条件判定。
+// セーブデータ＋ゲームデータに対する純ロジック（3D非依存）。成長・所持品・装備・クエスト解放・習熟度。
 import type { GameData } from '../data/registry';
-import type { Condition } from '../data/schema';
 import type { EventBus } from '../core/EventBus';
+import type { EnemyDefinition } from '../data/schema';
 import type { QuestProgress, SaveData } from '../save/SaveData';
-import { getProgress, recordKnowledgeEvent, markFormalTerm } from '../learning/Learning';
-import type { KnowledgeEvent } from '../save/SaveData';
+import { knowledgeMastery } from '../quiz/Mastery';
 
 export type Stats = Record<string, number>;
 export type Cost = { itemId: string; count: number }[];
 
 export class GameState {
-  constructor(public save: SaveData, readonly data: GameData, readonly bus: EventBus) {
-    if (this.save.player.hp < 0) this.save.player.hp = this.heroStats().hp;
-    for (const [id, s] of this.data.skills) if (s.startsUnlocked) this.save.skills[id] ??= { unlocked: true, level: 1 };
-  }
-
-  // ---------- 条件 ----------
-  check(conds: Condition[] | undefined): boolean {
-    if (!conds) return true;
-    return conds.every((c) => {
-      if (c.flag && !this.save.flags[c.flag]) return false;
-      if (c.notFlag && this.save.flags[c.notFlag]) return false;
-      if (c.questState && this.quest(c.questState.questId).state !== c.questState.state) return false;
-      if (c.questStepAtLeast && this.quest(c.questStepAtLeast.questId).step < c.questStepAtLeast.step) return false;
-      if (c.masteryAtLeast && this.mastery(c.masteryAtLeast.knowledgeId) < c.masteryAtLeast.level) return false;
-      if (c.masteryBelow && this.mastery(c.masteryBelow.knowledgeId) >= c.masteryBelow.level) return false;
-      return true;
-    });
-  }
-
-  setFlag(flag: string, v = true) {
-    if (!!this.save.flags[flag] === v) return;
-    this.save.flags[flag] = v;
-    this.bus.emit('flagChanged', { flag });
-  }
+  constructor(public save: SaveData, readonly data: GameData, readonly bus: EventBus) {}
 
   // ---------- 成長 ----------
   expToNext(level: number) {
@@ -48,12 +24,17 @@ export class GameState {
     return out;
   }
 
+  private equipped() {
+    return Object.values(this.save.equipment)
+      .map((uid) => this.save.ownedEquipment.find((e) => e.uid === uid))
+      .filter((o): o is NonNullable<typeof o> => !!o)
+      .map((o) => ({ owned: o, def: this.data.equipment.get(o.equipId)! }))
+      .filter((x) => !!x.def);
+  }
+
   equipmentStats(): Stats {
     const out: Stats = {};
-    for (const uid of Object.values(this.save.equipment)) {
-      const owned = this.save.ownedEquipment.find((e) => e.uid === uid);
-      const def = owned && this.data.equipment.get(owned.equipId);
-      if (!owned || !def) continue;
+    for (const { owned, def } of this.equipped()) {
       for (const [k, v] of Object.entries(def.baseStats)) out[k] = (out[k] ?? 0) + v;
       for (const [k, v] of Object.entries(def.perEnhance)) out[k] = (out[k] ?? 0) + v * owned.enhance;
     }
@@ -62,8 +43,7 @@ export class GameState {
 
   heroStats(): Stats {
     const base = this.baseStatsAt(this.save.player.level);
-    const eq = this.equipmentStats();
-    for (const [k, v] of Object.entries(eq)) base[k] = (base[k] ?? 0) + v;
+    for (const [k, v] of Object.entries(this.equipmentStats())) base[k] = (base[k] ?? 0) + v;
     return base;
   }
 
@@ -75,12 +55,17 @@ export class GameState {
     return out;
   }
 
-  /** EXP加算。レベルアップごとにステータス差分付きでイベントを出す */
+  /** 装備による「速攻」判定時間の延長（秒） */
+  fastBonusSec() {
+    let s = 0;
+    for (const { owned, def } of this.equipped()) s += (def.grants?.fastBonusSec ?? 0) + (def.grantsPerEnhance?.fastBonusSec ?? 0) * owned.enhance;
+    return s;
+  }
+
   addExp(amount: number) {
     const p = this.save.player;
     const max = this.data.progression.maxLevel;
     p.exp += amount;
-    const ups: { from: number; to: number }[] = [];
     while (p.level < max && p.exp >= this.expToNext(p.level)) {
       p.exp -= this.expToNext(p.level);
       const before = this.heroStats();
@@ -88,12 +73,9 @@ export class GameState {
       const after = this.heroStats();
       const diff: Record<string, [number, number]> = {};
       for (const k of Object.keys(after)) diff[k] = [before[k] ?? 0, after[k]];
-      p.hp = Math.min(after.hp, p.hp + (after.hp - before.hp));
       this.bus.emit('levelUp', { from: p.level - 1, to: p.level, diff });
-      ups.push({ from: p.level - 1, to: p.level });
     }
     if (p.level >= max) p.exp = 0;
-    return ups;
   }
 
   // ---------- 所持品 ----------
@@ -150,84 +132,43 @@ export class GameState {
   equip(uid: string) {
     const owned = this.save.ownedEquipment.find((e) => e.uid === uid);
     const def = owned && this.data.equipment.get(owned.equipId);
-    if (!def) return;
-    this.save.equipment[def.slot] = uid;
+    if (def) this.save.equipment[def.slot] = uid;
   }
 
   unequip(slot: 'weapon' | 'armor' | 'accessory') { this.save.equipment[slot] = null; }
 
-  /** 装備による分散ノード（受け皿）の数と性能 */
-  distributionNodes(): { count: number; hp: number; def: number } {
-    let count = 0, hp = 0, def = 0;
-    for (const uid of Object.values(this.save.equipment)) {
-      const owned = this.save.ownedEquipment.find((e) => e.uid === uid);
-      const d = owned && this.data.equipment.get(owned.equipId);
-      if (!d?.grants?.distributionNodes) continue;
-      count += d.grants.distributionNodes;
-      hp = Math.max(hp, (d.grants.nodeHp ?? 100) + owned!.enhance * 30);
-      def = Math.max(def, (d.grants.nodeDef ?? 0) + owned!.enhance * 2);
-    }
-    return { count, hp, def };
-  }
-
-  // ---------- スキル ----------
-  skillUnlocked(id: string) { return !!this.save.skills[id]?.unlocked; }
-
-  unlockSkill(id: string) {
-    if (this.skillUnlocked(id)) return;
-    this.save.skills[id] = { unlocked: true, level: 1 };
-    this.bus.emit('skillUnlocked', { skillId: id });
-  }
-
-  /** 強化済みのレベル（素材で上げたもの） */
-  ownedSkillLevel(id: string) { return this.save.skills[id]?.level ?? 0; }
-
-  /** 強化の上限＝関連知識の習熟度。知識に紐づかないスキルは上限なし */
-  skillCap(id: string) {
-    const def = this.data.skills.get(id);
-    if (!def || def.knowledgeIds.length === 0) return def?.levels.length ?? 1;
-    return Math.max(1, Math.min(...def.knowledgeIds.map((k) => this.mastery(k))));
-  }
-
-  /** 戦闘で実際に使われるレベル。習熟度が下がると下がる（強化済みの分は失われず、習熟が戻れば復帰） */
-  effectiveSkillLevel(id: string) {
-    const owned = this.ownedSkillLevel(id);
-    if (owned === 0) return 0;
-    return Math.min(owned, this.skillCap(id));
-  }
-
-  nextSkillUpgrade(id: string) {
-    const def = this.data.skills.get(id);
-    const owned = this.ownedSkillLevel(id);
-    if (!def || owned === 0) return null;
-    const next = def.levels.find((l) => l.level === owned + 1);
-    if (!next) return null;
-    return { next, capped: next.level > this.skillCap(id) };
-  }
-
-  upgradeSkill(id: string) {
-    const up = this.nextSkillUpgrade(id);
-    if (!up || up.capped || !this.pay(up.next.cost)) return false;
-    this.save.skills[id].level = up.next.level;
-    return true;
-  }
-
-  // ---------- 知識 ----------
-  mastery(knowledgeId: string) { return getProgress(this.save, knowledgeId).mastery; }
-
-  recordKnowledge(ev: Omit<KnowledgeEvent, 'at'>) {
-    const { before, after } = recordKnowledgeEvent(this.save, this.data.masteryRules, ev);
-    this.bus.emit('knowledge', ev);
-    if (before !== after) this.bus.emit('masteryChanged', { knowledgeId: ev.knowledgeId, from: before, to: after });
-  }
-
-  learnFormalTerm(knowledgeId: string) {
-    const { before, after } = markFormalTerm(this.save, this.data.masteryRules, knowledgeId);
-    if (before !== after) this.bus.emit('masteryChanged', { knowledgeId, from: before, to: after });
-  }
-
   // ---------- クエスト ----------
   quest(id: string): QuestProgress {
-    return (this.save.quests[id] ??= { state: 'inactive', step: 0, clears: 0, bestTimeMs: null, lastTimeMs: null });
+    return (this.save.quests[id] ??= { clears: 0, bestTimeMs: null, lastTimeMs: null, bestAccuracy: null });
+  }
+
+  isUnlocked(questId: string) {
+    const q = this.data.quests.get(questId);
+    return !!q && (!q.unlockAfter || this.quest(q.unlockAfter).clears > 0);
+  }
+
+  // ---------- 敵の強さ ----------
+  /** 推奨レベルより低いときは、敵を「自分のレベル＋1」相当に弱める（どの分野からでも勉強できるように） */
+  enemyLevelFor(questId: string) {
+    const q = this.data.quests.get(questId)!;
+    return Math.min(q.recommendedLevel, this.save.player.level + 1);
+  }
+
+  /** 推奨レベル基準で定義された敵を、実際の敵レベルに合わせて換算する */
+  scaledEnemy(def: EnemyDefinition, questLevel: number, level: number): EnemyDefinition {
+    if (level >= questLevel) return def;
+    const a = this.baseStatsAt(level), b = this.baseStatsAt(questLevel);
+    const atkRatio = a.atk / b.atk, hpRatio = a.hp / b.hp;
+    const s = def.stats;
+    return {
+      ...def,
+      stats: { ...s, hp: Math.max(1, Math.round(s.hp * atkRatio)), def: Math.round(s.def * atkRatio), atk: Math.max(1, Math.round(s.atk * hpRatio)) },
+      exp: Math.max(1, Math.round(def.exp * this.expToNext(level) / this.expToNext(questLevel))),
+    };
+  }
+
+  // ---------- 習熟度 ----------
+  mastery(knowledgeId: string) {
+    return knowledgeMastery(knowledgeId, this.data.exams.questions, this.save, this.data.masteryRules, this.data.progression.quiz.masteredStreak);
   }
 }

@@ -31,7 +31,7 @@ export class CraftUI {
           return h('div', { class: 'card' },
             h('h4', { text: `${def.icon} ${def.name}（未作成）` }),
             h('p', { class: 'small', text: def.description }),
-            h('div', { class: 'small', text: `性能：${stats(0)}${def.grants?.distributionNodes ? '　／　戦闘で分散ノードを1基呼び出す' : ''}` }),
+            h('div', { class: 'small', text: `性能：${stats(0)}${def.grants?.fastBonusSec ? `　速攻判定+${def.grants.fastBonusSec}秒` : ''}` }),
             costView(def.recipe), where(def.recipe),
             h('button', { class: 'btn btn-primary', text: '作成する', disabled: !gs.canAfford(def.recipe), onclick: () => {
               if (gs.craft(def.id)) { onChanged(`${def.name}を作成して装備した！`); render(); }
@@ -49,29 +49,9 @@ export class CraftUI {
             } })) : h('div', { class: 'small good', text: '最大まで強化済み' }));
       });
 
-      // スキル
-      const skCards = [...gs.data.skills.values()].filter((s) => s.levels.length > 1 && gs.skillUnlocked(s.id)).map((sk) => {
-        const up = gs.nextSkillUpgrade(sk.id);
-        const owned = gs.ownedSkillLevel(sk.id);
-        const cur = sk.levels.find((l) => l.level === owned)!;
-        return h('div', { class: 'card' },
-          h('h4', { text: `${sk.nameJa} Lv${owned}（${cur.label}）` }),
-          h('div', { class: 'small', text: cur.description }),
-          up ? h('div', { style: { marginTop: '6px' } },
-            h('div', { class: 'small', text: `次：Lv${up.next.level}「${up.next.label}」— ${up.next.description}` }),
-            costView(up.next.cost), where(up.next.cost),
-            up.capped
-              ? h('div', { class: 'small bad', text: 'ボルグ「まだお前さんの腕が追いついてねえな。実戦でこの技をもっと使いこなしてきな」' })
-              : h('button', { class: 'btn btn-primary', text: '強化する', disabled: !gs.canAfford(up.next.cost), onclick: () => {
-                if (gs.upgradeSkill(sk.id)) { onChanged(`${sk.nameJa}が Lv${gs.ownedSkillLevel(sk.id)} になった！`); render(); }
-              } }))
-            : h('div', { class: 'small good', text: '最大まで強化済み' }));
-      });
-
       body.append(h('h3', { class: 'panel-title', style: { fontSize: '15px' }, text: '装備の作成・強化' }), h('div', { class: 'grid2' }, ...eqCards));
-      if (skCards.length) body.append(h('h3', { class: 'panel-title', style: { fontSize: '15px', marginTop: '14px' }, text: '技の強化' }), h('div', { class: 'grid2' }, ...skCards));
     };
-    this.root = panel('工房 ― 鍛冶屋ボルグ', () => { this.close(); onClose(); }, body);
+    this.root = panel('工房', () => { this.close(); onClose(); }, body);
     this.parent.append(this.root);
     render();
   }

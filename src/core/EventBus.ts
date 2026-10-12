@@ -1,18 +1,7 @@
 // 型付きイベント。ゲーム各システムはここを介して疎結合に連携する。
-import type { KnowledgeEvent } from '../save/SaveData';
-
 export interface GameEvents {
-  /** クエスト進行用の汎用イベント（talk / gimmickSolved / enemyDefeated など） */
-  progress: { event: string; id: string };
-  flagChanged: { flag: string };
-  knowledge: Omit<KnowledgeEvent, 'at'>;
-  masteryChanged: { knowledgeId: string; from: number; to: number };
   levelUp: { from: number; to: number; diff: Record<string, [number, number]> };
   itemGained: { itemId: string; count: number; rare: boolean };
-  questChanged: { questId: string };
-  skillUnlocked: { skillId: string };
-  hint: { trigger: string };
-  stateChanged: void;
 }
 
 type Handler<T> = (payload: T) => void;

@@ -1,46 +1,173 @@
 {
   "knowledge": [
     {
-      "knowledgeId": "load-balancing",
-      "nameJa": "負荷分散",
-      "nameEn": "Load Balancing",
-      "category": "infrastructure/availability",
-      "formalDescription": "複数のサーバ（処理装置）に処理要求を振り分け、特定のサーバへの負荷集中を防ぐ仕組み。振り分けを行う装置をロードバランサ（負荷分散装置）という。処理能力の向上（スケールアウト）と、障害時に他のサーバで処理を継続できることによる可用性の向上に寄与する。",
-      "experienceDescription": "一ヶ所に集まりすぎた力や人を、複数の受け皿へ分けて受け止める考え方。宿屋の客、馬車の荷物、魔力の塔、そして戦いで受ける衝撃にも使える。",
-      "formalTerms": [
-        { "term": "ロードバランサ（負荷分散装置）", "description": "利用者からの要求を受け取り、背後の複数サーバへ振り分ける装置。" },
-        { "term": "ラウンドロビン", "description": "要求を各サーバへ順番に、均等に割り当てる方式。" },
-        { "term": "ヘルスチェック", "description": "サーバの稼働状態を定期的に確認し、障害のあるサーバへ振り分けないようにする仕組み。" },
-        { "term": "重み付けラウンドロビン", "description": "サーバの処理能力に応じた比率で要求を割り当てる方式。" },
-        { "term": "最小コネクション（リーストコネクション）", "description": "現在の接続数が最も少ないサーバへ割り当てる方式。" },
-        { "term": "スケールアウト", "description": "サーバの台数を増やして処理能力を高めること。1台の性能を上げるスケールアップと対比される。" }
-      ],
-      "relatedQuestIds": ["inn-trouble", "trade-road"],
-      "relatedSkillIds": ["distribution-array"],
-      "relatedEnemyIds": ["boss-ogre"],
-      "relatedExamIds": ["fe", "ap", "aws-saa"],
-      "variants": [
-        { "id": "inn", "label": "宿屋の客の振り分け", "stage": "metaphor" },
-        { "id": "battle-focus", "label": "集中攻撃の分散", "stage": "metaphor" },
-        { "id": "caravan", "label": "馬車への荷分け", "stage": "metaphor" },
-        { "id": "tower", "label": "魔力塔の過熱", "stage": "metaphor" },
-        { "id": "server", "label": "サーバへのアクセス振り分け", "stage": "it" },
-        { "id": "exam", "label": "試験形式", "stage": "exam" }
-      ],
-      "sources": [
-        { "title": "IPA 情報処理技術者試験（試験要綱・シラバス）", "url": "https://www.ipa.go.jp/shiken/", "note": "基本情報・応用情報の出題範囲（システム構成要素／システムの評価指標）" }
-      ]
+      "knowledgeId": "basic-theory",
+      "nameJa": "基礎理論",
+      "nameEn": "Basic Theory",
+      "category": "テクノロジ系",
+      "formalDescription": "基数変換、2の補数、論理演算、誤差、確率・統計、情報量、待ち行列理論など、コンピュータの基礎となる理論。"
+    },
+    {
+      "knowledgeId": "algorithm",
+      "nameJa": "アルゴリズムとプログラミング",
+      "nameEn": "Algorithms",
+      "category": "テクノロジ系",
+      "formalDescription": "スタック・キュー・リスト・木などのデータ構造と、探索・整列のアルゴリズム、計算量、再帰。"
+    },
+    {
+      "knowledgeId": "computer-components",
+      "nameJa": "コンピュータ構成要素",
+      "nameEn": "Computer Components",
+      "category": "テクノロジ系",
+      "formalDescription": "CPUの性能（MIPS・CPI）、パイプライン、割込み、DMA、キャッシュメモリ、DRAM・SRAM・フラッシュメモリ。"
+    },
+    {
+      "knowledgeId": "hardware",
+      "nameJa": "ハードウェア",
+      "nameEn": "Hardware",
+      "category": "テクノロジ系",
+      "formalDescription": "入出力インタフェース（USB・Bluetooth）、SSD、センサ・アクチュエータ、A/D変換、FPGA、UPS。"
+    },
+    {
+      "knowledgeId": "software",
+      "nameJa": "ソフトウェア",
+      "nameEn": "Software",
+      "category": "テクノロジ系",
+      "formalDescription": "OSのタスク管理・仮想記憶・デッドロック、言語処理系、ミドルウェア、ファイルシステム、OSSライセンス。"
+    },
+    {
+      "knowledgeId": "system-components",
+      "nameJa": "システム構成要素",
+      "nameEn": "System Components",
+      "category": "テクノロジ系",
+      "formalDescription": "負荷分散・冗長化・クラウド、稼働率（直列・並列）、MTBF・MTTR、RAID、フェールセーフなどの信頼性設計、性能指標。"
+    },
+    {
+      "knowledgeId": "database",
+      "nameJa": "データベース",
+      "nameEn": "Database",
+      "category": "テクノロジ系",
+      "formalDescription": "主キー・外部キー、正規化、SQL、関係演算、E-R図、インデックス、トランザクション（ACID・ロールバック・ロールフォワード・排他制御）。"
+    },
+    {
+      "knowledgeId": "network",
+      "nameJa": "ネットワーク",
+      "nameEn": "Network",
+      "category": "テクノロジ系",
+      "formalDescription": "OSI参照モデル、TCP/IP、DNS・DHCP・NAT、IPアドレスとサブネット、ポート番号、メールのプロトコル、伝送時間の計算。"
+    },
+    {
+      "knowledgeId": "security",
+      "nameJa": "セキュリティ",
+      "nameEn": "Security",
+      "category": "テクノロジ系",
+      "formalDescription": "機密性・完全性・可用性、暗号（共通鍵・公開鍵・デジタル署名・ハッシュ）、ファイアウォール・DMZ・WAF・IDS、各種攻撃と対策、認証、リスク対応。"
+    },
+    {
+      "knowledgeId": "hci",
+      "nameJa": "ヒューマンインタフェース",
+      "nameEn": "Human Interface",
+      "category": "テクノロジ系",
+      "formalDescription": "アクセシビリティ、ユーザビリティ、ユニバーサルデザイン、画面設計。"
+    },
+    {
+      "knowledgeId": "multimedia",
+      "nameJa": "マルチメディア",
+      "nameEn": "Multimedia",
+      "category": "テクノロジ系",
+      "formalDescription": "画像・音声・動画の形式と圧縮、データ量の計算、VR・AR。"
+    },
+    {
+      "knowledgeId": "dev-tech",
+      "nameJa": "システム開発技術",
+      "nameEn": "Development",
+      "category": "テクノロジ系",
+      "formalDescription": "開発モデル（ウォーターフォール・アジャイル）、テスト技法、UML、モジュール設計、レビュー、DFD。"
+    },
+    {
+      "knowledgeId": "dev-management",
+      "nameJa": "ソフトウェア開発管理技術",
+      "nameEn": "Dev Management",
+      "category": "テクノロジ系",
+      "formalDescription": "共通フレーム、CMMI、DevOps、構成管理、リファクタリング、リバースエンジニアリング。"
+    },
+    {
+      "knowledgeId": "project-management",
+      "nameJa": "プロジェクトマネジメント",
+      "nameEn": "Project Management",
+      "category": "マネジメント系",
+      "formalDescription": "WBS、クリティカルパス、日程計算、EVM、見積り手法、スケジュール短縮、リスク対応、ステークホルダ。"
+    },
+    {
+      "knowledgeId": "service-management",
+      "nameJa": "サービスマネジメント",
+      "nameEn": "Service Management",
+      "category": "マネジメント系",
+      "formalDescription": "ITIL、SLA、インシデント管理・問題管理・変更管理、サービスデスク、バックアップの運用。"
+    },
+    {
+      "knowledgeId": "system-audit",
+      "nameJa": "システム監査",
+      "nameEn": "System Audit",
+      "category": "マネジメント系",
+      "formalDescription": "システム監査人の独立性、監査証拠・監査証跡、監査報告、内部統制、ITガバナンス。"
+    },
+    {
+      "knowledgeId": "system-strategy",
+      "nameJa": "システム戦略",
+      "nameEn": "System Strategy",
+      "category": "ストラテジ系",
+      "formalDescription": "BPR、RPA、エンタープライズアーキテクチャ、SOA、BYOD。"
+    },
+    {
+      "knowledgeId": "system-planning",
+      "nameJa": "システム企画",
+      "nameEn": "System Planning",
+      "category": "ストラテジ系",
+      "formalDescription": "要件定義（機能要件・非機能要件）、RFI・RFP、投資対効果。"
+    },
+    {
+      "knowledgeId": "business-strategy",
+      "nameJa": "経営戦略マネジメント",
+      "nameEn": "Business Strategy",
+      "category": "ストラテジ系",
+      "formalDescription": "SWOT分析、PPM、3C分析、コアコンピタンス、4P、バランススコアカード、CRM・SCM、KGI・KPI。"
+    },
+    {
+      "knowledgeId": "tech-strategy",
+      "nameJa": "技術戦略マネジメント",
+      "nameEn": "Technology Strategy",
+      "category": "ストラテジ系",
+      "formalDescription": "ハイプサイクル、技術ロードマップ、オープンイノベーション、デスバレー、イノベーションのジレンマ。"
+    },
+    {
+      "knowledgeId": "business-industry",
+      "nameJa": "ビジネスインダストリ",
+      "nameEn": "Business Industry",
+      "category": "ストラテジ系",
+      "formalDescription": "POS、ERP、EDI、IoT、AI（機械学習・ディープラーニング）、ブロックチェーン。"
+    },
+    {
+      "knowledgeId": "corporate-activity",
+      "nameJa": "企業活動",
+      "nameEn": "Corporate Activity",
+      "category": "ストラテジ系",
+      "formalDescription": "損益分岐点、財務諸表、ROE、QC七つ道具（パレート図・特性要因図・散布図・管理図）、BCP、CSR。"
+    },
+    {
+      "knowledgeId": "legal",
+      "nameJa": "法務",
+      "nameEn": "Legal",
+      "category": "ストラテジ系",
+      "formalDescription": "著作権・特許権、不正競争防止法、不正アクセス禁止法、個人情報保護法、労働者派遣と請負、下請法。"
     }
   ],
   "masteryRules": {
-    "discriminationWindow": 6,
-    "discriminationMinEvents": 3,
-    "discriminationMinCorrect": 4,
-    "level3MinVariants": 2,
-    "level5MinExamCorrect": 3,
-    "level5MinDistinctDays": 2,
-    "level5RecentWindow": 3,
-    "level4BlockIfRecentExamWrong": 2,
-    "reviewIntervalsDays": [0, 1, 3, 7, 14, 30]
+    "recentWindow": 6,
+    "level2Accuracy": 0.5,
+    "level3Accuracy": 0.7,
+    "level3SeenRatio": 0.5,
+    "level4Accuracy": 0.85,
+    "level5MinDistinctDays": 2
   }
 }

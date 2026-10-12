@@ -1,74 +1,150 @@
 {
   "exams": [
-    { "examId": "fe", "name": "基本情報技術者試験", "sourceUrl": "https://www.ipa.go.jp/shiken/" },
-    { "examId": "ap", "name": "応用情報技術者試験", "sourceUrl": "https://www.ipa.go.jp/shiken/" },
-    { "examId": "aws-saa", "name": "AWS Certified Solutions Architect - Associate" }
+    {
+      "examId": "fe",
+      "name": "基本情報技術者試験",
+      "sourceUrl": "https://www.ipa.go.jp/shiken/"
+    }
   ],
   "links": [
-    { "examId": "fe", "knowledgeId": "load-balancing", "syllabusRef": "テクノロジ系 / システム構成要素", "weight": 1 },
-    { "examId": "ap", "knowledgeId": "load-balancing", "syllabusRef": "テクノロジ系 / システム構成要素", "weight": 1 },
-    { "examId": "aws-saa", "knowledgeId": "load-balancing", "syllabusRef": "Elastic Load Balancing", "weight": 1 }
-  ],
-  "questions": [
     {
-      "id": "lb-q1",
-      "knowledgeIds": ["load-balancing"],
-      "examIds": ["fe", "ap"],
-      "source": { "type": "original", "label": "オリジナル問題（IPA過去問差し替え予定）" },
-      "stem": "Webシステムにおいて、利用者からの処理要求を複数のWebサーバに振り分け、特定のサーバに負荷が集中しないようにする装置はどれか。",
-      "choices": ["ファイアウォール", "ロードバランサ", "プロキシサーバ", "ルータ"],
-      "answer": 1,
-      "explanation": "処理要求を複数のサーバへ振り分ける装置はロードバランサ（負荷分散装置）。宿屋の案内装置と同じ役割。"
+      "examId": "fe",
+      "knowledgeId": "basic-theory",
+      "syllabusRef": "テクノロジ系 / 基礎理論",
+      "weight": 1
     },
     {
-      "id": "lb-q2",
-      "knowledgeIds": ["load-balancing"],
-      "examIds": ["fe", "ap"],
-      "source": { "type": "original", "label": "オリジナル問題（IPA過去問差し替え予定）" },
-      "stem": "負荷分散方式の一つであるラウンドロビン方式の説明として、適切なものはどれか。",
-      "choices": [
-        "現在の接続数が最も少ないサーバに処理要求を割り当てる。",
-        "処理要求を各サーバに順番に割り当てる。",
-        "利用者のIPアドレスから算出した値に基づいて割り当て先を固定する。",
-        "応答時間が最も短いサーバに処理要求を割り当てる。"
-      ],
-      "answer": 1,
-      "explanation": "ラウンドロビンは順番に均等に割り当てる方式。分散陣Lv1の『均等に分ける』がこれ。アは最小コネクション方式。"
+      "examId": "fe",
+      "knowledgeId": "algorithm",
+      "syllabusRef": "テクノロジ系 / アルゴリズムとプログラミング",
+      "weight": 1
     },
     {
-      "id": "lb-q3",
-      "knowledgeIds": ["load-balancing"],
-      "examIds": ["fe", "ap", "aws-saa"],
-      "source": { "type": "original", "label": "オリジナル問題（IPA過去問差し替え予定）" },
-      "stem": "ロードバランサがヘルスチェックを行う主な目的はどれか。",
-      "choices": [
-        "サーバ間で送受信されるデータを暗号化するため",
-        "利用者の認証情報を検証するため",
-        "障害が発生しているサーバに処理要求を振り分けないようにするため",
-        "サーバのディスク使用量を一定に保つため"
-      ],
-      "answer": 2,
-      "explanation": "ヘルスチェックは稼働状態を確認し、応答しないサーバを振り分け先から外す仕組み。分散陣Lv2の『倒れかけの仲間を外す』がこれ。"
+      "examId": "fe",
+      "knowledgeId": "computer-components",
+      "syllabusRef": "テクノロジ系 / コンピュータ構成要素",
+      "weight": 1
     },
     {
-      "id": "lb-q4",
-      "knowledgeIds": ["load-balancing"],
-      "examIds": ["fe", "ap"],
-      "source": { "type": "original", "label": "オリジナル問題（IPA過去問差し替え予定）" },
-      "stem": "処理能力が異なる3台のサーバに対し、各サーバの処理能力に応じた比率で処理要求を割り当てる負荷分散方式はどれか。",
-      "choices": ["最小コネクション", "重み付けラウンドロビン", "ラウンドロビン", "フェールオーバ"],
-      "answer": 1,
-      "explanation": "能力に応じた比率で振り分けるのは重み付けラウンドロビン。分散陣Lv3の『丈夫な者が多く受け持つ』がこれ。"
+      "examId": "fe",
+      "knowledgeId": "hardware",
+      "syllabusRef": "テクノロジ系 / ハードウェア",
+      "weight": 1
     },
     {
-      "id": "lb-q5",
-      "knowledgeIds": ["load-balancing"],
-      "examIds": ["fe", "ap"],
-      "source": { "type": "original", "label": "オリジナル問題（IPA過去問差し替え予定）" },
-      "stem": "アクセス増加に対応するため、同じ構成のWebサーバの台数を増やし、ロードバランサで処理を分散させた。この対応を表す用語はどれか。",
-      "choices": ["スケールアップ", "スケールアウト", "スケールイン", "フェールバック"],
-      "answer": 1,
-      "explanation": "台数を増やすのはスケールアウト。1台の性能を上げるのはスケールアップ。分配の護符で受け皿（分散ノード）を増やしたのと同じ発想。"
+      "examId": "fe",
+      "knowledgeId": "software",
+      "syllabusRef": "テクノロジ系 / ソフトウェア",
+      "weight": 1
+    },
+    {
+      "examId": "fe",
+      "knowledgeId": "system-components",
+      "syllabusRef": "テクノロジ系 / システム構成要素",
+      "weight": 1
+    },
+    {
+      "examId": "fe",
+      "knowledgeId": "database",
+      "syllabusRef": "テクノロジ系 / データベース",
+      "weight": 1
+    },
+    {
+      "examId": "fe",
+      "knowledgeId": "network",
+      "syllabusRef": "テクノロジ系 / ネットワーク",
+      "weight": 1
+    },
+    {
+      "examId": "fe",
+      "knowledgeId": "security",
+      "syllabusRef": "テクノロジ系 / セキュリティ",
+      "weight": 1
+    },
+    {
+      "examId": "fe",
+      "knowledgeId": "hci",
+      "syllabusRef": "テクノロジ系 / ヒューマンインタフェース",
+      "weight": 1
+    },
+    {
+      "examId": "fe",
+      "knowledgeId": "multimedia",
+      "syllabusRef": "テクノロジ系 / マルチメディア",
+      "weight": 1
+    },
+    {
+      "examId": "fe",
+      "knowledgeId": "dev-tech",
+      "syllabusRef": "テクノロジ系 / システム開発技術",
+      "weight": 1
+    },
+    {
+      "examId": "fe",
+      "knowledgeId": "dev-management",
+      "syllabusRef": "テクノロジ系 / ソフトウェア開発管理技術",
+      "weight": 1
+    },
+    {
+      "examId": "fe",
+      "knowledgeId": "project-management",
+      "syllabusRef": "マネジメント系 / プロジェクトマネジメント",
+      "weight": 1
+    },
+    {
+      "examId": "fe",
+      "knowledgeId": "service-management",
+      "syllabusRef": "マネジメント系 / サービスマネジメント",
+      "weight": 1
+    },
+    {
+      "examId": "fe",
+      "knowledgeId": "system-audit",
+      "syllabusRef": "マネジメント系 / システム監査",
+      "weight": 1
+    },
+    {
+      "examId": "fe",
+      "knowledgeId": "system-strategy",
+      "syllabusRef": "ストラテジ系 / システム戦略",
+      "weight": 1
+    },
+    {
+      "examId": "fe",
+      "knowledgeId": "system-planning",
+      "syllabusRef": "ストラテジ系 / システム企画",
+      "weight": 1
+    },
+    {
+      "examId": "fe",
+      "knowledgeId": "business-strategy",
+      "syllabusRef": "ストラテジ系 / 経営戦略マネジメント",
+      "weight": 1
+    },
+    {
+      "examId": "fe",
+      "knowledgeId": "tech-strategy",
+      "syllabusRef": "ストラテジ系 / 技術戦略マネジメント",
+      "weight": 1
+    },
+    {
+      "examId": "fe",
+      "knowledgeId": "business-industry",
+      "syllabusRef": "ストラテジ系 / ビジネスインダストリ",
+      "weight": 1
+    },
+    {
+      "examId": "fe",
+      "knowledgeId": "corporate-activity",
+      "syllabusRef": "ストラテジ系 / 企業活動",
+      "weight": 1
+    },
+    {
+      "examId": "fe",
+      "knowledgeId": "legal",
+      "syllabusRef": "ストラテジ系 / 法務",
+      "weight": 1
     }
-  ]
+  ],
+  "questions": []
 }

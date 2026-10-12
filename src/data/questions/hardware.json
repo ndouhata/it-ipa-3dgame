@@ -1,0 +1,180 @@
+{
+ "questions": [
+  {
+   "id": "hw-01",
+   "knowledgeIds": [
+    "hardware"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "USBの説明として、適切なものはどれか。",
+   "choices": [
+    "シリアルインタフェースで、電源を入れたまま機器を抜き差しできる（ホットプラグ）",
+    "パラレルインタフェースで、プリンタ専用である",
+    "赤外線を使う無線インタフェースである",
+    "ディスプレイ専用の映像インタフェースである"
+   ],
+   "answer": 0,
+   "explanation": "USBはシリアル伝送で、ホットプラグやバスパワー（給電）に対応する。"
+  },
+  {
+   "id": "hw-02",
+   "knowledgeIds": [
+    "hardware"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "数メートルから数十メートル程度の近距離で、機器どうしを無線で接続する規格はどれか。",
+   "choices": [
+    "Bluetooth",
+    "HDMI",
+    "SATA",
+    "IEEE 1394"
+   ],
+   "answer": 0,
+   "explanation": "Bluetoothはキーボードやイヤホンなどの近距離無線接続に使われる。"
+  },
+  {
+   "id": "hw-03",
+   "knowledgeIds": [
+    "hardware"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "SSDの特徴として、適切なものはどれか。",
+   "choices": [
+    "フラッシュメモリを用い、機械的な可動部分がない",
+    "磁気ディスクを高速に回転させて読み書きする",
+    "電源を切るとデータが消える",
+    "テープに順番に記録する"
+   ],
+   "answer": 0,
+   "explanation": "SSDはフラッシュメモリを使うため可動部がなく、高速で衝撃に強い。"
+  },
+  {
+   "id": "hw-04",
+   "knowledgeIds": [
+    "hardware"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "コンピュータからの電気信号を、機械的な動きに変換する装置はどれか。",
+   "choices": [
+    "アクチュエータ",
+    "センサ",
+    "A/Dコンバータ",
+    "エンコーダ"
+   ],
+   "answer": 0,
+   "explanation": "モータなどで物理的な動作を行うのがアクチュエータ。周囲の状態を測るのはセンサ。"
+  },
+  {
+   "id": "hw-05",
+   "knowledgeIds": [
+    "hardware"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "温度センサの出力などのアナログ信号を、コンピュータで扱えるデジタル信号に変換する装置はどれか。",
+   "choices": [
+    "A/Dコンバータ",
+    "D/Aコンバータ",
+    "アクチュエータ",
+    "インバータ"
+   ],
+   "answer": 0,
+   "explanation": "アナログ→デジタルがA/D、デジタル→アナログがD/A。"
+  },
+  {
+   "id": "hw-06",
+   "knowledgeIds": [
+    "hardware"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "製造後に、利用者が論理回路の構成を書き換えることができる集積回路はどれか。",
+   "choices": [
+    "FPGA",
+    "ASIC",
+    "DRAM",
+    "マスクROM"
+   ],
+   "answer": 0,
+   "explanation": "FPGAはプログラムで回路を書き換えられる。特定用途向けに作り込むのがASIC。"
+  },
+  {
+   "id": "hw-07",
+   "knowledgeIds": [
+    "hardware"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "電波を利用して、ICタグの情報を非接触で読み書きする技術はどれか。",
+   "choices": [
+    "RFID",
+    "OCR",
+    "バーコード",
+    "OMR"
+   ],
+   "answer": 0,
+   "explanation": "RFIDは商品管理や交通系ICカードなどに使われる。"
+  },
+  {
+   "id": "hw-08",
+   "knowledgeIds": [
+    "hardware"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "停電時に、一定時間コンピュータに電力を供給し続ける装置はどれか。",
+   "choices": [
+    "UPS（無停電電源装置）",
+    "サージ防護機器",
+    "ルータ",
+    "KVMスイッチ"
+   ],
+   "answer": 0,
+   "explanation": "UPSは停電時にバッテリから電力を供給し、安全に停止する時間を確保する。"
+  }
+ ]
+}

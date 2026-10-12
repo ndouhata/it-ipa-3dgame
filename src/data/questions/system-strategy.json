@@ -1,0 +1,114 @@
+{
+ "questions": [
+  {
+   "id": "ss-01",
+   "knowledgeIds": [
+    "system-strategy"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "業務プロセスを根本的に見直し、抜本的に再設計することで業績を大幅に改善する手法はどれか。",
+   "choices": [
+    "BPR",
+    "BPO",
+    "RPA",
+    "SFA"
+   ],
+   "answer": 0,
+   "explanation": "BPR（ビジネスプロセスリエンジニアリング）。業務の外部委託はBPO。"
+  },
+  {
+   "id": "ss-02",
+   "knowledgeIds": [
+    "system-strategy"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "人がパソコンで行っている定型的な作業を、ソフトウェアのロボットで自動化する技術はどれか。",
+   "choices": [
+    "RPA",
+    "BPR",
+    "ERP",
+    "CRM"
+   ],
+   "answer": 0,
+   "explanation": "RPA（Robotic Process Automation）は画面操作などの定型業務を自動化する。"
+  },
+  {
+   "id": "ss-03",
+   "knowledgeIds": [
+    "system-strategy"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "組織全体の業務とシステムを、ビジネス・データ・アプリケーション・技術の4つの体系で整理して最適化を図る手法はどれか。",
+   "choices": [
+    "エンタープライズアーキテクチャ（EA）",
+    "SOA",
+    "ERP",
+    "BPMN"
+   ],
+   "answer": 0,
+   "explanation": "EAは組織全体の業務とシステムを統一的に整理する枠組み。"
+  },
+  {
+   "id": "ss-04",
+   "knowledgeIds": [
+    "system-strategy"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "業務の機能をサービスという単位で部品化し、それらを組み合わせてシステムを構築する考え方はどれか。",
+   "choices": [
+    "SOA",
+    "EA",
+    "BPR",
+    "SaaS"
+   ],
+   "answer": 0,
+   "explanation": "SOA（サービス指向アーキテクチャ）。"
+  },
+  {
+   "id": "ss-05",
+   "knowledgeIds": [
+    "system-strategy"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "社員が個人で所有するスマートフォンなどを業務に利用することを何というか。",
+   "choices": [
+    "BYOD",
+    "MDM",
+    "シャドーIT",
+    "テレワーク"
+   ],
+   "answer": 0,
+   "explanation": "Bring Your Own Device。許可なく私物や未承認サービスを使うのはシャドーIT。"
+  }
+ ]
+}

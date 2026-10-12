@@ -1,0 +1,290 @@
+{
+ "questions": [
+  {
+   "id": "nw-01",
+   "knowledgeIds": [
+    "network"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "OSI基本参照モデルで、IPが該当する層はどれか。",
+   "choices": [
+    "ネットワーク層",
+    "データリンク層",
+    "トランスポート層",
+    "セッション層"
+   ],
+   "answer": 0,
+   "explanation": "IPは第3層のネットワーク層。TCP・UDPは第4層のトランスポート層。"
+  },
+  {
+   "id": "nw-02",
+   "knowledgeIds": [
+    "network"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "コネクションを確立せずにデータを送り、到達確認や再送を行わないトランスポート層のプロトコルはどれか。",
+   "choices": [
+    "UDP",
+    "TCP",
+    "IP",
+    "ARP"
+   ],
+   "answer": 0,
+   "explanation": "UDPはコネクションレスで高速。TCPはコネクション型で信頼性が高い。"
+  },
+  {
+   "id": "nw-03",
+   "knowledgeIds": [
+    "network"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "ドメイン名とIPアドレスを対応付ける仕組みはどれか。",
+   "choices": [
+    "DNS",
+    "DHCP",
+    "NAT",
+    "ARP"
+   ],
+   "answer": 0,
+   "explanation": "DNSはドメイン名からIPアドレスを調べる（名前解決）。"
+  },
+  {
+   "id": "nw-04",
+   "knowledgeIds": [
+    "network"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "ネットワークに接続した端末に、IPアドレスなどの設定情報を自動的に割り当てるプロトコルはどれか。",
+   "choices": [
+    "DHCP",
+    "DNS",
+    "SMTP",
+    "NTP"
+   ],
+   "answer": 0,
+   "explanation": "DHCPはIPアドレスなどを自動配布する。"
+  },
+  {
+   "id": "nw-05",
+   "knowledgeIds": [
+    "network"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "プライベートIPアドレスとグローバルIPアドレスを、ポート番号も含めて変換し、複数の端末で1つのグローバルIPアドレスを共有できるようにする技術はどれか。",
+   "choices": [
+    "NAPT",
+    "NAT",
+    "DHCP",
+    "DNS"
+   ],
+   "answer": 0,
+   "explanation": "ポート番号まで変換するのがNAPT（IPマスカレード）。アドレスだけを1対1で変換するのがNAT。"
+  },
+  {
+   "id": "nw-06",
+   "knowledgeIds": [
+    "network"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "サブネットマスクが255.255.255.0（/24）のネットワークで、ホストに割り当てられるIPアドレスの最大数はどれか。",
+   "choices": [
+    "254",
+    "256",
+    "255",
+    "24"
+   ],
+   "answer": 0,
+   "explanation": "ホスト部8ビットで256通り。全0（ネットワークアドレス）と全1（ブロードキャスト）を除いて254。"
+  },
+  {
+   "id": "nw-07",
+   "knowledgeIds": [
+    "network"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "HTTPSで用いられる標準のポート番号はどれか。",
+   "choices": [
+    "443",
+    "80",
+    "25",
+    "21"
+   ],
+   "answer": 0,
+   "explanation": "HTTPは80、HTTPSは443、SMTPは25、FTP制御は21。"
+  },
+  {
+   "id": "nw-08",
+   "knowledgeIds": [
+    "network"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "電子メールを送信するときに用いられるプロトコルはどれか。",
+   "choices": [
+    "SMTP",
+    "POP3",
+    "IMAP",
+    "FTP"
+   ],
+   "answer": 0,
+   "explanation": "送信・転送はSMTP。受信はPOP3やIMAP。"
+  },
+  {
+   "id": "nw-09",
+   "knowledgeIds": [
+    "network"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "IPアドレスから、対応する機器のMACアドレスを調べるプロトコルはどれか。",
+   "choices": [
+    "ARP",
+    "DNS",
+    "DHCP",
+    "ICMP"
+   ],
+   "answer": 0,
+   "explanation": "ARPはIPアドレス→MACアドレスの解決に使う。"
+  },
+  {
+   "id": "nw-10",
+   "knowledgeIds": [
+    "network"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "MACアドレスを見てフレームを中継する、データリンク層で動作する装置はどれか。",
+   "choices": [
+    "スイッチングハブ（レイヤ2スイッチ）",
+    "ルータ",
+    "リピータハブ",
+    "ゲートウェイ"
+   ],
+   "answer": 0,
+   "explanation": "MACアドレスで中継するのはL2スイッチ。IPアドレスで経路を選ぶのはルータ（ネットワーク層）。"
+  },
+  {
+   "id": "nw-11",
+   "knowledgeIds": [
+    "network"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "IPv6のアドレス長はどれか。",
+   "choices": [
+    "128ビット",
+    "32ビット",
+    "48ビット",
+    "64ビット"
+   ],
+   "answer": 0,
+   "explanation": "IPv4は32ビット、IPv6は128ビット。MACアドレスは48ビット。"
+  },
+  {
+   "id": "nw-12",
+   "knowledgeIds": [
+    "network"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "1Mバイトのファイルを、伝送速度100Mビット/秒・伝送効率80%の回線で送るのにかかる時間は何秒か（1Mバイト＝8Mビットとする）。",
+   "choices": [
+    "0.1",
+    "0.08",
+    "0.8",
+    "1.25"
+   ],
+   "answer": 0,
+   "explanation": "8Mビット÷（100Mビット/秒×0.8）＝0.1秒。"
+  },
+  {
+   "id": "nw-13",
+   "knowledgeIds": [
+    "network"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "ネットワークの疎通確認に使われ、エラー通知などを行うプロトコルはどれか。",
+   "choices": [
+    "ICMP",
+    "SNMP",
+    "SMTP",
+    "ARP"
+   ],
+   "answer": 0,
+   "explanation": "pingコマンドはICMPを使う。"
+  }
+ ]
+}

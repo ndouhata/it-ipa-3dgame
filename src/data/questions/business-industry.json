@@ -1,0 +1,158 @@
+{
+ "questions": [
+  {
+   "id": "bi-01",
+   "knowledgeIds": [
+    "business-industry"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "販売時点で商品の情報を収集し、売上や在庫の管理に活用するシステムはどれか。",
+   "choices": [
+    "POSシステム",
+    "EDI",
+    "ETC",
+    "GPS"
+   ],
+   "answer": 0,
+   "explanation": "POS（販売時点情報管理）はレジで売れた商品の情報を集める。"
+  },
+  {
+   "id": "bi-02",
+   "knowledgeIds": [
+    "business-industry"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "企業の基幹業務（販売・生産・会計・人事など）を統合して管理し、経営資源を有効に活用するための仕組みはどれか。",
+   "choices": [
+    "ERP",
+    "CRM",
+    "SCM",
+    "SFA"
+   ],
+   "answer": 0,
+   "explanation": "ERP（統合基幹業務システム）。"
+  },
+  {
+   "id": "bi-03",
+   "knowledgeIds": [
+    "business-industry"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "企業間の受発注などの取引データを、標準的な形式で電子的に交換する仕組みはどれか。",
+   "choices": [
+    "EDI",
+    "POS",
+    "ERP",
+    "EC"
+   ],
+   "answer": 0,
+   "explanation": "EDI（電子データ交換）。"
+  },
+  {
+   "id": "bi-04",
+   "knowledgeIds": [
+    "business-industry"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "機械学習のうち、正解のラベルが付いたデータを使って学習する方式はどれか。",
+   "choices": [
+    "教師あり学習",
+    "教師なし学習",
+    "強化学習",
+    "転移学習"
+   ],
+   "answer": 0,
+   "explanation": "正解付きのデータで学ぶのが教師あり学習。報酬で行動を学ぶのが強化学習。"
+  },
+  {
+   "id": "bi-05",
+   "knowledgeIds": [
+    "business-industry"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "多数の層からなるニューラルネットワークを用いた機械学習の手法はどれか。",
+   "choices": [
+    "ディープラーニング",
+    "エキスパートシステム",
+    "ルールベース",
+    "回帰分析"
+   ],
+   "answer": 0,
+   "explanation": "多層のニューラルネットワークで特徴を自動で学習する。"
+  },
+  {
+   "id": "bi-06",
+   "knowledgeIds": [
+    "business-industry"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "取引の記録をブロックにまとめ、ハッシュ値で鎖のようにつないで、複数の参加者で共有・管理する技術はどれか。",
+   "choices": [
+    "ブロックチェーン",
+    "クラウドコンピューティング",
+    "RAID",
+    "VPN"
+   ],
+   "answer": 0,
+   "explanation": "改ざんが困難な分散型の台帳技術。暗号資産などに使われる。"
+  },
+  {
+   "id": "bi-07",
+   "knowledgeIds": [
+    "business-industry"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "さまざまなモノがインターネットにつながり、情報をやり取りする仕組みを何というか。",
+   "choices": [
+    "IoT",
+    "AI",
+    "RPA",
+    "VR"
+   ],
+   "answer": 0,
+   "explanation": "Internet of Things（モノのインターネット）。"
+  }
+ ]
+}

@@ -1,0 +1,202 @@
+{
+ "questions": [
+  {
+   "id": "bs-01",
+   "knowledgeIds": [
+    "business-strategy"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "自社の強み・弱みと、外部環境の機会・脅威を分析する手法はどれか。",
+   "choices": [
+    "SWOT分析",
+    "PPM",
+    "3C分析",
+    "バランススコアカード"
+   ],
+   "answer": 0,
+   "explanation": "Strength・Weakness・Opportunity・Threatの頭文字。"
+  },
+  {
+   "id": "bs-02",
+   "knowledgeIds": [
+    "business-strategy"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "PPMで、市場成長率が高く、市場占有率も高い事業はどれか。",
+   "choices": [
+    "花形",
+    "金のなる木",
+    "問題児",
+    "負け犬"
+   ],
+   "answer": 0,
+   "explanation": "成長率高・シェア高は花形。成長率低・シェア高は金のなる木。"
+  },
+  {
+   "id": "bs-03",
+   "knowledgeIds": [
+    "business-strategy"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "顧客（Customer）・競合（Competitor）・自社（Company）の3つの観点から分析する手法はどれか。",
+   "choices": [
+    "3C分析",
+    "SWOT分析",
+    "4P",
+    "VRIO分析"
+   ],
+   "answer": 0,
+   "explanation": "市場と競合と自社を見て成功要因を探る。"
+  },
+  {
+   "id": "bs-04",
+   "knowledgeIds": [
+    "business-strategy"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "他社がまねできない、自社ならではの中核的な能力を何というか。",
+   "choices": [
+    "コアコンピタンス",
+    "アウトソーシング",
+    "ベンチマーキング",
+    "ニッチ戦略"
+   ],
+   "answer": 0,
+   "explanation": "競争優位の源泉となる中核的な強み。"
+  },
+  {
+   "id": "bs-05",
+   "knowledgeIds": [
+    "business-strategy"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "マーケティングミックスの4Pに含まれないものはどれか。",
+   "choices": [
+    "People（人材）",
+    "Product（製品）",
+    "Price（価格）",
+    "Promotion（販売促進）"
+   ],
+   "answer": 0,
+   "explanation": "4PはProduct・Price・Place（流通）・Promotion。"
+  },
+  {
+   "id": "bs-06",
+   "knowledgeIds": [
+    "business-strategy"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "バランススコアカードの4つの視点に含まれないものはどれか。",
+   "choices": [
+    "競合",
+    "財務",
+    "顧客",
+    "学習と成長"
+   ],
+   "answer": 0,
+   "explanation": "4つの視点は財務・顧客・業務プロセス・学習と成長。"
+  },
+  {
+   "id": "bs-07",
+   "knowledgeIds": [
+    "business-strategy"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "顧客との関係を長期的に維持・強化するために、顧客情報を一元管理して活用する手法はどれか。",
+   "choices": [
+    "CRM",
+    "SCM",
+    "ERP",
+    "SFA"
+   ],
+   "answer": 0,
+   "explanation": "CRMは顧客関係管理。調達から販売までの流れを最適化するのはSCM。"
+  },
+  {
+   "id": "bs-08",
+   "knowledgeIds": [
+    "business-strategy"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "最終的な目標の達成度を測る指標をKGIというのに対し、その達成に向けた中間的な活動の進み具合を測る指標はどれか。",
+   "choices": [
+    "KPI",
+    "ROI",
+    "CSF",
+    "SLA"
+   ],
+   "answer": 0,
+   "explanation": "KPI（重要業績評価指標）。目標達成のための重要な成功要因はCSF。"
+  },
+  {
+   "id": "bs-09",
+   "knowledgeIds": [
+    "business-strategy"
+   ],
+   "examIds": [
+    "fe"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（基本情報技術者試験の出題範囲に準拠）"
+   },
+   "stem": "大手企業が参入していない小さな市場に経営資源を集中させる戦略はどれか。",
+   "choices": [
+    "ニッチ戦略",
+    "コストリーダシップ戦略",
+    "多角化戦略",
+    "垂直統合"
+   ],
+   "answer": 0,
+   "explanation": "すき間（ニッチ）市場で優位に立つ戦略。"
+  }
+ ]
+}
