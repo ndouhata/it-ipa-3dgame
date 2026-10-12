@@ -1,0 +1,136 @@
+{
+ "questions": [
+  {
+   "id": "ai4-01",
+   "knowledgeIds": [
+    "ai-related"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "ディープラーニングの学習で広く使われる、大量の単純な計算を並列に処理するのが得意な演算装置はどれか。",
+   "choices": [
+    "GPU",
+    "CPU",
+    "SSD",
+    "NIC"
+   ],
+   "answer": 0,
+   "explanation": "もとは画像処理用。行列計算を並列に行えるため深層学習に向く。Googleが開発した深層学習専用のものはTPU。"
+  },
+  {
+   "id": "ai4-02",
+   "knowledgeIds": [
+    "ai-related"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "Googleが開発した、ディープラーニングの計算に特化した演算装置はどれか。",
+   "choices": [
+    "TPU",
+    "GPU",
+    "FPGA",
+    "DSP"
+   ],
+   "answer": 0,
+   "explanation": "TPU（Tensor Processing Unit）はテンソル計算に特化している。"
+  },
+  {
+   "id": "ai4-03",
+   "knowledgeIds": [
+    "ai-related"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "さまざまなモノがインターネットにつながり、大量のデータを集められるようになった仕組みはどれか。",
+   "choices": [
+    "IoT",
+    "RPA",
+    "VPN",
+    "ERP"
+   ],
+   "answer": 0,
+   "explanation": "IoTで集まるビッグデータが機械学習の材料になる。"
+  },
+  {
+   "id": "ai4-04",
+   "knowledgeIds": [
+    "ai-related"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "政府や自治体などが、誰でも自由に利用・再配布できる形で公開しているデータを何というか。",
+   "choices": [
+    "オープンデータ",
+    "ビッグデータ",
+    "パーソナルデータ",
+    "メタデータ"
+   ],
+   "answer": 0,
+   "explanation": "機械読み取りに適した形式で、二次利用が許されているデータ。"
+  },
+  {
+   "id": "ai4-05",
+   "knowledgeIds": [
+    "ai-related"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "データをクラウドに送らず、データが発生した端末の近くでAIの処理を行う方式を何というか。",
+   "choices": [
+    "エッジコンピューティング",
+    "クラウドコンピューティング",
+    "グリッドコンピューティング",
+    "量子コンピューティング"
+   ],
+   "answer": 0,
+   "explanation": "通信の遅延を減らせ、データを外に出さずに済む利点がある。"
+  },
+  {
+   "id": "ai4-06",
+   "knowledgeIds": [
+    "ai-related"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "画像に「これは猫」などの正解ラベルを付けて、教師あり学習用のデータを作る作業を何というか。",
+   "choices": [
+    "アノテーション",
+    "スクレイピング",
+    "クレンジング",
+    "デプロイ"
+   ],
+   "answer": 0,
+   "explanation": "正解データを付ける作業をアノテーションという。品質が学習結果を左右する。"
+  }
+ ]
+}

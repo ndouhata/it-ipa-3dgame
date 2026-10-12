@@ -1,6 +1,10 @@
 {
   "exams": [
     {
+      "examId": "ai",
+      "name": "AI検定（G検定相当の範囲）"
+    },
+    {
       "examId": "fe",
       "name": "基本情報技術者試験",
       "sourceUrl": "https://www.ipa.go.jp/shiken/"
@@ -143,6 +147,66 @@
       "examId": "fe",
       "knowledgeId": "legal",
       "syllabusRef": "ストラテジ系 / 法務",
+      "weight": 1
+    },
+    {
+      "examId": "ai",
+      "knowledgeId": "ai-overview",
+      "syllabusRef": "AIの概要",
+      "weight": 1
+    },
+    {
+      "examId": "ai",
+      "knowledgeId": "ai-history",
+      "syllabusRef": "AIの歴史",
+      "weight": 1
+    },
+    {
+      "examId": "ai",
+      "knowledgeId": "ai-issues",
+      "syllabusRef": "AI分野の課題",
+      "weight": 1
+    },
+    {
+      "examId": "ai",
+      "knowledgeId": "ai-related",
+      "syllabusRef": "AIの関連知識",
+      "weight": 1
+    },
+    {
+      "examId": "ai",
+      "knowledgeId": "ai-ml",
+      "syllabusRef": "機械学習",
+      "weight": 1
+    },
+    {
+      "examId": "ai",
+      "knowledgeId": "ai-dl",
+      "syllabusRef": "深層学習",
+      "weight": 1
+    },
+    {
+      "examId": "ai",
+      "knowledgeId": "ai-dl-types",
+      "syllabusRef": "深層学習の種類",
+      "weight": 1
+    },
+    {
+      "examId": "ai",
+      "knowledgeId": "ai-society",
+      "syllabusRef": "産業への応用とAI社会",
+      "weight": 1
+    },
+    {
+      "examId": "ai",
+      "knowledgeId": "ai-ip",
+      "syllabusRef": "知的財産の保護",
+      "weight": 1
+    },
+    {
+      "examId": "ai",
+      "knowledgeId": "ai-math",
+      "syllabusRef": "基礎数学",
       "weight": 1
     }
   ],

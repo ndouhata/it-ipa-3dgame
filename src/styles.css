@@ -237,6 +237,7 @@ html, body { margin: 0; height: 100%; overflow: hidden; background: #0e1424; col
 .hub-body { display: grid; grid-template-columns: 1fr 240px; grid-template-rows: minmax(0, 1fr); gap: 12px; min-height: 0; flex: 1; }
 .hub-quests { display: grid; gap: 10px; overflow-y: auto; overscroll-behavior: contain; touch-action: pan-y; -webkit-overflow-scrolling: touch; align-content: start; padding-right: 4px; min-height: 0; }
 .hub-quest { padding: 10px 14px; }
+.hub-group { margin-top: 6px; padding: 4px 2px; font-size: 15px; font-weight: 800; color: var(--gold); border-bottom: 1px solid var(--line); text-shadow: 0 2px 4px #000; }
 .hub-quest h3 { margin: 0; color: var(--gold-2); font-size: 17px; }
 .hub-quest p { margin: 6px 0; }
 .hub-quest.locked { opacity: 0.55; }

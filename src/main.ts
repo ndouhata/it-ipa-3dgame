@@ -2,6 +2,7 @@ import './styles.css';
 import { loadGameData } from './data/registry';
 import { SaveManager } from './save/SaveManager';
 import { Game } from './game/Game';
+import { applyPrivateSet, loadPrivateSet } from './quiz/PrivateQuestions';
 
 const bootMsg = document.getElementById('boot-msg')!;
 const boot = document.getElementById('boot')!;
@@ -15,6 +16,8 @@ function showFatal(e: unknown) {
 
 async function main() {
   const data = loadGameData();
+  // この端末に取り込んだ自分用の問題を組み込む（公開ファイルには含まれない）
+  applyPrivateSet(data, await loadPrivateSet());
   const saves = new SaveManager();
   const save = await saves.load();
   const canvas = document.getElementById('game') as HTMLCanvasElement;

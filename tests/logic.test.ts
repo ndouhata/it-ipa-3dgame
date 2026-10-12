@@ -19,8 +19,8 @@ function seeded(seed = 1) {
 
 describe('データ', () => {
   it('全データが読み込め、どのクエストにも問題がある', () => {
-    expect(questions.length).toBeGreaterThanOrEqual(200);
-    expect(data.knowledge.size).toBe(23);
+    expect(questions.length).toBeGreaterThanOrEqual(300);
+    expect(data.knowledge.size).toBe(33);
     for (const q of data.questList) {
       expect(questions.some((x) => x.knowledgeIds.some((k) => q.knowledgeIds.includes(k)))).toBe(true);
     }
@@ -135,5 +135,35 @@ describe('敵の強さの換算', () => {
     expect(weak.stats.hp).toBeLessThan(boss.stats.hp / 2);
     gs.save.player.level = 20;
     expect(gs.enemyLevelFor('market')).toBe(15);
+  });
+});
+
+import { parseDelimited, rowsToQuestions, applyPrivateSet, TEMPLATE_CSV, decodeText } from '../src/quiz/PrivateQuestions';
+
+describe('自分の問題の取り込み', () => {
+  it('CSV（引用符・カンマ・改行・見出し行）を読める', () => {
+    const csv = '分野,問題文,正解,誤答1,誤答2,誤答3,解説\r\nAI,"カンマ, を含む\n問題",正解A,誤1,誤2,,"""引用""あり"\r\n,問題2,B,C,,,\n';
+    const { rows, errors } = rowsToQuestions(parseDelimited(csv));
+    expect(errors).toEqual([]);
+    expect(rows[0]).toEqual({ field: 'AI', stem: 'カンマ, を含む\n問題', correct: '正解A', wrongs: ['誤1', '誤2'], explanation: '"引用"あり' });
+    expect(rows[1].field).toBe('その他');
+  });
+  it('見本ファイルがそのまま取り込める', () => {
+    const { rows, errors } = rowsToQuestions(parseDelimited(TEMPLATE_CSV));
+    expect(errors).toEqual([]);
+    expect(rows.length).toBe(2);
+  });
+  it('UTF-8でない文字コードもエラーにせず読む', () => {
+    expect(decodeText(new TextEncoder().encode('\uFEFFあ').buffer as ArrayBuffer)).toBe('あ');
+    expect(() => decodeText(new Uint8Array([0x82, 0xa0]).buffer)).not.toThrow(); // Shift_JISの「あ」
+  });
+  it('取り込んだ問題で「自分の問題集」クエストができ、出題できる', () => {
+    const d = loadGameData();
+    const { rows } = rowsToQuestions(parseDelimited(TEMPLATE_CSV));
+    applyPrivateSet(d, { fileName: 'x.csv', importedAt: '', rows });
+    const q = d.quests.get('my-questions')!;
+    expect(d.questList[0].id).toBe('my-questions');
+    const eng = new QuestionEngine(d.exams.questions, createNewSave(), d.progression.quiz);
+    expect(eng.next(q.knowledgeIds).question.id.startsWith('myq-')).toBe(true);
   });
 });

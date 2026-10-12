@@ -7,6 +7,7 @@ export interface HubActions {
   craft: () => void;
   menu: () => void;
   characters: () => void;
+  importQuestions: () => void;
 }
 
 export class HubUI {
@@ -21,7 +22,12 @@ export class HubUI {
     clear(this.root);
     this.root.style.display = '';
     const quests = h('div', { class: 'hub-quests' });
+    let lastGroup = '';
     for (const q of gs.data.questList) {
+      if (q.group !== lastGroup) {
+        lastGroup = q.group;
+        quests.append(h('div', { class: 'hub-group', text: q.group }));
+      }
       const unlocked = gs.isUnlocked(q.id);
       const qp = gs.quest(q.id);
       const stars = q.knowledgeIds.map((k) => {
@@ -42,7 +48,8 @@ export class HubUI {
     const side = h('div', { class: 'hub-side' },
       h('button', { class: 'btn hub-btn', text: '⚒ 工房（装備の作成・強化）', onclick: act.craft }),
       h('button', { class: 'btn hub-btn', text: '📜 ステータス・装備・図鑑', onclick: act.menu }),
-      h('button', { class: 'btn hub-btn', text: '🧍 キャラクター登録', onclick: act.characters }));
+      h('button', { class: 'btn hub-btn', text: '🧍 キャラクター登録', onclick: act.characters }),
+      h('button', { class: 'btn hub-btn', text: '📥 自分の問題を取り込む', onclick: act.importQuestions }));
     this.root.append(h('div', { class: 'hub-title', text: 'クエストを選んで出撃' }), h('div', { class: 'hub-body' }, quests, side));
   }
 

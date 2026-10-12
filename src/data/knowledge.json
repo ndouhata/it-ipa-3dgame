@@ -1,6 +1,76 @@
 {
   "knowledge": [
     {
+      "knowledgeId": "ai-overview",
+      "nameJa": "AIの概要",
+      "nameEn": "AI Overview",
+      "category": "AI検定",
+      "formalDescription": "AIの定義、強いAI・弱いAI、AI効果、AIのレベル、エージェント、特化型AIと汎用AI。"
+    },
+    {
+      "knowledgeId": "ai-history",
+      "nameJa": "AIの歴史",
+      "nameEn": "AI History",
+      "category": "AI検定",
+      "formalDescription": "ダートマス会議、3度のAIブーム（推論・探索／知識・エキスパートシステム／機械学習・深層学習）、ELIZA、Cyc、AlexNet、AlphaGo。"
+    },
+    {
+      "knowledgeId": "ai-issues",
+      "nameJa": "AI分野の課題",
+      "nameEn": "AI Issues",
+      "category": "AI検定",
+      "formalDescription": "フレーム問題、シンボルグラウンディング問題、チューリングテスト、中国語の部屋、身体性、シンギュラリティ、次元の呪い。"
+    },
+    {
+      "knowledgeId": "ai-related",
+      "nameJa": "AIの関連知識",
+      "nameEn": "AI Related",
+      "category": "AI検定",
+      "formalDescription": "GPU・TPU、IoTとビッグデータ、オープンデータ、エッジコンピューティング、アノテーション。"
+    },
+    {
+      "knowledgeId": "ai-ml",
+      "nameJa": "機械学習",
+      "nameEn": "Machine Learning",
+      "category": "AI検定",
+      "formalDescription": "教師あり（回帰・分類）・教師なし・強化学習、代表的な手法（ロジスティック回帰・SVM・ランダムフォレスト・k-means・PCA・k近傍法）、過学習と正則化、交差検証、評価指標。"
+    },
+    {
+      "knowledgeId": "ai-dl",
+      "nameJa": "深層学習",
+      "nameEn": "Deep Learning",
+      "category": "AI検定",
+      "formalDescription": "パーセプトロンとXOR、誤差逆伝播法、勾配消失、活性化関数（ReLU・シグモイド・ソフトマックス）、勾配降下法、ドロップアウト、早期終了、バッチ正規化、エポック、オートエンコーダ。"
+    },
+    {
+      "knowledgeId": "ai-dl-types",
+      "nameJa": "深層学習の種類",
+      "nameEn": "DL Models",
+      "category": "AI検定",
+      "formalDescription": "CNN（畳み込み・プーリング）、RNN・LSTM、GAN、Transformer、転移学習、ResNet、word2vec、物体検出。"
+    },
+    {
+      "knowledgeId": "ai-society",
+      "nameJa": "産業への応用とAI社会",
+      "nameEn": "AI & Society",
+      "category": "AI検定",
+      "formalDescription": "自動運転のレベル、説明可能なAI、バイアス、ディープフェイク、人間中心のAI社会原則、EUのAI規則、PoC、MLOps、ELSI。"
+    },
+    {
+      "knowledgeId": "ai-ip",
+      "nameJa": "知的財産の保護",
+      "nameEn": "IP & Law",
+      "category": "AI検定",
+      "formalDescription": "著作権法第30条の4、AI生成物の著作物性、営業秘密、限定提供データ、仮名加工情報・匿名加工情報、特許、契約ガイドライン。"
+    },
+    {
+      "knowledgeId": "ai-math",
+      "nameJa": "基礎数学",
+      "nameEn": "Math",
+      "category": "AI検定",
+      "formalDescription": "代表値、分散・標準偏差、相関係数、正規分布、行列の積、ベイズの定理、損失関数、距離、シグモイド関数の値域、微分と勾配。"
+    },
+    {
       "knowledgeId": "basic-theory",
       "nameJa": "基礎理論",
       "nameEn": "Basic Theory",

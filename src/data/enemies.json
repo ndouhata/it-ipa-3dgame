@@ -503,6 +503,321 @@
         ],
         "scale": 1.28
       }
+    },
+    {
+      "id": "ai-lab-slime",
+      "name": "推論スライム",
+      "rank": "normal",
+      "stats": {
+        "hp": 27,
+        "atk": 15,
+        "def": 2
+      },
+      "exp": 3,
+      "dropTableId": "road-small",
+      "appearance": {
+        "shape": "slime",
+        "color": [
+          0.4,
+          0.8,
+          0.9
+        ],
+        "scale": 1.0
+      }
+    },
+    {
+      "id": "ai-lab-beetle",
+      "name": "探索ビートル",
+      "rank": "normal",
+      "stats": {
+        "hp": 34,
+        "atk": 17,
+        "def": 3
+      },
+      "exp": 3,
+      "dropTableId": "road-small",
+      "appearance": {
+        "shape": "beetle",
+        "color": [
+          0.3,
+          0.5,
+          0.7
+        ],
+        "scale": 1.0
+      }
+    },
+    {
+      "id": "ai-lab-boss",
+      "name": "初代の自動人形",
+      "rank": "boss",
+      "stats": {
+        "hp": 91,
+        "atk": 22,
+        "def": 3
+      },
+      "exp": 10,
+      "dropTableId": "road-boss",
+      "appearance": {
+        "shape": "ogre",
+        "color": [
+          0.6,
+          0.6,
+          0.7
+        ],
+        "scale": 1.0
+      }
+    },
+    {
+      "id": "ai-maze-slime",
+      "name": "記号スライム",
+      "rank": "normal",
+      "stats": {
+        "hp": 36,
+        "atk": 19,
+        "def": 2
+      },
+      "exp": 16,
+      "dropTableId": "road-small",
+      "appearance": {
+        "shape": "slime",
+        "color": [
+          0.7,
+          0.5,
+          0.9
+        ],
+        "scale": 1.06
+      }
+    },
+    {
+      "id": "ai-maze-beetle",
+      "name": "次元ビートル",
+      "rank": "normal",
+      "stats": {
+        "hp": 45,
+        "atk": 21,
+        "def": 3
+      },
+      "exp": 19,
+      "dropTableId": "road-small",
+      "appearance": {
+        "shape": "beetle",
+        "color": [
+          0.45,
+          0.3,
+          0.6
+        ],
+        "scale": 1.04
+      }
+    },
+    {
+      "id": "ai-maze-boss",
+      "name": "フレームの番人",
+      "rank": "boss",
+      "stats": {
+        "hp": 122,
+        "atk": 28,
+        "def": 4
+      },
+      "exp": 61,
+      "dropTableId": "road-boss",
+      "appearance": {
+        "shape": "ogre",
+        "color": [
+          0.4,
+          0.35,
+          0.5
+        ],
+        "scale": 1.04
+      }
+    },
+    {
+      "id": "ai-forest-slime",
+      "name": "勾配スライム",
+      "rank": "normal",
+      "stats": {
+        "hp": 45,
+        "atk": 23,
+        "def": 3
+      },
+      "exp": 35,
+      "dropTableId": "archive-small",
+      "appearance": {
+        "shape": "slime",
+        "color": [
+          0.4,
+          0.85,
+          0.4
+        ],
+        "scale": 1.12
+      }
+    },
+    {
+      "id": "ai-forest-beetle",
+      "name": "重みビートル",
+      "rank": "normal",
+      "stats": {
+        "hp": 57,
+        "atk": 26,
+        "def": 4
+      },
+      "exp": 43,
+      "dropTableId": "archive-small",
+      "appearance": {
+        "shape": "beetle",
+        "color": [
+          0.35,
+          0.55,
+          0.25
+        ],
+        "scale": 1.08
+      }
+    },
+    {
+      "id": "ai-forest-boss",
+      "name": "過学習の大樹",
+      "rank": "boss",
+      "stats": {
+        "hp": 153,
+        "atk": 34,
+        "def": 5
+      },
+      "exp": 138,
+      "dropTableId": "archive-boss",
+      "appearance": {
+        "shape": "ogre",
+        "color": [
+          0.3,
+          0.45,
+          0.2
+        ],
+        "scale": 1.08
+      }
+    },
+    {
+      "id": "ai-tower-slime",
+      "name": "畳み込みスライム",
+      "rank": "normal",
+      "stats": {
+        "hp": 54,
+        "atk": 28,
+        "def": 3
+      },
+      "exp": 61,
+      "dropTableId": "archive-small",
+      "appearance": {
+        "shape": "slime",
+        "color": [
+          0.9,
+          0.6,
+          0.3
+        ],
+        "scale": 1.18
+      }
+    },
+    {
+      "id": "ai-tower-beetle",
+      "name": "注意ビートル",
+      "rank": "normal",
+      "stats": {
+        "hp": 68,
+        "atk": 31,
+        "def": 5
+      },
+      "exp": 74,
+      "dropTableId": "archive-small",
+      "appearance": {
+        "shape": "beetle",
+        "color": [
+          0.75,
+          0.35,
+          0.2
+        ],
+        "scale": 1.12
+      }
+    },
+    {
+      "id": "ai-tower-boss",
+      "name": "生成の魔王",
+      "rank": "boss",
+      "stats": {
+        "hp": 185,
+        "atk": 40,
+        "def": 6
+      },
+      "exp": 236,
+      "dropTableId": "archive-boss",
+      "appearance": {
+        "shape": "ogre",
+        "color": [
+          0.5,
+          0.2,
+          0.55
+        ],
+        "scale": 1.12
+      }
+    },
+    {
+      "id": "ai-city-slime",
+      "name": "偽装スライム",
+      "rank": "normal",
+      "stats": {
+        "hp": 63,
+        "atk": 32,
+        "def": 4
+      },
+      "exp": 91,
+      "dropTableId": "rampart-small",
+      "appearance": {
+        "shape": "slime",
+        "color": [
+          0.85,
+          0.85,
+          0.9
+        ],
+        "scale": 1.24
+      }
+    },
+    {
+      "id": "ai-city-beetle",
+      "name": "監視ビートル",
+      "rank": "normal",
+      "stats": {
+        "hp": 80,
+        "atk": 35,
+        "def": 6
+      },
+      "exp": 111,
+      "dropTableId": "rampart-small",
+      "appearance": {
+        "shape": "beetle",
+        "color": [
+          0.3,
+          0.35,
+          0.4
+        ],
+        "scale": 1.16
+      }
+    },
+    {
+      "id": "ai-city-boss",
+      "name": "ディープフェイクの影",
+      "rank": "boss",
+      "stats": {
+        "hp": 216,
+        "atk": 46,
+        "def": 7
+      },
+      "exp": 353,
+      "dropTableId": "rampart-boss",
+      "appearance": {
+        "shape": "ogre",
+        "color": [
+          0.2,
+          0.2,
+          0.3
+        ],
+        "scale": 1.16
+      }
     }
   ]
 }

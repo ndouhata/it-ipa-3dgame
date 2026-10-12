@@ -24,8 +24,9 @@ import { MenuUI } from '../ui/MenuUI';
 import { CraftUI } from '../ui/CraftUI';
 import { ResultUI } from '../ui/ResultUI';
 import { RegistryScreen } from '../registry/RegistryScreen';
+import { PrivateImportUI } from '../ui/PrivateImportUI';
 
-type Mode = 'hub' | 'battle' | 'menu' | 'craft' | 'result' | 'registry' | 'busy';
+type Mode = 'hub' | 'battle' | 'menu' | 'craft' | 'result' | 'registry' | 'import' | 'busy';
 
 const DEFAULT_NAMES = { hero: 'アルト', partner: 'リナ' };
 
@@ -56,6 +57,7 @@ export class Game {
   private craftUI: CraftUI;
   private resultUI: ResultUI;
   private registry: RegistryScreen;
+  private importUI: PrivateImportUI;
   private mode: Mode = 'hub';
   private names = { ...DEFAULT_NAMES };
   private hero: CharacterInstance | null = null;
@@ -81,6 +83,7 @@ export class Game {
     this.menuUI = new MenuUI(ui);
     this.craftUI = new CraftUI(ui);
     this.resultUI = new ResultUI(ui);
+    this.importUI = new PrivateImportUI(ui);
     this.registry = new RegistryScreen(this.engine, ui, {
       activeIds: () => ({ hero: this.gs.save.party.heroAppearanceId, partner: this.gs.save.party.partnerAppearanceId, npcs: {} }),
       npcList: [],
@@ -183,6 +186,7 @@ export class Game {
       craft: () => this.openCraft(),
       menu: () => this.openMenu(),
       characters: () => this.openRegistry(),
+      importQuestions: () => this.openImport(),
     });
   }
 
@@ -344,7 +348,16 @@ export class Game {
     this.craftUI.open(this.gs, () => { void this.saveNow(); this.showHub(); }, (msg) => { this.hud.toast(msg, 'good', 3); void this.saveNow(); });
   }
 
+  private openImport() {
+    if (this.mode !== 'hub') return;
+    this.mode = 'import';
+    this.hub.hide();
+    // 取り込み・削除の後は、問題とクエストを組み直すため再読み込みする
+    void this.importUI.open(() => this.showHub(), async () => { await this.saveNow(); location.reload(); });
+  }
+
   private closeOverlays() {
+    if (this.mode === 'import') { this.importUI.close(); this.showHub(); return; }
     if (this.mode === 'menu') { this.menuUI.close(); void this.saveNow(); this.showHub(); }
     else if (this.mode === 'craft') { this.craftUI.close(); void this.saveNow(); this.showHub(); }
   }

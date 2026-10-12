@@ -1,0 +1,202 @@
+{
+ "questions": [
+  {
+   "id": "as1-01",
+   "knowledgeIds": [
+    "ai-society"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "自動運転のレベルのうち、特定の条件下ではシステムが運転を行い、システムからの要請があれば運転者が対応するレベルはどれか。",
+   "choices": [
+    "レベル3（条件付運転自動化）",
+    "レベル1（運転支援）",
+    "レベル2（部分運転自動化）",
+    "レベル5（完全運転自動化）"
+   ],
+   "answer": 0,
+   "explanation": "レベル3では条件内はシステムが運転し、緊急時は人が引き継ぐ。レベル4は特定条件下で人の対応が不要、レベル5は条件なし。"
+  },
+  {
+   "id": "as1-02",
+   "knowledgeIds": [
+    "ai-society"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "AIがなぜその判断をしたのかを、人間が理解できるように説明できるようにする技術や考え方はどれか。",
+   "choices": [
+    "説明可能なAI（XAI）",
+    "生成AI",
+    "汎用AI",
+    "エッジAI"
+   ],
+   "answer": 0,
+   "explanation": "判断の根拠が分からない「ブラックボックス」問題への対応として重要。"
+  },
+  {
+   "id": "as1-03",
+   "knowledgeIds": [
+    "ai-society"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "学習データの偏りによって、AIが特定の性別や人種などに不公平な判断をしてしまう問題を何というか。",
+   "choices": [
+    "アルゴリズムバイアス（AIのバイアス）",
+    "勾配消失",
+    "次元の呪い",
+    "フレーム問題"
+   ],
+   "answer": 0,
+   "explanation": "データの偏りがそのまま判断の偏りになる。データの確認と公平性の評価が必要。"
+  },
+  {
+   "id": "as1-04",
+   "knowledgeIds": [
+    "ai-society"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "AIを使って、実在の人物が実際には言っていないことを話しているように見せる偽の動画を作る技術はどれか。",
+   "choices": [
+    "ディープフェイク",
+    "デジタルツイン",
+    "メタバース",
+    "データ拡張"
+   ],
+   "answer": 0,
+   "explanation": "GANなどの生成技術が悪用されると、詐欺や偽情報の拡散につながる。"
+  },
+  {
+   "id": "as1-05",
+   "knowledgeIds": [
+    "ai-society"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "日本政府が2019年に定めた「人間中心のAI社会原則」に含まれないものはどれか。",
+   "choices": [
+    "AIの利用は大企業に限定する",
+    "人間中心の原則",
+    "プライバシー確保の原則",
+    "公平性・説明責任・透明性の原則"
+   ],
+   "answer": 0,
+   "explanation": "人間中心、教育・リテラシー、プライバシー確保、セキュリティ確保、公正競争確保、公平性・説明責任・透明性、イノベーションの7原則。"
+  },
+  {
+   "id": "as1-06",
+   "knowledgeIds": [
+    "ai-society"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "EUのAI規則（AI Act）の考え方として、適切なものはどれか。",
+   "choices": [
+    "AIのリスクの大きさに応じて、段階的に規制を設ける",
+    "すべてのAIの開発を禁止する",
+    "AIには一切の規制をかけない",
+    "AIの利用者だけに罰則を設ける"
+   ],
+   "answer": 0,
+   "explanation": "リスクに応じた規制（リスクベースアプローチ）で、許容できないリスクのAIは禁止される。"
+  },
+  {
+   "id": "as1-07",
+   "knowledgeIds": [
+    "ai-society"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "本格的な開発の前に、AIを使って本当に効果が出るかを小規模に試して確かめることを何というか。",
+   "choices": [
+    "PoC（概念実証）",
+    "MLOps",
+    "DevOps",
+    "ROI"
+   ],
+   "answer": 0,
+   "explanation": "PoCで技術的な実現性や効果を確かめてから本開発に進む。"
+  },
+  {
+   "id": "as1-08",
+   "knowledgeIds": [
+    "ai-society"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "AIモデルの開発・運用・監視を継続的に行い、精度の劣化などに対応する仕組みを何というか。",
+   "choices": [
+    "MLOps",
+    "PoC",
+    "RPA",
+    "ETL"
+   ],
+   "answer": 0,
+   "explanation": "運用中にデータの傾向が変わると精度が落ちるため、継続的な監視と再学習が必要。"
+  },
+  {
+   "id": "as1-09",
+   "knowledgeIds": [
+    "ai-society"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "AIの倫理的・法的・社会的な課題をまとめて表す言葉はどれか。",
+   "choices": [
+    "ELSI",
+    "XAI",
+    "MLOps",
+    "SDGs"
+   ],
+   "answer": 0,
+   "explanation": "Ethical, Legal and Social Issues の略。"
+  }
+ ]
+}

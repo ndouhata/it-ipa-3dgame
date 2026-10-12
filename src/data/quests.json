@@ -1,6 +1,191 @@
 {
   "quests": [
     {
+      "id": "ai-lab",
+      "title": "はじまりの研究所",
+      "group": "AI検定",
+      "recommendedLevel": 1,
+      "summary": "AI研究の始まりの地。暴走した初期の自動人形を止め、研究所を取り戻せ。",
+      "knowledgeIds": [
+        "ai-overview",
+        "ai-history"
+      ],
+      "waves": [
+        [
+          "ai-lab-slime",
+          "ai-lab-slime"
+        ],
+        [
+          "ai-lab-slime",
+          "ai-lab-beetle"
+        ],
+        [
+          "ai-lab-boss"
+        ]
+      ],
+      "rewardExp": 9,
+      "stage": {
+        "ground": [
+          0.55,
+          0.6,
+          0.65
+        ],
+        "sky": [
+          0.75,
+          0.85,
+          0.95
+        ]
+      }
+    },
+    {
+      "id": "ai-maze",
+      "title": "思考の迷宮",
+      "group": "AI検定",
+      "recommendedLevel": 3,
+      "summary": "考えるほど出口が遠のく迷宮。フレームの番人を打ち破れ。",
+      "knowledgeIds": [
+        "ai-issues",
+        "ai-related",
+        "ai-math"
+      ],
+      "waves": [
+        [
+          "ai-maze-slime",
+          "ai-maze-slime"
+        ],
+        [
+          "ai-maze-slime",
+          "ai-maze-beetle"
+        ],
+        [
+          "ai-maze-boss"
+        ]
+      ],
+      "rewardExp": 52,
+      "stage": {
+        "ground": [
+          0.35,
+          0.32,
+          0.45
+        ],
+        "sky": [
+          0.3,
+          0.28,
+          0.45
+        ]
+      }
+    },
+    {
+      "id": "ai-forest",
+      "title": "学習の森",
+      "group": "AI検定",
+      "recommendedLevel": 5,
+      "summary": "データの実る森。過学習した巨木の魔物を倒し、森の調和を取り戻せ。",
+      "knowledgeIds": [
+        "ai-ml",
+        "ai-dl"
+      ],
+      "waves": [
+        [
+          "ai-forest-slime",
+          "ai-forest-slime"
+        ],
+        [
+          "ai-forest-slime",
+          "ai-forest-beetle"
+        ],
+        [
+          "ai-forest-boss"
+        ]
+      ],
+      "rewardExp": 118,
+      "stage": {
+        "ground": [
+          0.35,
+          0.5,
+          0.28
+        ],
+        "sky": [
+          0.6,
+          0.8,
+          0.65
+        ]
+      }
+    },
+    {
+      "id": "ai-tower",
+      "title": "生成の塔",
+      "group": "AI検定",
+      "recommendedLevel": 7,
+      "summary": "あらゆるものを生み出す塔。偽物を生み続ける生成の魔王に挑め。",
+      "knowledgeIds": [
+        "ai-dl-types"
+      ],
+      "waves": [
+        [
+          "ai-tower-slime",
+          "ai-tower-slime"
+        ],
+        [
+          "ai-tower-slime",
+          "ai-tower-beetle"
+        ],
+        [
+          "ai-tower-boss"
+        ]
+      ],
+      "rewardExp": 202,
+      "stage": {
+        "ground": [
+          0.5,
+          0.42,
+          0.5
+        ],
+        "sky": [
+          0.55,
+          0.45,
+          0.75
+        ]
+      }
+    },
+    {
+      "id": "ai-city",
+      "title": "未来都市の議会",
+      "group": "AI検定",
+      "recommendedLevel": 9,
+      "summary": "AIと人が共に暮らす未来都市。偽情報で議会を乱す影を討て。",
+      "knowledgeIds": [
+        "ai-society",
+        "ai-ip"
+      ],
+      "waves": [
+        [
+          "ai-city-slime",
+          "ai-city-slime"
+        ],
+        [
+          "ai-city-slime",
+          "ai-city-beetle"
+        ],
+        [
+          "ai-city-boss"
+        ]
+      ],
+      "rewardExp": 303,
+      "stage": {
+        "ground": [
+          0.6,
+          0.62,
+          0.68
+        ],
+        "sky": [
+          0.8,
+          0.85,
+          0.95
+        ]
+      }
+    },
+    {
       "id": "trade-road",
       "title": "交易路の防衛",
       "recommendedLevel": 1,
@@ -34,7 +219,8 @@
           0.78,
           0.95
         ]
-      }
+      },
+      "group": "基本情報技術者試験"
     },
     {
       "id": "archive",
@@ -71,7 +257,8 @@
           0.2,
           0.3
         ]
-      }
+      },
+      "group": "基本情報技術者試験"
     },
     {
       "id": "sky-tower",
@@ -107,7 +294,8 @@
           0.7,
           0.95
         ]
-      }
+      },
+      "group": "基本情報技術者試験"
     },
     {
       "id": "harbor",
@@ -144,7 +332,8 @@
           0.75,
           0.95
         ]
-      }
+      },
+      "group": "基本情報技術者試験"
     },
     {
       "id": "rampart",
@@ -179,7 +368,8 @@
           0.6,
           0.45
         ]
-      }
+      },
+      "group": "基本情報技術者試験"
     },
     {
       "id": "workshop",
@@ -215,7 +405,8 @@
           0.62,
           0.5
         ]
-      }
+      },
+      "group": "基本情報技術者試験"
     },
     {
       "id": "castle",
@@ -252,7 +443,8 @@
           0.35,
           0.55
         ]
-      }
+      },
+      "group": "基本情報技術者試験"
     },
     {
       "id": "market",
@@ -293,7 +485,8 @@
           0.75,
           0.5
         ]
-      }
+      },
+      "group": "基本情報技術者試験"
     }
   ]
 }

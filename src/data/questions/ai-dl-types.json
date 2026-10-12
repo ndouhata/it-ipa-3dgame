@@ -1,0 +1,224 @@
+{
+ "questions": [
+  {
+   "id": "dt2-01",
+   "knowledgeIds": [
+    "ai-dl-types"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "画像認識で広く使われ、畳み込み層とプーリング層を持つニューラルネットワークはどれか。",
+   "choices": [
+    "CNN（畳み込みニューラルネットワーク）",
+    "RNN（再帰型ニューラルネットワーク）",
+    "GAN（敵対的生成ネットワーク）",
+    "オートエンコーダ"
+   ],
+   "answer": 0,
+   "explanation": "畳み込みで局所的な特徴を捉え、プーリングで位置のずれに強くする。"
+  },
+  {
+   "id": "dt2-02",
+   "knowledgeIds": [
+    "ai-dl-types"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "CNNのプーリング層の主な役割はどれか。",
+   "choices": [
+    "特徴を残しながら画像を縮小し、位置のずれに強くする",
+    "画像の色を反転させる",
+    "出力の合計を1にする",
+    "データに正解ラベルを付ける"
+   ],
+   "answer": 0,
+   "explanation": "最大値プーリングなどで、領域の代表値を取り出して縮小する。"
+  },
+  {
+   "id": "dt2-03",
+   "knowledgeIds": [
+    "ai-dl-types"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "文章や音声のような時系列データを扱うため、前の時刻の情報を次の時刻に引き継ぐネットワークはどれか。",
+   "choices": [
+    "RNN（再帰型ニューラルネットワーク）",
+    "CNN",
+    "オートエンコーダ",
+    "多層パーセプトロン"
+   ],
+   "answer": 0,
+   "explanation": "過去の情報を隠れ状態として引き継ぐ。長い系列では勾配消失が起きやすい。"
+  },
+  {
+   "id": "dt2-04",
+   "knowledgeIds": [
+    "ai-dl-types"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "RNNの長期の依存関係を学習しにくい問題を、入力・出力・忘却のゲートで改善したモデルはどれか。",
+   "choices": [
+    "LSTM",
+    "CNN",
+    "GAN",
+    "ResNet"
+   ],
+   "answer": 0,
+   "explanation": "ゲートで情報を残すか忘れるかを制御する。簡略化したものにGRUがある。"
+  },
+  {
+   "id": "dt2-05",
+   "knowledgeIds": [
+    "ai-dl-types"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "偽物を作る「生成器」と、本物か偽物かを見破る「識別器」を競わせて学習するモデルはどれか。",
+   "choices": [
+    "GAN（敵対的生成ネットワーク）",
+    "VAE",
+    "LSTM",
+    "Transformer"
+   ],
+   "answer": 0,
+   "explanation": "画像生成などで使われる。イアン・グッドフェローが提案した。"
+  },
+  {
+   "id": "dt2-06",
+   "knowledgeIds": [
+    "ai-dl-types"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "RNNを使わず、Attention（注意機構）だけで文章を処理する仕組みで、現在の大規模言語モデルの基盤となったモデルはどれか。",
+   "choices": [
+    "Transformer",
+    "LSTM",
+    "CNN",
+    "word2vec"
+   ],
+   "answer": 0,
+   "explanation": "2017年の論文で提案。並列計算しやすく、BERTやGPTのもとになった。"
+  },
+  {
+   "id": "dt2-07",
+   "knowledgeIds": [
+    "ai-dl-types"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "ある課題で学習済みのモデルを、別の関連する課題に流用して、少ないデータで学習する手法はどれか。",
+   "choices": [
+    "転移学習",
+    "強化学習",
+    "教師なし学習",
+    "アンサンブル学習"
+   ],
+   "answer": 0,
+   "explanation": "大量データで学習済みのモデルの知識を活かす。出力層付近だけを学習し直すことが多い。"
+  },
+  {
+   "id": "dt2-08",
+   "knowledgeIds": [
+    "ai-dl-types"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "層を飛び越えて入力を足し合わせる「スキップ結合」により、非常に深い層の学習を可能にしたモデルはどれか。",
+   "choices": [
+    "ResNet",
+    "AlexNet",
+    "VGG",
+    "LeNet"
+   ],
+   "answer": 0,
+   "explanation": "スキップ結合で勾配が伝わりやすくなり、100層を超えるネットワークも学習できるようになった。"
+  },
+  {
+   "id": "dt2-09",
+   "knowledgeIds": [
+    "ai-dl-types"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "単語を、意味の近さが反映された数値のベクトルで表す手法はどれか。",
+   "choices": [
+    "word2vec（単語の分散表現）",
+    "one-hot表現",
+    "bag-of-words",
+    "TF-IDF"
+   ],
+   "answer": 0,
+   "explanation": "「王−男＋女≒女王」のような計算ができることで知られる。"
+  },
+  {
+   "id": "dt2-10",
+   "knowledgeIds": [
+    "ai-dl-types"
+   ],
+   "examIds": [
+    "ai"
+   ],
+   "source": {
+    "type": "original",
+    "label": "オリジナル問題（AI検定の出題範囲に準拠）"
+   },
+   "stem": "画像の中から物体の位置を四角い枠（バウンディングボックス）で示し、その種類も当てるタスクはどれか。",
+   "choices": [
+    "物体検出",
+    "画像分類",
+    "セマンティックセグメンテーション",
+    "超解像"
+   ],
+   "answer": 0,
+   "explanation": "YOLOやFaster R-CNNなどが代表的。画素ごとに分類するのがセマンティックセグメンテーション。"
+  }
+ ]
+}

@@ -48,6 +48,8 @@ export type ExamData = z.infer<typeof ExamDataSchema>;
 export const QuestSchema = z.object({
   id: z.string(),
   title: z.string(),
+  /** 拠点での見出し（資格の種類など） */
+  group: z.string(),
   summary: z.string(),
   recommendedLevel: z.number(),
   unlockAfter: z.string().optional(),
