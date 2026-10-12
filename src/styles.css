@@ -234,8 +234,8 @@ html, body { margin: 0; height: 100%; overflow: hidden; background: #0e1424; col
 /* ---------- 拠点 ---------- */
 .hub { position: absolute; left: 50%; top: 14px; bottom: 14px; transform: translateX(-50%); width: min(980px, 96vw); padding-top: 130px; display: flex; flex-direction: column; pointer-events: auto; }
 .hub-title { font-size: 20px; font-weight: 700; color: var(--gold); text-shadow: 0 2px 6px #000; margin-bottom: 8px; }
-.hub-body { display: grid; grid-template-columns: 1fr 240px; gap: 12px; min-height: 0; flex: 1; }
-.hub-quests { display: grid; gap: 10px; overflow: auto; align-content: start; padding-right: 4px; }
+.hub-body { display: grid; grid-template-columns: 1fr 240px; grid-template-rows: minmax(0, 1fr); gap: 12px; min-height: 0; flex: 1; }
+.hub-quests { display: grid; gap: 10px; overflow-y: auto; overscroll-behavior: contain; touch-action: pan-y; -webkit-overflow-scrolling: touch; align-content: start; padding-right: 4px; min-height: 0; }
 .hub-quest { padding: 10px 14px; }
 .hub-quest h3 { margin: 0; color: var(--gold-2); font-size: 17px; }
 .hub-quest p { margin: 6px 0; }
@@ -279,7 +279,20 @@ html, body { margin: 0; height: 100%; overflow: hidden; background: #0e1424; col
 .clickable { cursor: pointer; }
 
 @media (max-width: 760px) {
-  .hub-body { grid-template-columns: 1fr; }
+  /* スマホ：拠点全体を1列にして、画面ごと縦スクロールできるようにする */
+  .hud-party { left: 8px; right: 8px; top: 8px; width: auto; padding: 6px 10px; gap: 4px; grid-template-columns: 1fr 1fr; column-gap: 12px; }
+  .hud-member-head { font-size: 12px; }
+  .hud-small { font-size: 10px; }
+  .hud-quest { left: 8px; right: 8px; top: 72px; width: auto; padding: 6px 10px; font-size: 12px; }
+  .hud-area { font-size: 13px; margin-bottom: 0; }
+  .hub { top: 0; bottom: 0; width: 100vw; padding: 76px 10px 24px; overflow-y: auto; overscroll-behavior: contain; touch-action: pan-y; -webkit-overflow-scrolling: touch; display: block; }
+  .hub-body { display: flex; flex-direction: column; }
+  .hub-quests { overflow: visible; padding-right: 0; }
+  .hub-side { grid-template-columns: 1fr 1fr 1fr; }
+  .hub-btn { font-size: 13px; padding: 10px 8px; text-align: center; }
+  .quiz { bottom: 6px; max-height: 72vh; overflow-y: auto; touch-action: pan-y; }
+  .quiz-panel { padding: 10px 12px; }
+  .quiz-choice { padding: 8px 10px; font-size: 14px; }
   .quiz-choices { grid-template-columns: 1fr; }
   .quiz-stem { font-size: 15px; }
 }

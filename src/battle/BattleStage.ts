@@ -81,13 +81,20 @@ export class BattleStage {
 
     this.camera = new ArcRotateCamera('cam', -Math.PI / 2 - 0.4, 1.0, 13, new Vector3(0.2, 0.2, -0.6), scene);
     this.camera.lowerRadiusLimit = 6;
-    this.camera.upperRadiusLimit = 20;
+    this.camera.upperRadiusLimit = 30;
     this.camera.lowerBetaLimit = 0.5;
     this.camera.upperBetaLimit = 1.4;
     this.camera.panningSensibility = 0;
     this.camera.wheelDeltaPercentage = 0.01;
     this.camera.inputs.removeByType('ArcRotateCameraKeyboardMoveInput');
     this.camera.attachControl(canvas, true);
+  }
+
+  /** 縦長の画面（スマホ縦向き）では、敵と味方が収まるようにカメラを引く */
+  fitToScreen() {
+    const engine = this.scene.getEngine();
+    const aspect = engine.getRenderWidth() / Math.max(1, engine.getRenderHeight());
+    this.camera.radius = aspect < 1 ? 13 / Math.max(0.45, aspect) * 0.75 : 13;
   }
 
   setStage(ground: readonly number[], sky: readonly number[]) {

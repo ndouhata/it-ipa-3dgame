@@ -98,12 +98,13 @@ export class Game {
       this.partnerHp = this.gs.partnerStats().hp;
     });
     this.bus.on('itemGained', (e) => this.hud.toast(`${this.gs.itemName(e.itemId)} ×${e.count}${e.rare ? '　★レア★' : ''}`, e.rare ? 'rare' : 'normal', e.rare ? 3.5 : 2));
-    window.addEventListener('resize', () => this.engine.resize());
+    window.addEventListener('resize', () => { this.engine.resize(); this.stage.fitToScreen(); });
     window.addEventListener('keydown', (e) => { if (e.code === 'Escape') this.closeOverlays(); });
   }
 
   async start() {
     await this.loadAppearances();
+    this.stage.fitToScreen();
     this.healParty();
     this.engine.runRenderLoop(() => {
       try {
