@@ -56,6 +56,8 @@ export class QuizPanel {
       let done = false;
       const finish = (chosen: number | null) => {
         if (done) return;
+        // 前の画面を閉じたクリック・キー入力で誤って選ばないよう、表示直後は受け付けない
+        if (chosen !== null && performance.now() - start < 250) return;
         done = true;
         this.cleanup();
         Array.from(choices.children).forEach((b) => ((b as HTMLButtonElement).disabled = true));
@@ -96,8 +98,9 @@ export class QuizPanel {
       h('span', { class: 'quiz-effect', text: effect }));
     panel.append(res);
     if (r.correct) return new Promise((resolve) => setTimeout(resolve, 650));
+    const nextBtn = h('button', { class: 'btn btn-primary quiz-next-btn', text: '次へ ▶（Enter）' });
     panel.append(h('div', { class: 'quiz-explain', text: `正解：${p.question.choices[p.question.answer]}\n${p.question.explanation}` }),
-      h('div', { class: 'quiz-next', text: 'クリック / Enter で次へ' }));
+      h('div', { class: 'quiz-next' }, h('span', { text: '画面のどこかをクリックしても進めます' }), nextBtn));
     return new Promise((resolve) => {
       let done = false;
       const go = () => {
@@ -106,13 +109,20 @@ export class QuizPanel {
         this.cleanup();
         resolve();
       };
+      // 無効化した選択肢ボタンの上ではクリックがパネルに届かないため、画面全体で受け付ける
+      const onPointer = () => go();
       setTimeout(() => {
-        this.keyHandler = (e) => { if (e.code === 'Enter' || e.code === 'Space') go(); };
+        if (done) return;
+        this.keyHandler = (e) => { if (e.key === 'Enter' || e.code === 'Space') { e.preventDefault(); go(); } };
         window.addEventListener('keydown', this.keyHandler);
-        panel.addEventListener('click', go, { once: true });
+        window.addEventListener('pointerdown', onPointer, { capture: true });
+        this.extraCleanup = () => window.removeEventListener('pointerdown', onPointer, { capture: true });
       }, 250);
+      nextBtn.addEventListener('click', go);
     });
   }
+
+  private extraCleanup: (() => void) | null = null;
 
   hide() {
     this.cleanup();
@@ -123,6 +133,8 @@ export class QuizPanel {
   private cleanup() {
     if (this.keyHandler) window.removeEventListener('keydown', this.keyHandler);
     this.keyHandler = null;
+    this.extraCleanup?.();
+    this.extraCleanup = null;
     clearInterval(this.timer);
   }
 }
