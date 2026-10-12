@@ -1,0 +1,173 @@
+{
+  "chief-intro": {
+    "start": "a",
+    "nodes": {
+      "a": { "speaker": "町長ハーヴェイ", "text": "おお、旅の方！ ちょうどいいところに。ルクスの町はいま、宿が足りないと苦情だらけでね……。", "next": "b" },
+      "b": { "speaker": "町長ハーヴェイ", "text": "交易路の再開で旅人が増えたのはありがたいんだが、宿屋Aの前なんか大行列だ。新しい宿を建てるべきかねぇ。", "next": "c" },
+      "c": { "speaker": "{partner}", "text": "建てる前に、ちょっと町の様子を見てみない？ まずは行列の宿屋Aで話を聞こうよ。", "actions": [{ "startQuest": "inn-trouble" }] }
+    }
+  },
+  "chief-active": {
+    "start": "a",
+    "nodes": { "a": { "speaker": "町長ハーヴェイ", "text": "宿の件、頼んだよ。新しい宿を建てるとなると、お金も時間もかかるからねぇ……。" } }
+  },
+  "chief-after": {
+    "start": "a",
+    "nodes": { "a": { "speaker": "町長ハーヴェイ", "text": "宿を建てずに済んだうえ、旅人の評判も上々だ！ 本当に助かったよ。交易路の魔物退治もよろしく頼む。" } }
+  },
+  "inn-a-busy": {
+    "start": "a",
+    "nodes": {
+      "a": { "speaker": "宿屋Aの主人", "text": "見ての通り、もう満室どころか表まで行列だよ！ 部屋の掃除も食事の支度も追いつかない……。", "next": "b" },
+      "b": { "speaker": "宿屋Aの主人", "text": "町に着いた旅人は、みんな入口の案内装置に従ってウチに来るんだ。ありがたいけど、もう限界だ……。", "actions": [{ "emit": { "event": "talk", "id": "innkeeper-a" } }, { "setFlag": "checked-a" }] }
+    }
+  },
+  "inn-a-idle": {
+    "start": "a",
+    "nodes": { "a": { "speaker": "宿屋Aの主人", "text": "いらっしゃい……と言いたいところだが、今日も満室でね。" } }
+  },
+  "inn-a-after": {
+    "start": "a",
+    "nodes": { "a": { "speaker": "宿屋Aの主人", "text": "行列が消えて、ようやく一人ひとりのお客さんに丁寧な仕事ができるよ。ありがとう！" } }
+  },
+  "inn-b-empty": {
+    "start": "a",
+    "nodes": {
+      "a": { "speaker": "宿屋Bの女将", "text": "あら、お客さん？ うちは今日もガラガラよ。部屋は6つも空いてるのに、どうしてかしらねぇ。", "actions": [{ "setFlag": "checked-b" }, { "emit": { "event": "talk", "id": "innkeeper-b" } }] }
+    }
+  },
+  "inn-b-after": {
+    "start": "a",
+    "nodes": { "a": { "speaker": "宿屋Bの女将", "text": "最近お客さんが増えて大忙し！ でも忙しすぎない、ちょうどいい感じよ。" } }
+  },
+  "inn-c-empty": {
+    "start": "a",
+    "nodes": {
+      "a": { "speaker": "宿屋Cの主人", "text": "ウチも空いてるよ。小さい宿だけど、部屋も料理も自慢なんだがなあ。", "actions": [{ "setFlag": "checked-c" }, { "emit": { "event": "talk", "id": "innkeeper-c" } }] }
+    }
+  },
+  "inn-c-after": {
+    "start": "a",
+    "nodes": { "a": { "speaker": "宿屋Cの主人", "text": "案内装置のおかげでウチにもお客さんが来るようになった。ありがたいね。" } }
+  },
+  "partner-realize": {
+    "start": "a",
+    "nodes": {
+      "a": { "speaker": "{partner}", "text": "宿屋Aは行列、でもBもCも空いてた……。ねえ{hero}、この町で起きてることって何だと思う？", "choices": [
+        { "text": "町の宿が足りないんだ", "next": "wrong" },
+        { "text": "宿屋Aに客が集まりすぎているんだ", "next": "right" }
+      ] },
+      "wrong": { "speaker": "{partner}", "text": "うーん……でもBは6部屋、Cも部屋が空いてたよね？ 町全体で見たら、部屋は余ってるんじゃないかな。", "next": "a" },
+      "right": { "speaker": "{partner}", "text": "だよね！ 宿が足りないんじゃなくて、みんなが一ヶ所に集まってるだけなんだ。", "next": "right2" },
+      "right2": { "speaker": "{partner}", "text": "旅人はみんな入口の案内装置に従ってるって言ってたよね。あの装置、なんとかできないかな？", "actions": [
+        { "setFlag": "realized" },
+        { "recordKnowledge": { "knowledgeId": "load-balancing", "kind": "experience", "variant": "inn", "correct": true } }
+      ] }
+    }
+  },
+  "engineer-idle": {
+    "start": "a",
+    "nodes": { "a": { "speaker": "技師ミーナ", "text": "私はこの町の装置の整備をしてるの。入口の案内装置も私が作ったのよ。最近ちょっと評判が悪いけど……。" } }
+  },
+  "engineer-device": {
+    "start": "a",
+    "nodes": {
+      "a": { "speaker": "技師ミーナ", "text": "案内装置？ 着いた旅人を宿へ案内する仕組みよ。今は、何も指示しなければ全員を宿屋Aへ送る設定のまま。", "next": "b" },
+      "b": { "speaker": "技師ミーナ", "text": "手動で案内先を切り替えることもできるわ。装置の前で調べてみて。" }
+    }
+  },
+  "engineer-name": {
+    "start": "a",
+    "nodes": {
+      "a": { "speaker": "技師ミーナ", "text": "見てたわよ！ 一ヶ所に集中していた旅人を、空いている宿へ分けて受け止めた。行列もすっかり消えたわね。", "next": "b" },
+      "b": { "speaker": "技師ミーナ", "text": "その考え方には名前があるの。『負荷分散』――古代の言葉では『ロードバランシング（Load Balancing）』と呼ばれていたわ。", "next": "c" },
+      "c": { "speaker": "{partner}", "text": "ロードバランシング……！ 一ヶ所に集まった負担を、いくつかに分けて受け止めるってことだね。", "next": "d" },
+      "d": { "speaker": "技師ミーナ", "text": "この考え方は戦いにも使えるわ。一人に向けられた強烈な一撃を、仲間と分け合って受け止める陣形――『分散陣』。教えてあげる。", "actions": [
+        { "unlockSkill": "distribution-array" },
+        { "setFlag": "lb-named" },
+        { "recordKnowledge": { "knowledgeId": "load-balancing", "kind": "experience", "variant": "inn", "correct": true } },
+        { "emit": { "event": "talk", "id": "engineer" } }
+      ], "next": "e" },
+      "e": { "speaker": "技師ミーナ", "text": "そうそう、交易路の隊商が魔物の待ち伏せに困ってるの。門番のガルドに話してみて。工房のボルグも腕のいい鍛冶屋よ。" }
+    }
+  },
+  "engineer-after": {
+    "start": "a",
+    "nodes": { "a": { "speaker": "技師ミーナ", "text": "分散陣は、敵が一人を狙う瞬間に使うのがコツよ。全員に広がる攻撃には意味がないから気をつけて。" } }
+  },
+  "engineer-server": {
+    "start": "a",
+    "nodes": {
+      "a": { "speaker": "技師ミーナ", "text": "あなたの分散陣、すごく板についてきたわね。……実はね、古代の遺物にそっくりな仕組みがあるの。", "next": "b" },
+      "b": { "speaker": "技師ミーナ", "text": "古代では『サーバー』っていう装置が、大勢の利用者からの『リクエスト』を処理していたの。一台に集中すると止まっちゃうから、何台にも振り分けていた。", "next": "c" },
+      "c": { "speaker": "技師ミーナ", "text": "その振り分け役が『ロードバランサ』。遺物の模擬装置があるから、動かしてみない？", "choices": [
+        { "text": "やってみる", "actions": [{ "startGimmick": "server-routing" }] },
+        { "text": "また今度" }
+      ] }
+    }
+  },
+  "engineer-final": {
+    "start": "a",
+    "nodes": {
+      "a": { "speaker": "技師ミーナ", "text": "順番に配る『ラウンドロビン』、止まった先を外す『ヘルスチェック』、能力に応じて配る『重み付け』。全部、あなたが戦いでやってきたことよ。", "next": "b" },
+      "b": { "speaker": "技師ミーナ", "text": "広場の『試練の石碑』、今のあなたなら読めるかもしれないわ。" }
+    }
+  },
+  "device-locked": {
+    "start": "a",
+    "nodes": { "a": { "speaker": "案内装置", "text": "『到着した旅人を宿へ案内します。現在の設定：すべて宿屋Aへ』" } }
+  },
+  "device-operate": {
+    "start": "a",
+    "nodes": {
+      "a": { "speaker": "案内装置", "text": "『到着した旅人を宿へ案内します。現在の設定：すべて宿屋Aへ』 ……手動で案内先を切り替えられそうだ。", "choices": [
+        { "text": "装置を操作する", "actions": [{ "startGimmick": "inn-routing" }] },
+        { "text": "やめておく" }
+      ] }
+    }
+  },
+  "device-after": {
+    "start": "a",
+    "nodes": { "a": { "speaker": "案内装置", "text": "『到着した旅人を宿へ案内します。現在の設定：空いている宿へ順に案内』" } }
+  },
+  "guard-locked": {
+    "start": "a",
+    "nodes": { "a": { "speaker": "門番ガルド", "text": "この先の交易路は魔物が出る。腕に覚えがあっても、今は町の用事を済ませてからにしな。" } }
+  },
+  "guard-run": {
+    "start": "a",
+    "nodes": {
+      "a": { "speaker": "門番ガルド", "text": "交易路の防衛、頼めるか？ 街道の魔物を蹴散らして、峠の広場に居座るオーガを倒してくれ。", "choices": [
+        { "text": "出発する（交易路の防衛）", "actions": [{ "healParty": true }, { "startRun": "trade-road" }] },
+        { "text": "準備してから行く" }
+      ] }
+    }
+  },
+  "board-locked": {
+    "start": "a",
+    "nodes": { "a": { "speaker": "依頼掲示板", "text": "『交易路の魔物討伐 ― 準備中』" } }
+  },
+  "smith-closed": {
+    "start": "a",
+    "nodes": { "a": { "speaker": "鍛冶屋ボルグ", "text": "おう、鍛冶屋のボルグだ。素材さえあれば何でも打ってやるが……まずは町の騒ぎを片付けてきな。" } }
+  },
+  "smith-open": {
+    "start": "a",
+    "nodes": {
+      "a": { "speaker": "鍛冶屋ボルグ", "text": "素材は集まったか？ 交易路の魔物は『分散結晶』をよく落とす。そいつで剣を打ってやるぞ。", "actions": [{ "openCraft": true }] }
+    }
+  },
+  "stone-locked": {
+    "start": "a",
+    "nodes": { "a": { "speaker": "試練の石碑", "text": "古い文字が刻まれている……が、まだ読めない。もっと経験を積めば分かるかもしれない。" } }
+  },
+  "stone-open": {
+    "start": "a",
+    "nodes": {
+      "a": { "speaker": "試練の石碑", "text": "刻まれた文字が光り出した――『負荷分散の試練』。挑みますか？", "choices": [
+        { "text": "挑む", "actions": [{ "openExam": "load-balancing" }] },
+        { "text": "やめておく" }
+      ] }
+    }
+  }
+}

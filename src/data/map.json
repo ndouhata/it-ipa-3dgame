@@ -1,0 +1,128 @@
+{
+  "groundSize": 300,
+  "spawn": [0, -6],
+  "returnPoint": [0, 22],
+  "roads": [
+    { "from": [0, -26], "to": [0, 32], "width": 6 },
+    { "from": [-22, 4], "to": [22, 4], "width": 5 },
+    { "from": [0, 32], "to": [0, 124], "width": 7 }
+  ],
+  "areas": [
+    { "id": "town", "label": "ルクスの町", "center": [0, 2], "radius": 30, "color": [0.42, 0.55, 0.3] },
+    { "id": "battle", "label": "交易路", "center": [0, 70], "radius": 26, "color": [0.5, 0.48, 0.3] },
+    { "id": "boss", "label": "峠の広場", "center": [0, 112], "radius": 16, "color": [0.45, 0.36, 0.3] }
+  ],
+  "buildings": [
+    { "id": "inn-a", "label": "宿屋A", "pos": [-13, 16], "size": [9, 6, 7], "color": [0.86, 0.72, 0.52], "roof": [0.7, 0.25, 0.2], "door": "e" },
+    { "id": "inn-b", "label": "宿屋B", "pos": [14, -4], "size": [8, 5.5, 7], "color": [0.78, 0.8, 0.86], "roof": [0.25, 0.4, 0.7], "door": "w" },
+    { "id": "inn-c", "label": "宿屋C", "pos": [-14, -12], "size": [8, 5.5, 7], "color": [0.84, 0.82, 0.68], "roof": [0.3, 0.55, 0.3], "door": "e" },
+    { "id": "workshop", "label": "工房", "pos": [14, 15], "size": [8, 5, 6], "color": [0.55, 0.45, 0.38], "roof": [0.3, 0.28, 0.3], "door": "w" },
+    { "id": "house-1", "pos": [-14, -26], "size": [6, 4.5, 6], "color": [0.8, 0.74, 0.62], "roof": [0.55, 0.3, 0.25] },
+    { "id": "house-2", "pos": [14, -20], "size": [6, 4.5, 6], "color": [0.76, 0.7, 0.66], "roof": [0.45, 0.3, 0.45] },
+    { "id": "house-3", "pos": [14, -32], "size": [5, 4, 5], "color": [0.82, 0.78, 0.7], "roof": [0.6, 0.4, 0.2] },
+    { "id": "gate-l", "pos": [-5.5, 30], "size": [2, 7, 2], "color": [0.6, 0.6, 0.62], "roof": [0.4, 0.4, 0.45] },
+    { "id": "gate-r", "pos": [5.5, 30], "size": [2, 7, 2], "color": [0.6, 0.6, 0.62], "roof": [0.4, 0.4, 0.45] },
+    { "id": "wall-l", "pos": [-18, 30], "size": [23, 3, 1], "color": [0.55, 0.55, 0.56] },
+    { "id": "wall-r", "pos": [18, 30], "size": [23, 3, 1], "color": [0.55, 0.55, 0.56] }
+  ],
+  "props": [
+    { "type": "device", "pos": [-3, 25], "solid": true },
+    { "type": "stone", "pos": [-7, -3], "solid": true },
+    { "type": "anvil", "pos": [9, 13], "solid": true },
+    { "type": "board", "pos": [7, 27], "solid": true },
+    { "type": "lamp", "pos": [4, 8] }, { "type": "lamp", "pos": [-4, 8] }, { "type": "lamp", "pos": [4, -14] }, { "type": "lamp", "pos": [-4, -14] },
+    { "type": "crate", "pos": [10, 19] }, { "type": "crate", "pos": [11, 20], "scale": 0.8 },
+    { "type": "cart", "pos": [5, 64], "rotation": 0.4, "solid": true }, { "type": "cart", "pos": [-5, 66], "rotation": -0.3, "solid": true }, { "type": "cart", "pos": [6, 69], "rotation": 0.1, "solid": true },
+    { "type": "tower", "pos": [-12, 86], "solid": true }, { "type": "tower", "pos": [12, 88], "solid": true }, { "type": "tower", "pos": [-11, 96], "solid": true },
+    { "type": "rock", "pos": [-9, 48], "scale": 1.5, "solid": true }, { "type": "rock", "pos": [10, 56], "scale": 1.2, "solid": true },
+    { "type": "rock", "pos": [-12, 104], "scale": 2.2, "solid": true }, { "type": "rock", "pos": [13, 118], "scale": 2.5, "solid": true },
+    { "type": "tree", "pos": [-26, 10] }, { "type": "tree", "pos": [-25, -4] }, { "type": "tree", "pos": [-27, -18] }, { "type": "tree", "pos": [26, 6] },
+    { "type": "tree", "pos": [25, -10] }, { "type": "tree", "pos": [27, 24] }, { "type": "tree", "pos": [-24, 22] }, { "type": "tree", "pos": [0, -38] },
+    { "type": "tree", "pos": [-14, 40] }, { "type": "tree", "pos": [15, 42] }, { "type": "tree", "pos": [-18, 58] }, { "type": "tree", "pos": [19, 62] },
+    { "type": "tree", "pos": [-20, 76] }, { "type": "tree", "pos": [21, 80] }, { "type": "tree", "pos": [-16, 120] }, { "type": "tree", "pos": [18, 104] },
+    { "type": "tree", "pos": [-30, 50] }, { "type": "tree", "pos": [30, 70] }, { "type": "tree", "pos": [-28, 92] }, { "type": "tree", "pos": [28, 96] },
+    { "type": "fence", "pos": [-8, 44], "rotation": 1.57 }, { "type": "fence", "pos": [8, 44], "rotation": 1.57 }
+  ],
+  "npcs": [
+    {
+      "id": "chief", "name": "町長ハーヴェイ", "pos": [3, 0], "facing": 3.6, "color": [0.55, 0.35, 0.6],
+      "dialogues": [
+        { "when": [{ "questState": { "questId": "inn-trouble", "state": "inactive" } }], "dialogueId": "chief-intro" },
+        { "when": [{ "questState": { "questId": "inn-trouble", "state": "active" } }], "dialogueId": "chief-active" },
+        { "dialogueId": "chief-after" }
+      ]
+    },
+    {
+      "id": "innkeeper-a", "name": "宿屋Aの主人", "pos": [-7.5, 14], "facing": 1.57, "color": [0.75, 0.4, 0.3],
+      "dialogues": [
+        { "when": [{ "flag": "inn-solved" }], "dialogueId": "inn-a-after" },
+        { "when": [{ "questState": { "questId": "inn-trouble", "state": "active" } }], "dialogueId": "inn-a-busy" },
+        { "dialogueId": "inn-a-idle" }
+      ]
+    },
+    {
+      "id": "innkeeper-b", "name": "宿屋Bの女将", "pos": [9, -3], "facing": -1.57, "color": [0.35, 0.45, 0.75],
+      "dialogues": [
+        { "when": [{ "flag": "inn-solved" }], "dialogueId": "inn-b-after" },
+        { "dialogueId": "inn-b-empty" }
+      ]
+    },
+    {
+      "id": "innkeeper-c", "name": "宿屋Cの主人", "pos": [-9, -11], "facing": 1.57, "color": [0.35, 0.6, 0.35],
+      "dialogues": [
+        { "when": [{ "flag": "inn-solved" }], "dialogueId": "inn-c-after" },
+        { "dialogueId": "inn-c-empty" }
+      ]
+    },
+    {
+      "id": "engineer", "name": "技師ミーナ", "pos": [-6, 23], "facing": 0.8, "color": [0.3, 0.6, 0.65],
+      "dialogues": [
+        { "when": [{ "flag": "server-done" }], "dialogueId": "engineer-final" },
+        { "when": [{ "flag": "lb-named" }, { "masteryAtLeast": { "knowledgeId": "load-balancing", "level": 3 } }], "dialogueId": "engineer-server" },
+        { "when": [{ "flag": "lb-named" }], "dialogueId": "engineer-after" },
+        { "when": [{ "flag": "inn-solved" }], "dialogueId": "engineer-name" },
+        { "when": [{ "flag": "realized" }], "dialogueId": "engineer-device" },
+        { "dialogueId": "engineer-idle" }
+      ]
+    },
+    {
+      "id": "guard", "name": "門番ガルド", "pos": [3.5, 27], "facing": 3.14, "color": [0.5, 0.5, 0.55],
+      "dialogues": [
+        { "when": [{ "flag": "run-unlocked" }], "dialogueId": "guard-run" },
+        { "dialogueId": "guard-locked" }
+      ]
+    },
+    {
+      "id": "smith", "name": "鍛冶屋ボルグ", "pos": [9, 16], "facing": -1.57, "color": [0.6, 0.35, 0.2],
+      "dialogues": [
+        { "when": [{ "flag": "run-unlocked" }], "dialogueId": "smith-open" },
+        { "dialogueId": "smith-closed" }
+      ]
+    }
+  ],
+  "interactables": [
+    {
+      "id": "device", "label": "案内装置", "pos": [-3, 25], "radius": 2.6,
+      "dialogues": [
+        { "when": [{ "flag": "inn-solved" }], "dialogueId": "device-after" },
+        { "when": [{ "flag": "realized" }], "dialogueId": "device-operate" },
+        { "dialogueId": "device-locked" }
+      ]
+    },
+    {
+      "id": "stone", "label": "試練の石碑", "pos": [-7, -3], "radius": 2.6,
+      "dialogues": [
+        { "when": [{ "masteryAtLeast": { "knowledgeId": "load-balancing", "level": 4 } }], "dialogueId": "stone-open" },
+        { "dialogueId": "stone-locked" }
+      ]
+    },
+    {
+      "id": "board", "label": "依頼掲示板", "pos": [7, 27], "radius": 2.4,
+      "dialogues": [
+        { "when": [{ "flag": "run-unlocked" }], "dialogueId": "guard-run" },
+        { "dialogueId": "board-locked" }
+      ]
+    }
+  ],
+  "crowd": { "around": [-6, 18], "count": 9, "hideWhenFlag": "inn-solved" }
+}

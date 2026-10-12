@@ -1,0 +1,49 @@
+{
+  "materials": [
+    { "id": "lb-crystal", "name": "分散結晶", "rarity": "common", "icon": "💠", "description": "受けた力を均等に分け合う性質をもつ結晶。交易路の魔物の体内で育つ。", "knowledgeIds": ["load-balancing"], "sourceHint": "交易路の防衛（全般）" },
+    { "id": "road-iron", "name": "街道の鉄片", "rarity": "common", "icon": "🔩", "description": "壊れた馬車や魔物の甲殻から取れる、丈夫な鉄片。", "knowledgeIds": [], "sourceHint": "交易路の防衛（ビートル・オーガ）" },
+    { "id": "tuning-core", "name": "調律核", "rarity": "rare", "icon": "🔶", "description": "流れ込む力を、受け皿ごとの強さに合わせて配り直す希少な核。", "knowledgeIds": ["load-balancing"], "sourceHint": "一極集中のオーガ（レア）" }
+  ],
+  "equipment": [
+    {
+      "id": "lb-sword", "name": "分散の剣", "slot": "weapon", "icon": "🗡️",
+      "description": "分散結晶を鍛えこんだ剣。衝撃が刃全体に分散するため、折れにくく鋭い。",
+      "baseStats": { "atk": 10 }, "perEnhance": { "atk": 4 }, "maxEnhance": 3,
+      "recipe": [{ "itemId": "lb-crystal", "count": 5 }, { "itemId": "road-iron", "count": 4 }],
+      "enhanceCost": [
+        [{ "itemId": "lb-crystal", "count": 3 }, { "itemId": "road-iron", "count": 3 }],
+        [{ "itemId": "lb-crystal", "count": 4 }, { "itemId": "road-iron", "count": 4 }],
+        [{ "itemId": "lb-crystal", "count": 5 }, { "itemId": "tuning-core", "count": 1 }]
+      ]
+    },
+    {
+      "id": "relay-charm", "name": "分配の護符", "slot": "accessory", "icon": "🧿",
+      "description": "戦闘中に『分散ノード』を1基呼び出す護符。ノードは分散陣で衝撃の一部を受け持つ。",
+      "baseStats": { "def": 2 }, "perEnhance": { "def": 1 }, "maxEnhance": 2,
+      "grants": { "distributionNodes": 1, "nodeHp": 140, "nodeDef": 4 },
+      "recipe": [{ "itemId": "lb-crystal", "count": 6 }, { "itemId": "road-iron", "count": 3 }],
+      "enhanceCost": [
+        [{ "itemId": "lb-crystal", "count": 4 }, { "itemId": "road-iron", "count": 3 }],
+        [{ "itemId": "lb-crystal", "count": 6 }, { "itemId": "tuning-core", "count": 1 }]
+      ]
+    }
+  ],
+  "dropTables": {
+    "slime": { "entries": [
+      { "itemId": "lb-crystal", "chance": 0.5, "min": 1, "max": 1 },
+      { "itemId": "road-iron", "chance": 0.25, "min": 1, "max": 1 }
+    ] },
+    "beetle": { "entries": [
+      { "itemId": "road-iron", "chance": 0.75, "min": 1, "max": 2 },
+      { "itemId": "lb-crystal", "chance": 0.4, "min": 1, "max": 1 }
+    ] },
+    "ogre": {
+      "entries": [
+        { "itemId": "lb-crystal", "chance": 1, "min": 2, "max": 3 },
+        { "itemId": "road-iron", "chance": 1, "min": 1, "max": 2 },
+        { "itemId": "tuning-core", "chance": 0.15, "min": 1, "max": 1 }
+      ],
+      "pity": { "itemId": "tuning-core", "guaranteeAfter": 8 }
+    }
+  }
+}

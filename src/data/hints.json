@@ -1,0 +1,13 @@
+{
+  "hints": [
+    { "id": "gimmick-inn", "trigger": "gimmick:inn", "lines": ["全部Aに行っちゃう……。空いてるところ、あったよね？"], "cooldownSec": 0 },
+    { "id": "gimmick-caravan", "trigger": "gimmick:caravan", "lines": ["1台に積みすぎると壊れちゃうよ。宿屋のときと似てない？"], "cooldownSec": 0 },
+    { "id": "gimmick-tower", "trigger": "gimmick:tower", "lines": ["一本の塔に集まりすぎ……前にも似たことなかった？"], "cooldownSec": 0 },
+    { "id": "gimmick-server", "trigger": "gimmick:server", "lines": ["サーバが止まったら……そこへは送らないほうがいいよね？"], "cooldownSec": 0 },
+    { "id": "focus-first", "trigger": "battle:focus", "when": [{ "masteryBelow": { "knowledgeId": "load-balancing", "level": 2 } }], "lines": ["あいつ、一人に全部ぶつける気だ……！ 一ヶ所に集まりすぎると危ないよ！", "狙いが一人に集中してる……分け合えないかな？"], "cooldownSec": 20 },
+    { "id": "focus-review", "trigger": "battle:focus", "minReviewPriority": 2, "lines": ["来るよ！ 宿屋のときを思い出して！", "一点集中……前にもあったよね？"], "cooldownSec": 25 },
+    { "id": "spread-review", "trigger": "battle:spread", "minReviewPriority": 1, "lines": ["今度は全員に広がる攻撃……それ、もう分かれてない？"], "cooldownSec": 25 },
+    { "id": "misuse", "trigger": "battle:misuse", "lines": ["あれ、今のは分ける必要なかったかも？", "広がる攻撃は、もう最初から分散されてるのかも……。"], "cooldownSec": 15 },
+    { "id": "boss-start", "trigger": "battle:boss", "lines": ["でかい……！ 大技の構えに気をつけよう！"], "cooldownSec": 60 }
+  ]
+}

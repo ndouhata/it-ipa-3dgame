@@ -1,0 +1,36 @@
+{
+  "quests": [
+    {
+      "id": "inn-trouble",
+      "title": "人気宿の困りごと",
+      "type": "story",
+      "summary": "ルクスの町では「宿が足りない」と苦情が出ている。本当に宿が足りないのだろうか？",
+      "knowledgeIds": ["load-balancing"],
+      "steps": [
+        { "id": "talk-a", "description": "行列ができている宿屋Aの主人に話を聞く", "completeOn": { "event": "talk", "id": "innkeeper-a" }, "marker": [-7.5, 14] },
+        { "id": "check-bc", "description": "宿屋Bと宿屋Cの様子を見に行く", "completeWhen": [{ "flag": "checked-b" }, { "flag": "checked-c" }] },
+        { "id": "realize", "description": "{partner}と状況を整理する", "completeWhen": [{ "flag": "realized" }], "onEnter": [{ "startDialogue": "partner-realize" }] },
+        { "id": "device", "description": "町の入口の案内装置を操作する", "completeOn": { "event": "gimmickSolved", "id": "inn-routing" }, "marker": [-3, 25] },
+        { "id": "report", "description": "技師ミーナに話しかける", "completeWhen": [{ "flag": "lb-named" }], "marker": [-6, 23] }
+      ],
+      "onComplete": [{ "setFlag": "run-unlocked" }, { "startQuest": "trade-road" }]
+    },
+    {
+      "id": "trade-road",
+      "title": "交易路の防衛",
+      "type": "repeatable",
+      "summary": "交易路に出る魔物を倒し、峠の広場に居座る『一極集中のオーガ』を討伐する。何度でも挑戦できる。",
+      "knowledgeIds": ["load-balancing"],
+      "steps": [],
+      "run": {
+        "rewardExp": 20,
+        "segments": [
+          { "type": "battle", "pos": [0, 50], "label": "街道の魔物", "groupId": "wave-1" },
+          { "type": "event", "pos": [0, 66], "label": "困っている隊商", "eventPool": ["caravan-cargo", "mana-tower"] },
+          { "type": "battle", "pos": [0, 82], "label": "峠道の魔物", "groupId": "wave-2" },
+          { "type": "boss", "pos": [0, 112], "label": "一極集中のオーガ", "groupId": "boss" }
+        ]
+      }
+    }
+  ]
+}

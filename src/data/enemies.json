@@ -1,0 +1,148 @@
+{
+  "enemies": [
+    {
+      "id": "road-slime",
+      "name": "渋滞スライム",
+      "rank": "normal",
+      "stats": {
+        "hp": 60,
+        "atk": 10,
+        "def": 2
+      },
+      "attackInterval": 1.7,
+      "exp": 7,
+      "dropTableId": "slime",
+      "appearance": {
+        "shape": "slime",
+        "color": [
+          0.35,
+          0.75,
+          0.45
+        ],
+        "scale": 1
+      },
+      "behaviors": [],
+      "knowledgeIds": []
+    },
+    {
+      "id": "road-beetle",
+      "name": "荷崩れビートル",
+      "rank": "normal",
+      "stats": {
+        "hp": 95,
+        "atk": 12,
+        "def": 6
+      },
+      "attackInterval": 2.1,
+      "exp": 11,
+      "dropTableId": "beetle",
+      "appearance": {
+        "shape": "beetle",
+        "color": [
+          0.55,
+          0.35,
+          0.2
+        ],
+        "scale": 1
+      },
+      "behaviors": [],
+      "knowledgeIds": []
+    },
+    {
+      "id": "elite-beetle",
+      "name": "突進ビートル",
+      "rank": "normal",
+      "stats": {
+        "hp": 130,
+        "atk": 12,
+        "def": 7
+      },
+      "attackInterval": 2.3,
+      "exp": 16,
+      "dropTableId": "beetle",
+      "appearance": {
+        "shape": "beetle",
+        "color": [
+          0.7,
+          0.25,
+          0.25
+        ],
+        "scale": 1.25
+      },
+      "behaviors": [
+        {
+          "action": "focusBlast",
+          "name": "突進",
+          "power": 55,
+          "telegraph": 2.4,
+          "every": 10,
+          "firstAt": 4,
+          "target": "random"
+        }
+      ],
+      "knowledgeIds": [
+        "load-balancing"
+      ]
+    },
+    {
+      "id": "boss-ogre",
+      "name": "一極集中のオーガ",
+      "rank": "boss",
+      "stats": {
+        "hp": 600,
+        "atk": 13,
+        "def": 8
+      },
+      "attackInterval": 2.4,
+      "exp": 70,
+      "dropTableId": "ogre",
+      "appearance": {
+        "shape": "ogre",
+        "color": [
+          0.5,
+          0.42,
+          0.6
+        ],
+        "scale": 1
+      },
+      "behaviors": [
+        {
+          "action": "focusBlast",
+          "name": "一点集中砲",
+          "power": 110,
+          "telegraph": 2.8,
+          "every": 12,
+          "firstAt": 5,
+          "target": "hero",
+          "enrageEvery": 8.5
+        },
+        {
+          "action": "spreadWave",
+          "name": "拡散衝撃波",
+          "power": 24,
+          "telegraph": 2.2,
+          "every": 17,
+          "firstAt": 11
+        }
+      ],
+      "knowledgeIds": [
+        "load-balancing"
+      ]
+    }
+  ],
+  "encounters": {
+    "wave-1": [
+      "road-slime",
+      "road-slime",
+      "road-slime"
+    ],
+    "wave-2": [
+      "road-beetle",
+      "elite-beetle",
+      "road-slime"
+    ],
+    "boss": [
+      "boss-ogre"
+    ]
+  }
+}

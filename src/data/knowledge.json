@@ -1,0 +1,46 @@
+{
+  "knowledge": [
+    {
+      "knowledgeId": "load-balancing",
+      "nameJa": "負荷分散",
+      "nameEn": "Load Balancing",
+      "category": "infrastructure/availability",
+      "formalDescription": "複数のサーバ（処理装置）に処理要求を振り分け、特定のサーバへの負荷集中を防ぐ仕組み。振り分けを行う装置をロードバランサ（負荷分散装置）という。処理能力の向上（スケールアウト）と、障害時に他のサーバで処理を継続できることによる可用性の向上に寄与する。",
+      "experienceDescription": "一ヶ所に集まりすぎた力や人を、複数の受け皿へ分けて受け止める考え方。宿屋の客、馬車の荷物、魔力の塔、そして戦いで受ける衝撃にも使える。",
+      "formalTerms": [
+        { "term": "ロードバランサ（負荷分散装置）", "description": "利用者からの要求を受け取り、背後の複数サーバへ振り分ける装置。" },
+        { "term": "ラウンドロビン", "description": "要求を各サーバへ順番に、均等に割り当てる方式。" },
+        { "term": "ヘルスチェック", "description": "サーバの稼働状態を定期的に確認し、障害のあるサーバへ振り分けないようにする仕組み。" },
+        { "term": "重み付けラウンドロビン", "description": "サーバの処理能力に応じた比率で要求を割り当てる方式。" },
+        { "term": "最小コネクション（リーストコネクション）", "description": "現在の接続数が最も少ないサーバへ割り当てる方式。" },
+        { "term": "スケールアウト", "description": "サーバの台数を増やして処理能力を高めること。1台の性能を上げるスケールアップと対比される。" }
+      ],
+      "relatedQuestIds": ["inn-trouble", "trade-road"],
+      "relatedSkillIds": ["distribution-array"],
+      "relatedEnemyIds": ["boss-ogre"],
+      "relatedExamIds": ["fe", "ap", "aws-saa"],
+      "variants": [
+        { "id": "inn", "label": "宿屋の客の振り分け", "stage": "metaphor" },
+        { "id": "battle-focus", "label": "集中攻撃の分散", "stage": "metaphor" },
+        { "id": "caravan", "label": "馬車への荷分け", "stage": "metaphor" },
+        { "id": "tower", "label": "魔力塔の過熱", "stage": "metaphor" },
+        { "id": "server", "label": "サーバへのアクセス振り分け", "stage": "it" },
+        { "id": "exam", "label": "試験形式", "stage": "exam" }
+      ],
+      "sources": [
+        { "title": "IPA 情報処理技術者試験（試験要綱・シラバス）", "url": "https://www.ipa.go.jp/shiken/", "note": "基本情報・応用情報の出題範囲（システム構成要素／システムの評価指標）" }
+      ]
+    }
+  ],
+  "masteryRules": {
+    "discriminationWindow": 6,
+    "discriminationMinEvents": 3,
+    "discriminationMinCorrect": 4,
+    "level3MinVariants": 2,
+    "level5MinExamCorrect": 3,
+    "level5MinDistinctDays": 2,
+    "level5RecentWindow": 3,
+    "level4BlockIfRecentExamWrong": 2,
+    "reviewIntervalsDays": [0, 1, 3, 7, 14, 30]
+  }
+}

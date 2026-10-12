@@ -1,0 +1,23 @@
+{
+  "skills": [
+    {
+      "id": "power-strike", "nameJa": "強撃", "description": "力をこめた一撃。", "key": "1",
+      "type": "active", "knowledgeIds": [], "cooldown": 5, "effect": "powerStrike", "power": 2.4, "startsUnlocked": true,
+      "levels": [{ "level": 1, "label": "強撃", "description": "攻撃力の2.4倍のダメージ。", "cooldown": 5, "cost": [] }]
+    },
+    {
+      "id": "distribution-array", "nameJa": "分散陣", "description": "一人に向けられた攻撃を、仲間と受け皿で分け合って受け止める陣形。敵の大技の予兆中に使う。", "key": "2",
+      "type": "reaction", "knowledgeIds": ["load-balancing"], "cooldown": 9, "effect": "distribute", "window": 3.2, "startsUnlocked": false,
+      "levels": [
+        { "level": 1, "label": "均等分散", "description": "受けた攻撃を全員で均等に分け合う。", "cooldown": 9, "mode": "roundRobin", "cost": [] },
+        { "level": 2, "label": "見極め分散", "description": "倒れそうな仲間には割り振らず、残りで分け合う。", "cooldown": 8, "mode": "healthCheck", "cost": [{ "itemId": "lb-crystal", "count": 3 }, { "itemId": "road-iron", "count": 2 }] },
+        { "level": 3, "label": "重み付け分散", "description": "丈夫な者ほど多く受け持ち、全体の被害を最小にする。", "cooldown": 7, "mode": "weighted", "cost": [{ "itemId": "lb-crystal", "count": 5 }, { "itemId": "road-iron", "count": 4 }] }
+      ]
+    },
+    {
+      "id": "guard", "nameJa": "防御", "description": "身構えて、次に受ける攻撃のダメージを半分にする。", "key": "3",
+      "type": "reaction", "knowledgeIds": [], "cooldown": 7, "effect": "guard", "window": 2.6, "startsUnlocked": true,
+      "levels": [{ "level": 1, "label": "防御", "description": "2.6秒間、主人公の被ダメージ半減。", "cooldown": 7, "cost": [] }]
+    }
+  ]
+}
