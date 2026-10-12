@@ -14,7 +14,8 @@ export const GLB_LIMITS = {
   warnBones: 120,
 };
 
-const MB = (b: number) => `${(b / 1048576).toFixed(1)}MB`;
+export const formatBytes = (b: number) => (b < 1048576 ? `${Math.max(1, Math.round(b / 1024))}KB` : `${(b / 1048576).toFixed(1)}MB`);
+const MB = formatBytes;
 
 /** ロード前のチェック（マジックナンバーとサイズ） */
 export async function precheckGlb(file: Blob, fileName: string): Promise<Issue[]> {

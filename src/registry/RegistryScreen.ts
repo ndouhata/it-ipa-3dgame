@@ -12,7 +12,7 @@ import type { AssetContainer } from '@babylonjs/core/assetContainer';
 import { CharacterInstance } from '../character/CharacterInstance';
 import { loadContainerFromBlob } from '../character/CharacterLoader';
 import { CharacterRepository } from '../character/CharacterRepository';
-import { analyzeContainer, precheckGlb, type GlbAnalysis, type Issue } from '../character/glbInspect';
+import { analyzeContainer, formatBytes, precheckGlb, type GlbAnalysis, type Issue } from '../character/glbInspect';
 import {
   ANIM_LABELS, DEFAULT_LOCOMOTION, OPTIONAL_ANIMS, REQUIRED_ANIMS, ROLE_LABELS,
   type CharacterDefinition, type CharacterRole, type LogicalAnim,
@@ -181,7 +181,7 @@ export class RegistryScreen {
       const npcFor = Object.entries(active.npcs).filter(([, v]) => v === c.id).map(([k]) => this.cb.npcList.find((n) => n.id === k)?.name ?? k);
       const item = h('div', { class: 'card char-item' },
         h('div', null, h('div', { class: 'nm', text: c.name }),
-          h('div', { class: 'small muted', text: `${ROLE_LABELS[c.role]}・${(c.fileSize / 1048576).toFixed(1)}MB・アニメ${c.stats.animationCount}` }),
+          h('div', { class: 'small muted', text: `${ROLE_LABELS[c.role]}・${formatBytes(c.fileSize)}・アニメ${c.stats.animationCount}` }),
           isHero ? h('div', { class: 'active', text: '● 主人公として使用中' }) : null,
           isPartner ? h('div', { class: 'active', text: '● パートナーとして使用中' }) : null,
           npcFor.length ? h('div', { class: 'active', text: `● NPC：${npcFor.join('、')}` }) : null),

@@ -23,7 +23,8 @@ async function main() {
   await game.start();
   if (saves.lastError) bootMsg.textContent = saves.lastError;
   boot.classList.add('hide');
-  (window as unknown as { __game: unknown }).__game = game.debug();
+  // 動作確認用フック（開発時、または ?debug 付きURLのときだけ）
+  if (import.meta.env.DEV || new URLSearchParams(location.search).has('debug')) (window as unknown as { __game: unknown }).__game = game.debug();
   void registerPwa(ui);
 }
 
