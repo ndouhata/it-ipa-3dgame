@@ -13,9 +13,9 @@ export default defineConfig({
       injectRegister: false,
       includeAssets: ['icons/*.png', 'icons/*.svg', 'samples/*.glb'],
       manifest: {
-        name: 'ロードバランス・クロニクル（仮）',
-        short_name: '資格RPG',
-        description: '冒険していたら、IT資格の知識が身についている3D RPG',
+        name: '資格バトルRPG',
+        short_name: '資格バトルRPG',
+        description: '問題を解いて戦う、資格の勉強ができる3D RPG',
         lang: 'ja',
         start_url: './',
         scope: './',
