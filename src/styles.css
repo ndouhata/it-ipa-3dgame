@@ -21,7 +21,8 @@ html, body { margin: 0; height: 100%; overflow: hidden; background: #0e1424; col
 #game { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; outline: none; }
 #ui { position: fixed; inset: 0; pointer-events: none; user-select: none; -webkit-user-select: none; }
 #ui > * { pointer-events: none; }
-#ui .interactive, #ui button, #ui select, #ui input, #ui label, #ui .modal-backdrop, #ui .clickable { pointer-events: auto; }
+/* 拠点・問題パネル・モーダルは、ボタン以外の部分（スクロールなど）も操作を受け付ける */
+#ui .interactive, #ui button, #ui select, #ui input, #ui label, #ui .modal-backdrop, #ui .clickable, #ui .hub, #ui .quiz { pointer-events: auto; }
 
 .boot { position: fixed; inset: 0; display: grid; place-content: center; text-align: center; background: radial-gradient(circle at 50% 40%, #1d2a4d, #0b1020); z-index: 100; transition: opacity 0.4s; }
 .boot.hide { opacity: 0; pointer-events: none; }
@@ -133,6 +134,8 @@ html, body { margin: 0; height: 100%; overflow: hidden; background: #0e1424; col
 
 /* ---------- モーダル ---------- */
 .modal-backdrop { position: absolute; inset: 0; background: rgba(4, 6, 14, 0.55); display: grid; place-items: center; padding: 12px; }
+.panel-body { overscroll-behavior: contain; touch-action: pan-y; -webkit-overflow-scrolling: touch; }
+@media (max-height: 520px) { .modal-backdrop { padding: 4px; } .modal { max-height: 98vh; } .panel-head { padding: 6px 12px; } .panel-body { padding: 10px; } }
 .modal { width: min(920px, 96vw); max-height: 92vh; display: flex; flex-direction: column; }
 .panel-head { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; border-bottom: 1px solid var(--line); }
 .panel-title { font-size: 18px; font-weight: 700; color: var(--gold); letter-spacing: 0.05em; }
@@ -279,8 +282,8 @@ html, body { margin: 0; height: 100%; overflow: hidden; background: #0e1424; col
 .quiz-next-btn { padding: 8px 18px; }
 .clickable { cursor: pointer; }
 
-@media (max-width: 760px) {
-  /* スマホ：拠点全体を1列にして、画面ごと縦スクロールできるようにする */
+@media (max-width: 760px), (max-height: 520px) {
+  /* スマホ（縦・横）：拠点全体を1列にして、画面ごと縦スクロールできるようにする */
   .hud-party { left: 8px; right: 8px; top: 8px; width: auto; padding: 6px 10px; gap: 4px; grid-template-columns: 1fr 1fr; column-gap: 12px; }
   .hud-member-head { font-size: 12px; }
   .hud-small { font-size: 10px; }
@@ -289,7 +292,7 @@ html, body { margin: 0; height: 100%; overflow: hidden; background: #0e1424; col
   .hub { top: 0; bottom: 0; width: 100vw; padding: 76px 10px 24px; overflow-y: auto; overscroll-behavior: contain; touch-action: pan-y; -webkit-overflow-scrolling: touch; display: block; }
   .hub-body { display: flex; flex-direction: column; }
   .hub-quests { overflow: visible; padding-right: 0; }
-  .hub-side { grid-template-columns: 1fr 1fr 1fr; }
+  .hub-side { grid-template-columns: 1fr 1fr; }
   .hub-btn { font-size: 13px; padding: 10px 8px; text-align: center; }
   .quiz { bottom: 6px; max-height: 72vh; overflow-y: auto; touch-action: pan-y; }
   .quiz-panel { padding: 10px 12px; }
