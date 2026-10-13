@@ -218,7 +218,8 @@ export class RegistryScreen {
     this.side.append(drop, fileInput,
       h('div', { class: 'row small' }, 'サンプル：',
         h('button', { class: 'btn btn-small', text: '主人公', onclick: () => void this.loadSample('samples/sample-hero.glb', 'サンプル主人公', 'hero') }),
-        h('button', { class: 'btn btn-small', text: 'パートナー', onclick: () => void this.loadSample('samples/sample-partner.glb', 'サンプル相棒', 'partner') })));
+        h('button', { class: 'btn btn-small', text: 'パートナー', onclick: () => void this.loadSample('samples/sample-partner.glb', 'サンプル相棒', 'partner') }),
+        h('button', { class: 'btn btn-small', text: 'ガチムチ', onclick: () => void this.loadSample('samples/sample-macho.glb', 'ガチムチ', 'hero') })));
 
     if (d.issues.length) this.side.append(h('div', { class: 'issues' }, ...d.issues.map((i) => h('div', { class: `issue ${i.level}`, text: i.message }))));
 

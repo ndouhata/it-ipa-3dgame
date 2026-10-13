@@ -43,6 +43,8 @@ export interface SaveData {
   quests: Record<string, QuestProgress>;
   quiz: { counter: number; stats: Record<string, QuestionStat> };
   pity: Record<string, number>;
+  /** 拠点で最後に選んだ試験（クエストの見出し） */
+  selectedGroup: string | null;
 }
 
 export function createNewSave(): SaveData {
@@ -60,6 +62,7 @@ export function createNewSave(): SaveData {
     quests: {},
     quiz: { counter: 0, stats: {} },
     pity: {},
+    selectedGroup: null,
   };
 }
 
@@ -78,5 +81,6 @@ export function migrateSave(raw: Partial<SaveData> & { version?: number }): Save
     quests: raw.version === SAVE_VERSION ? raw.quests ?? {} : {},
     quiz: raw.version === SAVE_VERSION && raw.quiz ? raw.quiz : base.quiz,
     pity: raw.pity ?? {},
+    selectedGroup: raw.selectedGroup ?? null,
   };
 }

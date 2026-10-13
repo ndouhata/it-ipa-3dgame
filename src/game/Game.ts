@@ -187,6 +187,7 @@ export class Game {
       menu: () => this.openMenu(),
       characters: () => this.openRegistry(),
       importQuestions: () => this.openImport(),
+      selectGroup: (g) => { this.gs.save.selectedGroup = g; void this.saveNow(); this.showHub(); },
     });
   }
 

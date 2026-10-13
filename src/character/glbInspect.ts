@@ -56,7 +56,7 @@ const PATTERNS: Record<LogicalAnim, RegExp[]> = {
   run: [/run/i, /sprint/i, /dash/i, /jog/i, /走/],
   attack: [/attack/i, /slash/i, /punch/i, /strike/i, /攻撃/],
   hit: [/hit/i, /damage/i, /hurt/i, /被弾/],
-  victory: [/victory/i, /win/i, /cheer/i, /celebrat/i, /勝利/],
+  victory: [/victory/i, /win/i, /cheer/i, /celebrat/i, /flex/i, /pose/i, /勝利/],
 };
 
 /** 名前から割当候補を「提案」するだけ。最終決定はユーザーがプルダウンで行う */

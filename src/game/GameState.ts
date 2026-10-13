@@ -3,7 +3,7 @@ import type { GameData } from '../data/registry';
 import type { EventBus } from '../core/EventBus';
 import type { EnemyDefinition } from '../data/schema';
 import type { QuestProgress, SaveData } from '../save/SaveData';
-import { knowledgeMastery } from '../quiz/Mastery';
+import { completion, knowledgeMastery } from '../quiz/Mastery';
 
 export type Stats = Record<string, number>;
 export type Cost = { itemId: string; count: number }[];
@@ -165,6 +165,26 @@ export class GameState {
       stats: { ...s, hp: Math.max(1, Math.round(s.hp * atkRatio)), def: Math.round(s.def * atkRatio), atk: Math.max(1, Math.round(s.atk * hpRatio)) },
       exp: Math.max(1, Math.round(def.exp * this.expToNext(level) / this.expToNext(questLevel))),
     };
+  }
+
+  // ---------- 問題の進み具合 ----------
+  questionsFor(knowledgeIds: string[]) {
+    return this.data.exams.questions.filter((q) => q.knowledgeIds.some((k) => knowledgeIds.includes(k)));
+  }
+
+  questCompletion(questId: string) {
+    const q = this.data.quests.get(questId)!;
+    return completion(this.questionsFor(q.knowledgeIds), this.save, this.data.progression.quiz.masteredStreak);
+  }
+
+  /** 試験（クエストの見出し）全体の進み具合 */
+  groupCompletion(group: string) {
+    const ids = new Set(this.data.questList.filter((q) => q.group === group).flatMap((q) => q.knowledgeIds));
+    return completion(this.questionsFor([...ids]), this.save, this.data.progression.quiz.masteredStreak);
+  }
+
+  groups() {
+    return [...new Set(this.data.questList.map((q) => q.group))];
   }
 
   // ---------- 習熟度 ----------

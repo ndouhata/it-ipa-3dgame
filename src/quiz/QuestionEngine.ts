@@ -4,6 +4,7 @@
 // - 正解が続いた問題は「卒業」とし、まだ慣れていない問題・新しい問題を優先する
 import type { ExamQuestion, OutcomeKey, QuizConfig } from '../data/schema';
 import type { QuestionStat, SaveData } from '../save/SaveData';
+import { isQuestionMastered } from './Mastery';
 
 export interface PresentedQuestion {
   question: ExamQuestion;
@@ -44,10 +45,7 @@ export class QuestionEngine {
   }
 
   isMastered(id: string) {
-    const s = this.save.quiz.stats[id];
-    if (!s || s.repeatLeft > 0) return false;
-    const n = this.cfg.masteredStreak;
-    return s.recent.length >= n && s.recent.slice(-n).every(Boolean);
+    return isQuestionMastered(this.save.quiz.stats[id], this.cfg.masteredStreak);
   }
 
   /** 問題文と選択肢の長さから「速攻」と判定する秒数を決める（装備で延長できる） */
